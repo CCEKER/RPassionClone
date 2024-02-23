@@ -26,7 +26,7 @@ final class LoginService: LoginServiceProtocol {
             switch response.result {
             case .success(let response):
                 completion(.success(response))
-            case .failure(let error):
+            case .failure:
                 completion(.failure(.loginFailed))
             }
         }
