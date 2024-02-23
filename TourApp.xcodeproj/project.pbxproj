@@ -130,9 +130,11 @@
 		9DC990AB2B79BE72001558D7 /* AddCarFlowCoordinatorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC990AA2B79BE72001558D7 /* AddCarFlowCoordinatorAssembly.swift */; };
 		9DC990AD2B79C3B5001558D7 /* SelectModelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC990AC2B79C3B5001558D7 /* SelectModelTableViewCell.swift */; };
 		9DE690902B825BF30090E1E4 /* BrandService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE6908F2B825BF30090E1E4 /* BrandService.swift */; };
+		A136B1F314378EFAC50FA9CC /* Pods_TourApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F86D037B2DEDC7DA1D4ABA37 /* Pods_TourApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		100DD54F583EEE9B6A168DC4 /* Pods-TourApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TourApp.debug.xcconfig"; path = "Target Support Files/Pods-TourApp/Pods-TourApp.debug.xcconfig"; sourceTree = "<group>"; };
 		9D017A8C2B627601008C2D88 /* LoginFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFlowCoordinator.swift; sourceTree = "<group>"; };
 		9D017A8E2B6277C1008C2D88 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9D017A902B6277CD008C2D88 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -258,6 +260,8 @@
 		9DC990AA2B79BE72001558D7 /* AddCarFlowCoordinatorAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarFlowCoordinatorAssembly.swift; sourceTree = "<group>"; };
 		9DC990AC2B79C3B5001558D7 /* SelectModelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModelTableViewCell.swift; sourceTree = "<group>"; };
 		9DE6908F2B825BF30090E1E4 /* BrandService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandService.swift; sourceTree = "<group>"; };
+		CE2DD4BA249292DFCBCE5BAC /* Pods-TourApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TourApp.release.xcconfig"; path = "Target Support Files/Pods-TourApp/Pods-TourApp.release.xcconfig"; sourceTree = "<group>"; };
+		F86D037B2DEDC7DA1D4ABA37 /* Pods_TourApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TourApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -265,12 +269,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A136B1F314378EFAC50FA9CC /* Pods_TourApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		313913F28C7DB120796B3C62 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F86D037B2DEDC7DA1D4ABA37 /* Pods_TourApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9D017A882B627564008C2D88 /* [Flow] - Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -334,6 +347,7 @@
 				9D265C602B47C1FF00D44701 /* TourApp */,
 				9D265C5F2B47C1FF00D44701 /* Products */,
 				A44270DA2801FA3DC9856803 /* Pods */,
+				313913F28C7DB120796B3C62 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1102,6 +1116,8 @@
 		A44270DA2801FA3DC9856803 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				100DD54F583EEE9B6A168DC4 /* Pods-TourApp.debug.xcconfig */,
+				CE2DD4BA249292DFCBCE5BAC /* Pods-TourApp.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1113,9 +1129,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9D265C722B47C20000D44701 /* Build configuration list for PBXNativeTarget "TourApp" */;
 			buildPhases = (
+				D70C8D452DDD0DA69453403F /* [CP] Check Pods Manifest.lock */,
 				9D265C5A2B47C1FF00D44701 /* Sources */,
 				9D265C5B2B47C1FF00D44701 /* Frameworks */,
 				9D265C5C2B47C1FF00D44701 /* Resources */,
+				0BE7394DA46AE48EE385C99F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1169,6 +1187,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0BE7394DA46AE48EE385C99F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TourApp/Pods-TourApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TourApp/Pods-TourApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TourApp/Pods-TourApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D70C8D452DDD0DA69453403F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TourApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9D265C5A2B47C1FF00D44701 /* Sources */ = {
@@ -1424,6 +1484,7 @@
 		};
 		9D265C732B47C20000D44701 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 100DD54F583EEE9B6A168DC4 /* Pods-TourApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1452,6 +1513,7 @@
 		};
 		9D265C742B47C20000D44701 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE2DD4BA249292DFCBCE5BAC /* Pods-TourApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
