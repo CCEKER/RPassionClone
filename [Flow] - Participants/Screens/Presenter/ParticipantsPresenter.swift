@@ -25,7 +25,6 @@ final class ParticipantsPresenter: ParticipantsPresenterProtocol {
     }
     
     private func formatParticipantUserInfo(_ participants: [Participant]) -> String {
-        
         switch participants.count {
         case 0:
             return ParticipantsInfo.none.description
@@ -34,6 +33,7 @@ final class ParticipantsPresenter: ParticipantsPresenterProtocol {
                 return "Invalid name"
             }
             return ParticipantsInfo.single(name: formatName(name)).description
+			
         default:
             guard let name = participants.first?.driver.userInfo else {
                 return "Invalid name"

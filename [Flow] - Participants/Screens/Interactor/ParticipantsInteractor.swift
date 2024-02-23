@@ -24,7 +24,6 @@ final class ParticipantsInteractor {
     private var participantsLimit: Int
     private var participantsJoined: Int
     
-    
     init(presenter: ParticipantsPresenterProtocol, tourService: TourDetailServiceProtocol, tourId: String, participantsLimit: Int, participantsJoined: Int) {
         self.presenter = presenter
         self.tourService = tourService
@@ -38,9 +37,10 @@ extension ParticipantsInteractor: ParticipantsInteractorProtocol {
     
     func viewDidLoad() {
         tourService.getParticipants(tourId: tourId) { [weak self] result in
+			guard let self else { return }
             switch result {
             case .success(let response):
-                self?.presenter.presentParticipants(response, participantsLimit: self?.participantsLimit ?? 5, participantsJoined: self?.participantsJoined ?? 5)
+                presenter.presentParticipants(response, participantsLimit: participantsLimit, participantsJoined: participantsJoined)
                 
             case .failure(let error):
                 print("Interactor Error: \(error)")
