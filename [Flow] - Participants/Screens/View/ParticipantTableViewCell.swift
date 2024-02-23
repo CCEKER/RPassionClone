@@ -59,7 +59,7 @@ class ParticipantTableViewCell: UITableViewCell {
         view.axis = .vertical
         view.spacing = 2
         view.alignment = .fill
-        view.distribution = .fillEqually
+        view.distribution = .fill
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -73,10 +73,9 @@ class ParticipantTableViewCell: UITableViewCell {
         return view
     }()
     
-    private let horizontalLineView: UIView = {
+    private let separatorView: UIView = {
         let view = UIView()
         view.backgroundColor = .darkGray.withAlphaComponent(0.5)
-        view.heightAnchor.constraint(equalToConstant: 1).isActive = true
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -96,21 +95,22 @@ class ParticipantTableViewCell: UITableViewCell {
         
         contentView.backgroundColor = .background
         contentView.addSubview(horizontalStackView)
-        contentView.addSubview(horizontalLineView)
+        contentView.addSubview(separatorView)
     }
     
     private func setupConstraints() {
         
         NSLayoutConstraint.activate([
             
-            horizontalLineView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 24),
-            horizontalLineView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
-            horizontalLineView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
-        
-            horizontalStackView.topAnchor.constraint(equalTo: horizontalLineView.bottomAnchor, constant: 24),
-            horizontalStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24),
-            horizontalStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -24),
-            horizontalStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -24)
+			horizontalStackView.bottomAnchor.constraint(equalTo: separatorView.topAnchor, constant: -24),
+			horizontalStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+			horizontalStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
+			horizontalStackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 24),
+			
+			separatorView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+			separatorView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+			separatorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
+			separatorView.heightAnchor.constraint(equalToConstant: 1)
         ])
     }
     
