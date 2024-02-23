@@ -62,9 +62,6 @@ class MyGarageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationItem.rightBarButtonItem?.tintColor = .systemBlue
-        self.navigationController?.navigationBar.tintColor = .white
-        UINavigationBar.appearance().tintColor = .white
-        //tabBarController?.tabBar.isHidden = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {

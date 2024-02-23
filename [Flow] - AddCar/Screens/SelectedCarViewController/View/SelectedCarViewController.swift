@@ -62,7 +62,6 @@ class SelectedCarViewController: UIViewController {
 
     private func configureNavigationBar() {
         self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
-        self.navigationController?.navigationBar.tintColor = .white
         self.title = "Selected Car"
     }
 }

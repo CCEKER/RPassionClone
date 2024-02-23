@@ -41,7 +41,6 @@ class ParticipantsViewController: UIViewController {
     
     private func configureNavigationBar() {
         self.navigationController?.navigationBar.topItem?.backButtonTitle = ""
-        self.navigationController?.navigationBar.tintColor = .white
         self.title = "Participants"
     }
     
