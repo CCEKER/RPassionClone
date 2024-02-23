@@ -31,6 +31,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         applicationFlowCoordinator = ApplicationFlowCoordinator.build(window: window, container: rootContainer)
         applicationFlowCoordinator?.start()
         window.makeKeyAndVisible()
+		
+		let attributes: [NSAttributedString.Key: AnyObject] = [
+			NSAttributedString.Key.foregroundColor: UIColor.white
+		]
+
+		UINavigationBar.appearance().titleTextAttributes = attributes
+		UINavigationBar.appearance().tintColor = .white
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -60,7 +67,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
 }
-

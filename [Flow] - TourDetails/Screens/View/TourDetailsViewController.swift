@@ -47,9 +47,6 @@ class TourDetailsViewController: UIViewController {
     }
     
     private func configureNavigationBar() {
-        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.topItem?.title = ""
         self.title = "Tour Detail"
     }
     

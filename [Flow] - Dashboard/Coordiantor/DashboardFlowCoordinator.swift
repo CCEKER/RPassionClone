@@ -34,6 +34,7 @@ final class DashboardFlowCoordinator: DashboardFlowCoordinatorProtocol {
     func start() {
         let tabBarController = UITabBarController()
         let navigationController = UINavigationController(rootViewController: tabBarController)
+		navigationController.setNavigationBarHidden(true, animated: false)
         self.window.rootViewController = navigationController
         
         homePageFlowCoordiantor = resolver.resolveHomePageFlowCoordinator(tabBarController: tabBarController, delegate: self)
