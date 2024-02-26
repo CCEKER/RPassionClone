@@ -9,7 +9,7 @@ import UIKit
 
 class ParticipantTableViewCell: UITableViewCell {
     
-    private let userNickname: UILabel = {
+    private let carNickname: UILabel = {
         let view = UILabel()
         view.font = UIFont.boldSystemFont(ofSize: 18)
         view.textColor = .white
@@ -55,7 +55,7 @@ class ParticipantTableViewCell: UITableViewCell {
     }()
     
     private lazy var verticalStackView: UIStackView = {
-        let view = UIStackView(arrangedSubviews: [userNickname, userName, makerTitle])
+        let view = UIStackView(arrangedSubviews: [carNickname, userName, makerTitle])
         view.axis = .vertical
         view.spacing = 2
         view.alignment = .fill
@@ -115,7 +115,7 @@ class ParticipantTableViewCell: UITableViewCell {
     }
     
     func reloadWith(_ viewModels: ParticipantsViewModel) {
-        userNickname.text = viewModels.nickname
+        carNickname.text = viewModels.nickname
         userName.text = viewModels.userInfo
         makerTitle.text = viewModels.carMakerModelTrimTitle
         
