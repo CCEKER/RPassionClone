@@ -95,6 +95,17 @@
 		9D9DD4402B7F3977003FF874 /* SelectTrimViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9DD43F2B7F3977003FF874 /* SelectTrimViewState.swift */; };
 		9DA4A6DA2B75743A004DA8B0 /* TourDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA4A6D92B75743A004DA8B0 /* TourDetailsViewModel.swift */; };
 		9DA4A6DC2B75A205004DA8B0 /* TourDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA4A6DB2B75A205004DA8B0 /* TourDetailCollectionViewCell.swift */; };
+		9DC6C4B62B8D2ADC00E95C7F /* WelcomeFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6C4B52B8D2ADC00E95C7F /* WelcomeFlowCoordinator.swift */; };
+		9DC6C4B82B8D2AE600E95C7F /* WelcomeFlowCoordinator+Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6C4B72B8D2AE600E95C7F /* WelcomeFlowCoordinator+Build.swift */; };
+		9DC6C4BA2B8D2AF300E95C7F /* WelcomeFlowCoordinatorModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6C4B92B8D2AF300E95C7F /* WelcomeFlowCoordinatorModule.swift */; };
+		9DC6C4BC2B8D2AFE00E95C7F /* WelcomeFlowCoordinatorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6C4BB2B8D2AFE00E95C7F /* WelcomeFlowCoordinatorAssembly.swift */; };
+		9DC6C4BE2B8D2B0B00E95C7F /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6C4BD2B8D2B0B00E95C7F /* WelcomeView.swift */; };
+		9DC6C4C02B8D2B1600E95C7F /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6C4BF2B8D2B1600E95C7F /* WelcomeViewController.swift */; };
+		9DC6C4C22B8D2B2300E95C7F /* WelcomeViewController+Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6C4C12B8D2B2300E95C7F /* WelcomeViewController+Build.swift */; };
+		9DC6C4C42B8D2B2E00E95C7F /* WelcomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6C4C32B8D2B2E00E95C7F /* WelcomeInteractor.swift */; };
+		9DC6C4C62B8D2B3A00E95C7F /* WelcomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6C4C52B8D2B3A00E95C7F /* WelcomePresenter.swift */; };
+		9DC6C4C82B8D30BB00E95C7F /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6C4C72B8D30BB00E95C7F /* GradientView.swift */; };
+		9DC6C4CB2B8D319D00E95C7F /* WelcomeViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC6C4CA2B8D319D00E95C7F /* WelcomeViewState.swift */; };
 		9DC915902B7F6D6500CA0820 /* SelectedCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC9158F2B7F6D6500CA0820 /* SelectedCarView.swift */; };
 		9DC915922B7F6D7E00CA0820 /* SelectedCarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC915912B7F6D7E00CA0820 /* SelectedCarViewController.swift */; };
 		9DC915942B7F6D8800CA0820 /* SelectedCarViewController+Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC915932B7F6D8800CA0820 /* SelectedCarViewController+Build.swift */; };
@@ -225,6 +236,17 @@
 		9D9DD43F2B7F3977003FF874 /* SelectTrimViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTrimViewState.swift; sourceTree = "<group>"; };
 		9DA4A6D92B75743A004DA8B0 /* TourDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourDetailsViewModel.swift; sourceTree = "<group>"; };
 		9DA4A6DB2B75A205004DA8B0 /* TourDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourDetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		9DC6C4B52B8D2ADC00E95C7F /* WelcomeFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeFlowCoordinator.swift; sourceTree = "<group>"; };
+		9DC6C4B72B8D2AE600E95C7F /* WelcomeFlowCoordinator+Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WelcomeFlowCoordinator+Build.swift"; sourceTree = "<group>"; };
+		9DC6C4B92B8D2AF300E95C7F /* WelcomeFlowCoordinatorModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeFlowCoordinatorModule.swift; sourceTree = "<group>"; };
+		9DC6C4BB2B8D2AFE00E95C7F /* WelcomeFlowCoordinatorAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeFlowCoordinatorAssembly.swift; sourceTree = "<group>"; };
+		9DC6C4BD2B8D2B0B00E95C7F /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		9DC6C4BF2B8D2B1600E95C7F /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		9DC6C4C12B8D2B2300E95C7F /* WelcomeViewController+Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WelcomeViewController+Build.swift"; sourceTree = "<group>"; };
+		9DC6C4C32B8D2B2E00E95C7F /* WelcomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeInteractor.swift; sourceTree = "<group>"; };
+		9DC6C4C52B8D2B3A00E95C7F /* WelcomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePresenter.swift; sourceTree = "<group>"; };
+		9DC6C4C72B8D30BB00E95C7F /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		9DC6C4CA2B8D319D00E95C7F /* WelcomeViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewState.swift; sourceTree = "<group>"; };
 		9DC9158F2B7F6D6500CA0820 /* SelectedCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCarView.swift; sourceTree = "<group>"; };
 		9DC915912B7F6D7E00CA0820 /* SelectedCarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCarViewController.swift; sourceTree = "<group>"; };
 		9DC915932B7F6D8800CA0820 /* SelectedCarViewController+Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SelectedCarViewController+Build.swift"; sourceTree = "<group>"; };
@@ -336,6 +358,7 @@
 				9D28754D2B6A4DCF00BBAA78 /* Services */,
 				9D8BC13A2B63799D0009DDA9 /* Components */,
 				9D265C772B47C35100D44701 /* [Flow] - Application */,
+				9DC6C4AE2B8D2A8C00E95C7F /* [Flow] -  Welcome */,
 				9D017A882B627564008C2D88 /* [Flow] - Login */,
 				9D21E0BC2B62BE2600167FBD /* [Flow] - Dashboard */,
 				9DC990592B7973FC001558D7 /* [Flow] - Garage */,
@@ -900,6 +923,80 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		9DC6C4AE2B8D2A8C00E95C7F /* [Flow] -  Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				9DC6C4B12B8D2AAF00E95C7F /* Screens */,
+				9DC6C4B02B8D2AAA00E95C7F /* Coordinator */,
+				9DC6C4AF2B8D2AA500E95C7F /* DI */,
+			);
+			path = "[Flow] -  Welcome";
+			sourceTree = "<group>";
+		};
+		9DC6C4AF2B8D2AA500E95C7F /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				9DC6C4B92B8D2AF300E95C7F /* WelcomeFlowCoordinatorModule.swift */,
+				9DC6C4BB2B8D2AFE00E95C7F /* WelcomeFlowCoordinatorAssembly.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		9DC6C4B02B8D2AAA00E95C7F /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				9DC6C4B52B8D2ADC00E95C7F /* WelcomeFlowCoordinator.swift */,
+				9DC6C4B72B8D2AE600E95C7F /* WelcomeFlowCoordinator+Build.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		9DC6C4B12B8D2AAF00E95C7F /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				9DC6C4C92B8D319400E95C7F /* Model */,
+				9DC6C4B22B8D2AB800E95C7F /* View */,
+				9DC6C4B32B8D2ABC00E95C7F /* Interactor */,
+				9DC6C4B42B8D2AC100E95C7F /* Presenter */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		9DC6C4B22B8D2AB800E95C7F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9DC6C4BD2B8D2B0B00E95C7F /* WelcomeView.swift */,
+				9DC6C4BF2B8D2B1600E95C7F /* WelcomeViewController.swift */,
+				9DC6C4C12B8D2B2300E95C7F /* WelcomeViewController+Build.swift */,
+				9DC6C4C72B8D30BB00E95C7F /* GradientView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9DC6C4B32B8D2ABC00E95C7F /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				9DC6C4C32B8D2B2E00E95C7F /* WelcomeInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		9DC6C4B42B8D2AC100E95C7F /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9DC6C4C52B8D2B3A00E95C7F /* WelcomePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		9DC6C4C92B8D319400E95C7F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9DC6C4CA2B8D319D00E95C7F /* WelcomeViewState.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9DC9158B2B7F6D3900CA0820 /* SelectedCarViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1236,6 +1333,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D265C842B47DEFB00D44701 /* HomePageModel.swift in Sources */,
+				9DC6C4C02B8D2B1600E95C7F /* WelcomeViewController.swift in Sources */,
+				9DC6C4C82B8D30BB00E95C7F /* GradientView.swift in Sources */,
 				9DA4A6DC2B75A205004DA8B0 /* TourDetailCollectionViewCell.swift in Sources */,
 				9D77A55C2B7A9B3400AC85C3 /* Maker.swift in Sources */,
 				9D265C922B47E29800D44701 /* HomePageViewModel.swift in Sources */,
@@ -1246,6 +1345,7 @@
 				9D401C642B8490EF00D259E1 /* ParticipantsView.swift in Sources */,
 				9D265C882B47DF3A00D44701 /* HomePageViewController.swift in Sources */,
 				9DC990732B797F90001558D7 /* GarageTableViewCell.swift in Sources */,
+				9DC6C4CB2B8D319D00E95C7F /* WelcomeViewState.swift in Sources */,
 				9DC990692B797592001558D7 /* GaragePresenter.swift in Sources */,
 				9D7A59062B751AD9000105A9 /* TourDetailsFlowCoordinator+Build.swift in Sources */,
 				9D9DD4352B7F38F7003FF874 /* SelectTrimViewController+Build.swift in Sources */,
@@ -1267,6 +1367,7 @@
 				9D7A58FA2B751A8F000105A9 /* TourDetailsViewController+Build.swift in Sources */,
 				9D2875532B6A4DF400BBAA78 /* SessionService.swift in Sources */,
 				9DC915982B7F6D9700CA0820 /* SelectedCarPresenter.swift in Sources */,
+				9DC6C4C22B8D2B2300E95C7F /* WelcomeViewController+Build.swift in Sources */,
 				9D9972F62B7280890020D3CF /* NetworkLayerConstant.swift in Sources */,
 				9D2875612B6A523500BBAA78 /* HomePageFlowCoordinator+Build.swift in Sources */,
 				9D9DD4332B7F38E0003FF874 /* SelectTrimViewController.swift in Sources */,
@@ -1302,15 +1403,20 @@
 				9D7A58EB2B750ED2000105A9 /* TourService.swift in Sources */,
 				9D9DD4392B7F393C003FF874 /* SelectTrimTableViewCell.swift in Sources */,
 				9D265C8E2B47DF5900D44701 /* HomePagePresenter.swift in Sources */,
+				9DC6C4C42B8D2B2E00E95C7F /* WelcomeInteractor.swift in Sources */,
 				9D2875732B6A56BE00BBAA78 /* LoginFlowCoordinator+Build.swift in Sources */,
 				9DC9906F2B7975CD001558D7 /* GarageFlowCoordinatorModule.swift in Sources */,
+				9DC6C4BC2B8D2AFE00E95C7F /* WelcomeFlowCoordinatorAssembly.swift in Sources */,
+				9DC6C4B62B8D2ADC00E95C7F /* WelcomeFlowCoordinator.swift in Sources */,
 				9DC9909B2B79BE02001558D7 /* SelectModelView.swift in Sources */,
 				9D017A932B6277D8008C2D88 /* LoginViewController+Build.swift in Sources */,
+				9DC6C4B82B8D2AE600E95C7F /* WelcomeFlowCoordinator+Build.swift in Sources */,
 				9DC9909D2B79BE0F001558D7 /* SelectModelViewController.swift in Sources */,
 				9D2875512B6A4DEA00BBAA78 /* UserService.swift in Sources */,
 				9D265C642B47C1FF00D44701 /* SceneDelegate.swift in Sources */,
 				9DC990A92B79BE55001558D7 /* AddCarFlowCoordinatorModule.swift in Sources */,
 				9D401C6E2B84AF4E00D259E1 /* ParticipantTableViewCell.swift in Sources */,
+				9DC6C4BA2B8D2AF300E95C7F /* WelcomeFlowCoordinatorModule.swift in Sources */,
 				9D77A5612B7AA42400AC85C3 /* CarService.swift in Sources */,
 				9DA4A6DA2B75743A004DA8B0 /* TourDetailsViewModel.swift in Sources */,
 				9D401C5D2B84907500D259E1 /* ParticipantsFlowCoordinator.swift in Sources */,
@@ -1341,6 +1447,7 @@
 				9DC990A12B79BE27001558D7 /* SelectModelInteractor.swift in Sources */,
 				9D8BC13D2B6379E70009DDA9 /* CustomTabBarController.swift in Sources */,
 				9D8BC1452B638BC40009DDA9 /* ProfileView.swift in Sources */,
+				9DC6C4C62B8D2B3A00E95C7F /* WelcomePresenter.swift in Sources */,
 				9D265C8A2B47DF4600D44701 /* HomePageViewController+Build.swift in Sources */,
 				9DC990712B7975D8001558D7 /* GarageFlowCoordinatorAssembly.swift in Sources */,
 				9D265C8C2B47DF5100D44701 /* HomePageInteractor.swift in Sources */,
@@ -1354,6 +1461,7 @@
 				9D017A912B6277CD008C2D88 /* LoginView.swift in Sources */,
 				9DC990832B79A86C001558D7 /* SelectBrandViewController+Build.swift in Sources */,
 				9D9DD4312B7F38D3003FF874 /* SelectTrimView.swift in Sources */,
+				9DC6C4BE2B8D2B0B00E95C7F /* WelcomeView.swift in Sources */,
 				9D8BC1432B638BB10009DDA9 /* ProfileFlowCoordinator.swift in Sources */,
 				9D265C942B47E2D700D44701 /* ApplicationFlowCoordinator.swift in Sources */,
 				9D28754F2B6A4DDF00BBAA78 /* LoginService.swift in Sources */,

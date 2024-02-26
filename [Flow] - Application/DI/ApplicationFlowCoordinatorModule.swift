@@ -10,6 +10,7 @@ import Swinject
 import UIKit
 
 protocol ApplicationFlowCoordinatorResolver {
+    func resolveWelcomeFlowCoordinator(window: UIWindow, delegate: WelcomeFlowCoordinatorDelegate) -> WelcomeFlowCoordinatorProtocol
     func resolveLoginFlowCoordinator(window: UIWindow, delegate: LoginFlowCoordinatorDelegate) -> LoginFlowCoordinatorProtocol
     func resolveDashBoardFlowCoordinator(window: UIWindow, delegate: DashboardFlowCoordinatorDelegate) -> DashboardFlowCoordinatorProtocol
 }
@@ -21,6 +22,10 @@ final class ApplicationFlowCoordinatorModule: ApplicationFlowCoordinatorResolver
     init(parentContainer: Container) {
         container = Container(parent: parentContainer)
         _ = Assembler([ApplicationFlowCoordinatorAssembly()], container: container)
+    }
+    
+    func resolveWelcomeFlowCoordinator(window: UIWindow, delegate: WelcomeFlowCoordinatorDelegate) -> WelcomeFlowCoordinatorProtocol {
+        WelcomeFlowCoordinator.build(window: window, delegate: delegate, container: container)
     }
     
     func resolveLoginFlowCoordinator(window: UIWindow, delegate: LoginFlowCoordinatorDelegate) -> LoginFlowCoordinatorProtocol {

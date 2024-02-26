@@ -14,6 +14,7 @@ protocol ApplicationFlowCoordinatorProtocol {
 final class ApplicationFlowCoordinator: ApplicationFlowCoordinatorProtocol {
     
     private let window: UIWindow
+    private var welcomeFlowCoordinator: WelcomeFlowCoordinatorProtocol?
     private var loginFlowCoordinator: LoginFlowCoordinatorProtocol?
     private var dashboardFlowCoordinator: DashboardFlowCoordinatorProtocol?
     private var profileFlowCoordinator: ProfileFlowCoordinatorProtocol?
@@ -26,8 +27,17 @@ final class ApplicationFlowCoordinator: ApplicationFlowCoordinatorProtocol {
     }
     
     func start() {
-        loginFlowCoordinator = resolver.resolveLoginFlowCoordinator(window: window, delegate: self)
+        welcomeFlowCoordinator = resolver.resolveWelcomeFlowCoordinator(window: self.window, delegate: self)
+        welcomeFlowCoordinator?.start()
+    }
+}
+
+extension ApplicationFlowCoordinator: WelcomeFlowCoordinatorDelegate {
+    
+    func welcomeFlowCoordinatorDidFinish() {
+        loginFlowCoordinator = resolver.resolveLoginFlowCoordinator(window: self.window, delegate: self)
         loginFlowCoordinator?.start()
+        welcomeFlowCoordinator = nil
     }
 }
 
