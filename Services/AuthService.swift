@@ -1,5 +1,5 @@
 //
-//  LoginService.swift
+//  AuthService.swift
 //  TourApp
 //
 //  Created by Cagatay Ceker on 31.01.2024.
@@ -11,18 +11,18 @@ enum LoginServiceError: Error {
     case loginFailed
 }
 
-protocol LoginServiceProtocol {
-    func login(email: String, password: String, completion: @escaping (Result<LoginResponse, LoginServiceError>) -> Void)
+protocol AuthServiceProtocol {
+    func login(email: String, password: String, completion: @escaping (Result<AuthResponse, LoginServiceError>) -> Void)
 }
 
-final class LoginService: LoginServiceProtocol {
+final class AuthService: AuthServiceProtocol {
 
-    func login(email: String, password: String, completion: @escaping (Result<LoginResponse, LoginServiceError>) -> Void) {
+    func login(email: String, password: String, completion: @escaping (Result<AuthResponse, LoginServiceError>) -> Void) {
             
         guard let loginUrl = URL(string: "\(NetworkLayerConstant.baseURL)/auth/login") else { return }
         let parameters: Parameters = [ "email": email, "password": password]
         
-        AF.request(loginUrl, method: .post, parameters: parameters).responseDecodable(of: LoginResponse.self) { response in
+        AF.request(loginUrl, method: .post, parameters: parameters).responseDecodable(of: AuthResponse.self) { response in
             switch response.result {
             case .success(let response):
                 completion(.success(response))

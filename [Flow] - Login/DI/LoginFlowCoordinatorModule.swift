@@ -25,12 +25,12 @@ final class LoginFlowCoordinatorModule: LoginFlowCoordinatorResolver {
     }
     
     func resolveLoginViewController(delegate: LoginInteractorCoordinatorDelegate) -> UIViewController {
-        guard let loginService = resolver.resolve(LoginServiceProtocol.self) else {
+        guard let authService = resolver.resolve(AuthServiceProtocol.self) else {
             fatalError("LoginServiceProtocol should be registered")
         }
         guard let userService = resolver.resolve(UserServiceProtocol.self) else {
             fatalError("UserServiceProtocol should be registered")
         }
-        return LoginViewController.build(coordinator: delegate, loginService: loginService, userService: userService)
+        return LoginViewController.build(coordinator: delegate, authService: authService, userService: userService)
     }
 }

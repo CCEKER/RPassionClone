@@ -33,12 +33,17 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         customView.loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
+        customView.registerButton.addTarget(self, action: #selector(didTapRegisterButton), for: .touchUpInside)
+    }
+    
+    @objc private func didTapRegisterButton() {
+        interactor.didTapRegisterButton()
     }
     
     @objc private func didTapLoginButton() {
         
-        guard let email = customView.emailTextField.text else { return }
-        guard let password = customView.passwordTextField.text else { return }
+//        guard let email = customView.emailTextField.text else { return }
+//        guard let password = customView.passwordTextField.text else { return }
         
         interactor.didTapLoginButton(email: "cagatayceker@gmail.com", password: "A1%0000000")
     }

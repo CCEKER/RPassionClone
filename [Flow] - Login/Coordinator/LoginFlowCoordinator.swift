@@ -14,6 +14,7 @@ protocol LoginFlowCoordinatorProtocol {
 
 protocol LoginFlowCoordinatorDelegate {
     func loginFlowCoordinatorDidFinish()
+    func loginFlowDidTapRegister()
 }
 
 final class LoginFlowCoordinator: LoginFlowCoordinatorProtocol {
@@ -37,6 +38,10 @@ final class LoginFlowCoordinator: LoginFlowCoordinatorProtocol {
 }
 
 extension LoginFlowCoordinator: LoginInteractorCoordinatorDelegate {
+    
+    func loginInteractorDidTapRegister() {
+        delegate?.loginFlowDidTapRegister()
+    }
     
     func loginInteractorUserDidLogin() {
         delegate?.loginFlowCoordinatorDidFinish()

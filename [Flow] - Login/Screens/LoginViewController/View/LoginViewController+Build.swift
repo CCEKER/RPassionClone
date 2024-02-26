@@ -11,9 +11,9 @@ import Swinject
 
 extension LoginViewController {
     
-    static func build(coordinator: LoginInteractorCoordinatorDelegate, loginService: LoginServiceProtocol, userService: UserServiceProtocol) -> UIViewController {
+    static func build(coordinator: LoginInteractorCoordinatorDelegate, authService: AuthServiceProtocol, userService: UserServiceProtocol) -> UIViewController {
         let presenter = LoginPresenter()
-        let interactor = LoginInteractor(presenter: presenter, loginService: loginService, userService: userService)
+        let interactor = LoginInteractor(presenter: presenter, authService: authService, userService: userService)
         interactor.coordinator = coordinator
         let viewController = LoginViewController(interactor: interactor)
         presenter.viewController = viewController

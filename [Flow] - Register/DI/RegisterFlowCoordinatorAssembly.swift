@@ -1,14 +1,14 @@
 //
-//  LoginFlowCoordinatorAssembly.swift
+//  RegisterFlowCoordinatorAssembly.swift
 //  TourApp
 //
-//  Created by Cagatay Ceker on 31.01.2024.
+//  Created by Cagatay Ceker on 27.02.2024.
 //
 
 import Foundation
 import Swinject
 
-final class LoginFlowCoordinatorAssembly: Assembly {
+final class RegisterFlowCoordinatorAssembly: Assembly {
     
     func assemble(container: Container) {
         container.register(AuthServiceProtocol.self) { resolver in
