@@ -13,7 +13,7 @@ protocol GarageFlowCoordinatorProtocol {
 }
 
 protocol GarageFlowCoordinatorDelegate {
-    func myGarageFlowCoordinatorDidFinish()
+    func GarageFlowCoordinatorDidFinish()
 }
 
 final class GarageFlowCoordinator: GarageFlowCoordinatorProtocol {
@@ -53,7 +53,7 @@ extension GarageFlowCoordinator: GarageInteractorCoordinatorDelegate {
     }
     
     func myGarageFlowDidFinish() {
-        delegate.myGarageFlowCoordinatorDidFinish()
+        delegate.GarageFlowCoordinatorDidFinish()
     }
 }
 
