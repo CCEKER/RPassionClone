@@ -15,6 +15,7 @@ struct TourParticipants: Decodable {
 }
 
 struct Participant: Decodable {
+    let id: String
     let driver: Driver
     let car: Car
 }
@@ -29,19 +30,3 @@ struct Passenger: Decodable {
     let userInfo: String
 }
 
-enum ParticipantsInfo {
-    case none
-    case single(name: String)
-    case multipe(name: String, count: Int)
-    
-    var description: String {
-        switch self {
-        case .none:
-            return "No participants"
-        case .single(let name):
-            return name
-        case .multipe(let name, let count):
-            return "\(name) with \(count) \(count == 1 ? "person" : "people")"
-        }
-    }
-}

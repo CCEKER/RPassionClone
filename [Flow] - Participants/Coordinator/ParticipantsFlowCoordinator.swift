@@ -43,3 +43,9 @@ final class ParticipantsFlowCoordinator: ParticipantsFlowCoordinatorProtocol {
 extension ParticipantsFlowCoordinator: ParticipantsInteractorCoordinatorDelegate {
     
 }
+
+extension ParticipantsFlowCoordinator: GarageFlowCoordinatorDelegate {
+    func GarageFlowCoordinatorDidFinish() {
+        
+    }
+}

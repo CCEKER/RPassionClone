@@ -10,6 +10,7 @@ import Swinject
 
 protocol ParticipantsFlowCoordinatorResolver {
     func resolveParticipantsViewController(delegate: ParticipantsInteractorCoordinatorDelegate, tourId: String, participantsLimit: Int, participantsJoined: Int) -> UIViewController
+    func resolveGarageFlowCoordinator(delegate: GarageFlowCoordinatorDelegate, carId: String, tabbarController: UITabBarController) -> GarageFlowCoordinatorProtocol
 }
 
 final class ParticipantsFlowCoordinatorModule: ParticipantsFlowCoordinatorResolver {
@@ -29,5 +30,10 @@ final class ParticipantsFlowCoordinatorModule: ParticipantsFlowCoordinatorResolv
             fatalError("TourDetailServiceProtocol should be registered!")
         }
         return ParticipantsViewController.build(coordinator: delegate, tourId: tourId, tourService: tourService, participantsLimit: participantsLimit, participantsJoined: participantsJoined)
+    }
+    
+    func resolveGarageFlowCoordinator(delegate: GarageFlowCoordinatorDelegate, carId: String, tabbarController: UITabBarController) -> GarageFlowCoordinatorProtocol {
+        let garageFlowCoordinator = GarageFlowCoordinator.build(tabBarController: tabbarController, delegate: delegate, container: container)
+        return garageFlowCoordinator
     }
 }

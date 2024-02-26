@@ -9,10 +9,11 @@ import Foundation
 
 protocol ParticipantsInteractorProtocol {
     func viewDidLoad()
+    func didTapParticipants(_ index: Int)
 }
 
 protocol ParticipantsInteractorCoordinatorDelegate: AnyObject {
-    
+
 }
 
 final class ParticipantsInteractor {
@@ -23,6 +24,7 @@ final class ParticipantsInteractor {
     private var tourId: String
     private var participantsLimit: Int
     private var participantsJoined: Int
+    private var participants: [Participant] = []
     
     init(presenter: ParticipantsPresenterProtocol, tourService: TourDetailServiceProtocol, tourId: String, participantsLimit: Int, participantsJoined: Int) {
         self.presenter = presenter
@@ -40,11 +42,16 @@ extension ParticipantsInteractor: ParticipantsInteractorProtocol {
 			guard let self else { return }
             switch result {
             case .success(let response):
+                self.participants = response
                 presenter.presentParticipants(response, participantsLimit: participantsLimit, participantsJoined: participantsJoined)
                 
             case .failure(let error):
                 print("Interactor Error: \(error)")
             }
         }
+    }
+    
+    func didTapParticipants(_ index: Int) {
+        let selectedParticipant = participants[index]
     }
 }

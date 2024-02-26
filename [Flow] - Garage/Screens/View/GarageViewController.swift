@@ -16,6 +16,7 @@ class GarageViewController: UIViewController {
     private let customView = GarageView()
     private let interactor: GarageInteractorProtocol
     private var tableData: [CarTableViewCellModel] = []
+    var carId: String?
     
     init(interactor: GarageInteractorProtocol) {
         self.interactor = interactor

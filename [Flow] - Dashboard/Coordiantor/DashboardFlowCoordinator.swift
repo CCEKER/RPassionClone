@@ -13,7 +13,7 @@ protocol DashboardFlowCoordinatorProtocol {
 
 protocol DashboardFlowCoordinatorDelegate: AnyObject {
     func profileFlowCoordinatorDidFinish()
-    func myGarageFlowCoordinatorDidFinish()
+    func garageFlowCoordinatorDidFinish()
 }
 
 final class DashboardFlowCoordinator: DashboardFlowCoordinatorProtocol {
@@ -22,7 +22,7 @@ final class DashboardFlowCoordinator: DashboardFlowCoordinatorProtocol {
     private let window: UIWindow
     private var homePageFlowCoordiantor: HomePageFlowCoordinatorProtocol?
     private var profileFlowCoordinator: ProfileFlowCoordinatorProtocol?
-    private var myGarageFlowCoordinator: GarageFlowCoordinatorProtocol?
+    private var garageFlowCoordinator: GarageFlowCoordinatorProtocol?
     private let resolver: DashboardFlowCoordinatorResolver
     
     init(window: UIWindow, delegate: DashboardFlowCoordinatorDelegate, resolver: DashboardFlowCoordinatorResolver) {
@@ -40,8 +40,8 @@ final class DashboardFlowCoordinator: DashboardFlowCoordinatorProtocol {
         homePageFlowCoordiantor = resolver.resolveHomePageFlowCoordinator(tabBarController: tabBarController, delegate: self)
         homePageFlowCoordiantor?.start()
         
-        myGarageFlowCoordinator = resolver.resolveMyGarageFlowCoordinator(tabBarController: tabBarController, delegate: self)
-        myGarageFlowCoordinator?.start()
+        garageFlowCoordinator = resolver.resolveGarageFlowCoordinator(tabBarController: tabBarController, delegate: self)
+        garageFlowCoordinator?.start()
         
         profileFlowCoordinator = resolver.resolveProfileFlowCoordinator(tabBarController: tabBarController, delegate: self)
         profileFlowCoordinator?.start()
@@ -61,7 +61,7 @@ extension DashboardFlowCoordinator: ProfileFlowCoordinatorDelegate {
 
 extension DashboardFlowCoordinator: GarageFlowCoordinatorDelegate {
     
-    func myGarageFlowCoordinatorDidFinish() {
-        delegate?.myGarageFlowCoordinatorDidFinish()
+    func GarageFlowCoordinatorDidFinish() {
+        delegate?.garageFlowCoordinatorDidFinish()
     }
 }

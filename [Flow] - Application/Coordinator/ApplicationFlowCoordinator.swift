@@ -17,6 +17,7 @@ final class ApplicationFlowCoordinator: ApplicationFlowCoordinatorProtocol {
     private var loginFlowCoordinator: LoginFlowCoordinatorProtocol?
     private var dashboardFlowCoordinator: DashboardFlowCoordinatorProtocol?
     private var profileFlowCoordinator: ProfileFlowCoordinatorProtocol?
+    private var garageFlowCoordinator: GarageFlowCoordinatorProtocol?
     private let resolver: ApplicationFlowCoordinatorResolver
    
     init(window: UIWindow, resolver: ApplicationFlowCoordinatorResolver) {
@@ -49,7 +50,9 @@ extension ApplicationFlowCoordinator: DashboardFlowCoordinatorDelegate {
         profileFlowCoordinator = nil
     }
     
-    func myGarageFlowCoordinatorDidFinish() {
-        
+    func garageFlowCoordinatorDidFinish() {
+        dashboardFlowCoordinator = resolver.resolveDashBoardFlowCoordinator(window: window, delegate: self)
+        dashboardFlowCoordinator?.start()
+        garageFlowCoordinator = nil
     }
 }

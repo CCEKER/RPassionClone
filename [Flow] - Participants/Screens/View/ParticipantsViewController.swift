@@ -86,4 +86,8 @@ extension ParticipantsViewController: UITableViewDelegate, UITableViewDataSource
         cell.reloadWith(participants)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        interactor.didTapParticipants(indexPath.row)
+    }
 }
