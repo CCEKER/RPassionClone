@@ -65,11 +65,6 @@ class GarageViewController: UIViewController {
         self.navigationItem.rightBarButtonItem?.tintColor = .systemBlue
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        tabBarController?.tabBar.isHidden = true
-    }
-    
     @objc private func didTapAddCarButton() {
         interactor.didTapAddCarButton()
     }

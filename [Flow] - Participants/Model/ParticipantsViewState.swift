@@ -14,11 +14,8 @@ enum ParticipantsViewState {
 }
 
 struct ParticipantsViewModel {
-    let id: String
     let nickname: String
-    let carMakerModelTrimTitle: String
-    let maker: String
-    let imageUrl: String
+    let carLabel: String
+    let imageUrl: String?
     let userInfo: String
-    let images: [String]
 }

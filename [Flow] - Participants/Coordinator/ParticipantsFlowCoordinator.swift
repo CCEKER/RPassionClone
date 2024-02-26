@@ -24,8 +24,17 @@ final class ParticipantsFlowCoordinator: ParticipantsFlowCoordinatorProtocol {
     private let presentingViewController: UINavigationController
     private var participantsJoined: Int
     private var participantLimit: Int
+	
+	private var garageFlowCoordinator: GarageFlowCoordinatorProtocol?
     
-    init(delegate: ParticipantsFlowCoordinatorDelegate, resolver: ParticipantsFlowCoordinatorResolver, tourId: String, presentingViewController: UINavigationController, participantsLimit: Int, participantsJoined: Int) {
+    init(
+		delegate: ParticipantsFlowCoordinatorDelegate,
+		resolver: ParticipantsFlowCoordinatorResolver,
+		tourId: String,
+		presentingViewController: UINavigationController,
+		participantsLimit: Int,
+		participantsJoined: Int
+	) {
         self.delegate = delegate
         self.resolver = resolver
         self.tourId = tourId
@@ -41,7 +50,10 @@ final class ParticipantsFlowCoordinator: ParticipantsFlowCoordinatorProtocol {
 }
 
 extension ParticipantsFlowCoordinator: ParticipantsInteractorCoordinatorDelegate {
-    
+	func participantsInteractorDidTapParticipant(driverId: String) {
+		garageFlowCoordinator = resolver.resolveGarageFlowCoordinator(delegate: self, driverId: driverId, presentingViewController: presentingViewController)
+		garageFlowCoordinator?.start()
+	}
 }
 
 extension ParticipantsFlowCoordinator: GarageFlowCoordinatorDelegate {

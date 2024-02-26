@@ -13,7 +13,7 @@ protocol ParticipantsInteractorProtocol {
 }
 
 protocol ParticipantsInteractorCoordinatorDelegate: AnyObject {
-
+	func participantsInteractorDidTapParticipant(driverId: String)
 }
 
 final class ParticipantsInteractor {
@@ -53,5 +53,6 @@ extension ParticipantsInteractor: ParticipantsInteractorProtocol {
     
     func didTapParticipants(_ index: Int) {
         let selectedParticipant = participants[index]
+		coordinator?.participantsInteractorDidTapParticipant(driverId: selectedParticipant.driver.id)
     }
 }

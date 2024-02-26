@@ -18,30 +18,46 @@ protocol GarageFlowCoordinatorDelegate {
 
 final class GarageFlowCoordinator: GarageFlowCoordinatorProtocol {
     
-    private let tabBarController: UITabBarController
+	private var startMode: GarageFlowCoordinator.StartMode
     private let delegate: GarageFlowCoordinatorDelegate
+	private let driverId: String
     private var navigationController = UINavigationController()
     private var resolver: GarageFlowCoordinatorResolver
     private var addCarModelFlowCoordinator: AddCarFlowCoordinatorProtocol?
     private var garageViewController: GarageViewController?
     
-    init(tabBarController: UITabBarController, delegate: GarageFlowCoordinatorDelegate, resolver: GarageFlowCoordinatorResolver) {
-        self.tabBarController = tabBarController
+	init(startMode: GarageFlowCoordinator.StartMode, delegate: GarageFlowCoordinatorDelegate, driverId: String, resolver: GarageFlowCoordinatorResolver) {
+        self.startMode = startMode
         self.delegate = delegate
         self.resolver = resolver
+		self.driverId = driverId
     }
     
     func start() {
-        let garageViewController = resolver.resolveMyGarageViewController(coordinator: self)
+		let garageViewController = resolver.resolveMyGarageViewController(coordinator: self, driverId: driverId)
         self.garageViewController = garageViewController
-        let navigationController = UINavigationController(rootViewController: garageViewController)
-        self.navigationController = navigationController
         
-        if tabBarController.viewControllers == nil {
-            tabBarController.viewControllers = [navigationController]
-        } else {
-            tabBarController.viewControllers?.append(navigationController)
-        }
+		switch startMode {
+		case .toTabBar(let tabBarController):
+			
+			let navigationController = UINavigationController(rootViewController: garageViewController)
+			self.navigationController = navigationController
+			
+			if tabBarController.viewControllers == nil {
+				tabBarController.viewControllers = [navigationController]
+			} else {
+				tabBarController.viewControllers?.append(navigationController)
+			}
+			
+		case .push(let navigationController):
+			self.navigationController = navigationController
+			navigationController.pushViewController(garageViewController, animated: true)
+			
+		case .present(let presentingViewController):
+			let navigationController = UINavigationController(rootViewController: garageViewController)
+			self.navigationController = navigationController
+			presentingViewController.present(navigationController, animated: true)
+		}
     }
 }
 

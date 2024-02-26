@@ -9,15 +9,14 @@ import Foundation
 
 struct TourParticipants: Decodable {
     let participants: [Participant]
-    let passengers: [Passenger]?
     let totalCount: Int
-    let images: [String]?
 }
 
 struct Participant: Decodable {
     let id: String
     let driver: Driver
     let car: Car
+	let passengers: [Passenger]
 }
 
 struct Driver: Decodable {

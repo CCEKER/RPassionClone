@@ -10,7 +10,7 @@ import Swinject
 import UIKit
 
 protocol GarageFlowCoordinatorResolver {
-    func resolveMyGarageViewController(coordinator: GarageInteractorCoordinatorDelegate) -> GarageViewController
+	func resolveMyGarageViewController(coordinator: GarageInteractorCoordinatorDelegate, driverId: String) -> GarageViewController
     func resolveAddCarFlow(delegate: AddCarFlowCoordinatorDelegate, presentingViewController: UINavigationController) -> AddCarFlowCoordinatorProtocol
 }
 
@@ -25,13 +25,9 @@ final class GarageFlowCoordinatorModule: GarageFlowCoordinatorResolver {
         self.resolver = container
     }
     
-    func resolveMyGarageViewController(coordinator: GarageInteractorCoordinatorDelegate) -> GarageViewController {
+    func resolveMyGarageViewController(coordinator: GarageInteractorCoordinatorDelegate, driverId: String) -> GarageViewController {
         let carService = resolver.resolve(CarServiceProtocol.self)!
-        let userService = resolver.resolve(UserServiceProtocol.self)!
-        guard let userId = userService.user?.id else {
-            fatalError("UserId expected...")
-        }
-        let garageViewController = GarageViewController.build(coordinator: coordinator, carService: carService, userId: userId)
+        let garageViewController = GarageViewController.build(coordinator: coordinator, carService: carService, userId: driverId)
         return garageViewController
     }
     

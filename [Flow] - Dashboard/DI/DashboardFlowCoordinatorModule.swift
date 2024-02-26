@@ -32,6 +32,10 @@ final class DashboardFlowCoordinatorModule: DashboardFlowCoordinatorResolver {
     }
     
     func resolveGarageFlowCoordinator(tabBarController: UITabBarController, delegate: GarageFlowCoordinatorDelegate) -> GarageFlowCoordinatorProtocol {
-        GarageFlowCoordinator.build(tabBarController: tabBarController, delegate: delegate, container: container)
+		let userService = container.resolve(UserServiceProtocol.self)!
+		guard let driverId = userService.user?.id else {
+			fatalError("user must be logged in")
+		}
+		return GarageFlowCoordinator.build(startMode: .toTabBar(tabBarController), delegate: delegate, driverId: driverId, container: container)
     }
 }

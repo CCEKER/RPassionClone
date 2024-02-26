@@ -10,8 +10,15 @@ import Swinject
 import UIKit
 
 extension GarageFlowCoordinator {
-    static func build(tabBarController: UITabBarController, delegate: GarageFlowCoordinatorDelegate, container: Container) -> GarageFlowCoordinatorProtocol {
+	
+	enum StartMode {
+		case toTabBar(UITabBarController)
+		case push(UINavigationController)
+		case present(UIViewController)
+	}
+	
+	static func build(startMode: StartMode, delegate: GarageFlowCoordinatorDelegate, driverId: String, container: Container) -> GarageFlowCoordinatorProtocol {
         let module = GarageFlowCoordinatorModule(parentContainer: container)
-        return GarageFlowCoordinator(tabBarController: tabBarController, delegate: delegate, resolver: module)
+		return GarageFlowCoordinator(startMode: startMode, delegate: delegate, driverId: driverId, resolver: module)
     }
 }

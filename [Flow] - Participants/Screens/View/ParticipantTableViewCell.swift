@@ -38,7 +38,7 @@ class ParticipantTableViewCell: UITableViewCell {
     
     private let carImage: UIImageView = {
         let view = UIImageView()
-        view.contentMode = .scaleAspectFit
+        view.contentMode = .scaleAspectFill
         view.clipsToBounds = true
         view.layer.cornerRadius = 10
         view.heightAnchor.constraint(equalToConstant: 70).isActive = true
@@ -68,7 +68,7 @@ class ParticipantTableViewCell: UITableViewCell {
         let view = UIStackView(arrangedSubviews: [carImage, verticalStackView, chevronIcon])
         view.alignment = .center
         view.distribution = .fill
-        view.spacing = 5
+        view.spacing = 10
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -114,19 +114,24 @@ class ParticipantTableViewCell: UITableViewCell {
         ])
     }
     
-    func reloadWith(_ viewModels: ParticipantsViewModel) {
-        carNickname.text = viewModels.nickname
-        userName.text = viewModels.userInfo
-        makerTitle.text = viewModels.carMakerModelTrimTitle
+    func reloadWith(_ viewModel: ParticipantsViewModel) {
+		
+        carNickname.text = viewModel.nickname
+        userName.text = viewModel.userInfo
+		makerTitle.text = viewModel.carLabel
         
-        DispatchQueue.global().async {
-            if let data = try? Data(contentsOf: URL(string: viewModels.imageUrl)!), let image = UIImage(data: data) {
-                DispatchQueue.main.async {
-                    self.carImage.image = image
-                }
-            } else {
-                self.carImage.image = UIImage(named: "porsche")
-            }
-        }
+		if let imageUrl = viewModel.imageUrl, let url = URL(string: imageUrl) {
+			DispatchQueue.global().async {
+				if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
+					DispatchQueue.main.async {
+						self.carImage.image = image
+					}
+				} else {
+					self.carImage.image = UIImage(named: "porsche")
+				}
+			}
+		} else {
+			self.carImage.image = UIImage(named: "porsche")
+		}
     }
 }
