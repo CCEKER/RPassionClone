@@ -1,5 +1,5 @@
 //
-//  MyGarageView.swift
+//  GarageView.swift
 //  TourApp
 //
 //  Created by Cagatay Ceker on 12.02.2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MyGarageView: UIView {
+class GarageView: UIView {
     
     let tableView: UITableView = {
         let view = UITableView()

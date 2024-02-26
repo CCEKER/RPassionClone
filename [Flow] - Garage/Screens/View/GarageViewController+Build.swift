@@ -8,12 +8,12 @@
 import Foundation
 import UIKit
 
-extension MyGarageViewController {
-    static func build(coordinator: MyGarageInteractorCoordinatorDelegate, carService: CarServiceProtocol, userId: String) -> MyGarageViewController {
-        let presenter = MyGaragePresenter()
-        let interactor = MyGarageInteractor(presenter: presenter, carService: carService, userId: userId)
+extension GarageViewController {
+    static func build(coordinator: GarageInteractorCoordinatorDelegate, carService: CarServiceProtocol, userId: String) -> GarageViewController {
+        let presenter = GaragePresenter()
+        let interactor = GarageInteractor(presenter: presenter, carService: carService, userId: userId)
         interactor.coordinator = coordinator
-        let viewController = MyGarageViewController(interactor: interactor)
+        let viewController = GarageViewController(interactor: interactor)
         viewController.tabBarItem.title = "My Garage"
         viewController.tabBarItem.image = UIImage(named: "garage")
         let apparance = UITabBarAppearance()

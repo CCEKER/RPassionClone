@@ -1,5 +1,5 @@
 //
-//  MyGaragePresenter.swift
+//  GaragePresenter.swift
 //  TourApp
 //
 //  Created by Cagatay Ceker on 12.02.2024.
@@ -7,15 +7,15 @@
 
 import Foundation
 
-protocol MyGaragePresenterProtocol {
+protocol GaragePresenterProtocol {
     func presentLoading()
     func presentList(cars: [Car])
     func presentError()
 }
 
-final class MyGaragePresenter: MyGaragePresenterProtocol {
+final class GaragePresenter: GaragePresenterProtocol {
     
-    weak var viewController: MyGarageViewControllerProtocol?
+    weak var viewController: GarageViewControllerProtocol?
     
     func presentLoading() {
         viewController?.displayViewState(.loading)
@@ -24,7 +24,7 @@ final class MyGaragePresenter: MyGaragePresenterProtocol {
     func presentList(cars: [Car]) {
        
         if cars.isEmpty {
-            let emptyViewModel = MyGarageEmptyViewModel(title: "Araba bulunamadı", description: "Araba yaratmak için butona tıklayın", actionButtonTitle: "Araba ekle")
+            let emptyViewModel = GarageEmptyViewModel(title: "Araba bulunamadı", description: "Araba yaratmak için butona tıklayın", actionButtonTitle: "Araba ekle")
             viewController?.displayViewState(.empty(emptyViewModel))
         } else {
             let viewModels = cars.map { car in

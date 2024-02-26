@@ -1,5 +1,5 @@
 //
-//  MyGarageViewController.swift
+//  GarageViewController.swift
 //  TourApp
 //
 //  Created by Cagatay Ceker on 12.02.2024.
@@ -7,17 +7,17 @@
 
 import UIKit
 
-protocol MyGarageViewControllerProtocol: AnyObject {
-    func displayViewState(_ viewState: MyGarageViewState)
+protocol GarageViewControllerProtocol: AnyObject {
+    func displayViewState(_ viewState: GarageViewState)
 }
 
-class MyGarageViewController: UIViewController {
+class GarageViewController: UIViewController {
     
-    private let customView = MyGarageView()
-    private let interactor: MyGarageInteractorProtocol
+    private let customView = GarageView()
+    private let interactor: GarageInteractorProtocol
     private var tableData: [CarTableViewCellModel] = []
     
-    init(interactor: MyGarageInteractorProtocol) {
+    init(interactor: GarageInteractorProtocol) {
         self.interactor = interactor
         super.init(nibName: nil, bundle: nil)
     }
@@ -83,7 +83,7 @@ class MyGarageViewController: UIViewController {
     }
 }
 
-extension MyGarageViewController: UITableViewDelegate, UITableViewDataSource {
+extension GarageViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         tableData.count
@@ -97,9 +97,9 @@ extension MyGarageViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension MyGarageViewController: MyGarageViewControllerProtocol {
+extension GarageViewController: GarageViewControllerProtocol {
     
-    func displayViewState(_ viewState: MyGarageViewState) {
+    func displayViewState(_ viewState: GarageViewState) {
         switch viewState {
             
         case .list(let carList):

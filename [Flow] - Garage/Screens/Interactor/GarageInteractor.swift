@@ -1,5 +1,5 @@
 //
-//  MyGarageInteractor.swift
+//  GarageInteractor.swift
 //  TourApp
 //
 //  Created by Cagatay Ceker on 12.02.2024.
@@ -7,33 +7,33 @@
 
 import Foundation
 
-protocol MyGarageInteractorProtocol {
+protocol GarageInteractorProtocol {
     func viewDidLoad()
     func didTapAddCarButton()
     func addNewCarToList(_ newCar: Car)
 }
 
-protocol MyGarageInteractorCoordinatorDelegate: AnyObject {
+protocol GarageInteractorCoordinatorDelegate: AnyObject {
     func didTapAddCarButton()
     func myGarageFlowDidFinish()
 }
 
-final class MyGarageInteractor {
+final class GarageInteractor {
     
-    private let presenter: MyGaragePresenterProtocol
-    weak var coordinator: MyGarageInteractorCoordinatorDelegate?
+    private let presenter: GaragePresenterProtocol
+    weak var coordinator: GarageInteractorCoordinatorDelegate?
     private let carService: CarServiceProtocol
     private let userId: String
     private var cars: [Car] = []
     
-    init(presenter: MyGaragePresenterProtocol, carService: CarServiceProtocol, userId: String) {
+    init(presenter: GaragePresenterProtocol, carService: CarServiceProtocol, userId: String) {
         self.presenter = presenter
         self.carService = carService
         self.userId = userId
     }
 }
 
-extension MyGarageInteractor: MyGarageInteractorProtocol {
+extension GarageInteractor: GarageInteractorProtocol {
     
     func viewDidLoad() {
         presenter.presentLoading()

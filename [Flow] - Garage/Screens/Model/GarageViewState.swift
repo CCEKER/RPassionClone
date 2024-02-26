@@ -1,5 +1,5 @@
 //
-//  MyGarageViewState.swift
+//  GarageViewState.swift
 //  TourApp
 //
 //  Created by Cagatay Ceker on 12.02.2024.
@@ -7,10 +7,10 @@
 
 import Foundation
 
-enum MyGarageViewState {
+enum GarageViewState {
     case list([CarTableViewCellModel])
     case loading
-    case empty(MyGarageEmptyViewModel)
+    case empty(GarageEmptyViewModel)
     case error(ErrorViewModel)
 }
 
@@ -21,7 +21,7 @@ struct CarTableViewCellModel {
     let subTitle: String
 }
 
-struct MyGarageEmptyViewModel {
+struct GarageEmptyViewModel {
     let title: String
     let description: String
     let actionButtonTitle: String

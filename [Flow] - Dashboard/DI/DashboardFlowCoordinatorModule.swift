@@ -11,7 +11,7 @@ import Swinject
 protocol DashboardFlowCoordinatorResolver {
     func resolveHomePageFlowCoordinator(tabBarController: UITabBarController, delegate: HomePageFlowCoordinatorDelegate) -> HomePageFlowCoordinatorProtocol
     func resolveProfileFlowCoordinator(tabBarController: UITabBarController, delegate: ProfileFlowCoordinatorDelegate) -> ProfileFlowCoordinatorProtocol
-    func resolveMyGarageFlowCoordinator(tabBarController: UITabBarController, delegate: MyGarageFlowCoordinatorDelegate) -> MyGarageFlowCoordinatorProtocol
+    func resolveMyGarageFlowCoordinator(tabBarController: UITabBarController, delegate: GarageFlowCoordinatorDelegate) -> GarageFlowCoordinatorProtocol
 }
 
 final class DashboardFlowCoordinatorModule: DashboardFlowCoordinatorResolver {
@@ -31,7 +31,7 @@ final class DashboardFlowCoordinatorModule: DashboardFlowCoordinatorResolver {
         ProfileFlowCoordinator.build(tabBarController: tabBarController, delegate: delegate, container: container)
     }
     
-    func resolveMyGarageFlowCoordinator(tabBarController: UITabBarController, delegate: MyGarageFlowCoordinatorDelegate) -> MyGarageFlowCoordinatorProtocol {
-        MyGarageFlowCoordinator.build(tabBarController: tabBarController, delegate: delegate, container: container)
+    func resolveMyGarageFlowCoordinator(tabBarController: UITabBarController, delegate: GarageFlowCoordinatorDelegate) -> GarageFlowCoordinatorProtocol {
+        GarageFlowCoordinator.build(tabBarController: tabBarController, delegate: delegate, container: container)
     }
 }

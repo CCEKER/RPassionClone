@@ -1,5 +1,5 @@
 //
-//  MyGarageFlowCoordinator.swift
+//  GarageFlowCoordinator.swift
 //  TourApp
 //
 //  Created by Cagatay Ceker on 12.02.2024.
@@ -8,33 +8,33 @@
 import Foundation
 import UIKit
 
-protocol MyGarageFlowCoordinatorProtocol {
+protocol GarageFlowCoordinatorProtocol {
     func start()
 }
 
-protocol MyGarageFlowCoordinatorDelegate {
+protocol GarageFlowCoordinatorDelegate {
     func myGarageFlowCoordinatorDidFinish()
 }
 
-final class MyGarageFlowCoordinator: MyGarageFlowCoordinatorProtocol {
+final class GarageFlowCoordinator: GarageFlowCoordinatorProtocol {
     
     private let tabBarController: UITabBarController
-    private let delegate: MyGarageFlowCoordinatorDelegate
+    private let delegate: GarageFlowCoordinatorDelegate
     private var navigationController = UINavigationController()
-    private var resolver: MyGarageFlowCoordinatorResolver
+    private var resolver: GarageFlowCoordinatorResolver
     private var addCarModelFlowCoordinator: AddCarFlowCoordinatorProtocol?
-    private var myGarageViewController: MyGarageViewController?
+    private var garageViewController: GarageViewController?
     
-    init(tabBarController: UITabBarController, delegate: MyGarageFlowCoordinatorDelegate, resolver: MyGarageFlowCoordinatorResolver) {
+    init(tabBarController: UITabBarController, delegate: GarageFlowCoordinatorDelegate, resolver: GarageFlowCoordinatorResolver) {
         self.tabBarController = tabBarController
         self.delegate = delegate
         self.resolver = resolver
     }
     
     func start() {
-        let myGarageViewController = resolver.resolveMyGarageViewController(coordinator: self)
-        self.myGarageViewController = myGarageViewController
-        let navigationController = UINavigationController(rootViewController: myGarageViewController)
+        let garageViewController = resolver.resolveMyGarageViewController(coordinator: self)
+        self.garageViewController = garageViewController
+        let navigationController = UINavigationController(rootViewController: garageViewController)
         self.navigationController = navigationController
         
         if tabBarController.viewControllers == nil {
@@ -45,7 +45,7 @@ final class MyGarageFlowCoordinator: MyGarageFlowCoordinatorProtocol {
     }
 }
 
-extension MyGarageFlowCoordinator: MyGarageInteractorCoordinatorDelegate {
+extension GarageFlowCoordinator: GarageInteractorCoordinatorDelegate {
     
     func didTapAddCarButton() {
         addCarModelFlowCoordinator = resolver.resolveAddCarFlow(delegate: self, presentingViewController: self.navigationController)
@@ -57,12 +57,12 @@ extension MyGarageFlowCoordinator: MyGarageInteractorCoordinatorDelegate {
     }
 }
 
-extension MyGarageFlowCoordinator: AddCarFlowCoordinatorDelegate {
+extension GarageFlowCoordinator: AddCarFlowCoordinatorDelegate {
     
     func addCarFlowCoordinatorDidFinish(createdCar: Car) {
         
-        guard let myGarageViewController else { return }
-        myGarageViewController.addCarToList(newCar: createdCar)
-        navigationController.popToViewController(myGarageViewController, animated: true)
+        guard let garageViewController else { return }
+        garageViewController.addCarToList(newCar: createdCar)
+        navigationController.popToViewController(garageViewController, animated: true)
     }
 }

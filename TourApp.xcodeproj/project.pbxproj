@@ -59,7 +59,7 @@
 		9D401C6A2B84911600D259E1 /* ParticipantsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D401C692B84911600D259E1 /* ParticipantsInteractor.swift */; };
 		9D401C6C2B84912100D259E1 /* ParticipantsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D401C6B2B84912100D259E1 /* ParticipantsPresenter.swift */; };
 		9D401C6E2B84AF4E00D259E1 /* ParticipantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D401C6D2B84AF4E00D259E1 /* ParticipantTableViewCell.swift */; };
-		9D77A55A2B7A997200AC85C3 /* MyGarageViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D77A5592B7A997200AC85C3 /* MyGarageViewState.swift */; };
+		9D77A55A2B7A997200AC85C3 /* GarageViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D77A5592B7A997200AC85C3 /* GarageViewState.swift */; };
 		9D77A55C2B7A9B3400AC85C3 /* Maker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D77A55B2B7A9B3400AC85C3 /* Maker.swift */; };
 		9D77A55F2B7A9D8F00AC85C3 /* ErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D77A55E2B7A9D8F00AC85C3 /* ErrorViewModel.swift */; };
 		9D77A5612B7AA42400AC85C3 /* CarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D77A5602B7AA42400AC85C3 /* CarService.swift */; };
@@ -102,16 +102,16 @@
 		9DC915982B7F6D9700CA0820 /* SelectedCarPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC915972B7F6D9700CA0820 /* SelectedCarPresenter.swift */; };
 		9DC9159B2B7F6DAB00CA0820 /* SelectedCarViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC9159A2B7F6DAB00CA0820 /* SelectedCarViewState.swift */; };
 		9DC9159D2B7F775E00CA0820 /* HolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC9159C2B7F775E00CA0820 /* HolderView.swift */; };
-		9DC990612B79754B001558D7 /* MyGarageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC990602B79754B001558D7 /* MyGarageView.swift */; };
-		9DC990632B797568001558D7 /* MyGarageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC990622B797568001558D7 /* MyGarageViewController.swift */; };
-		9DC990652B79757A001558D7 /* MyGarageViewController+Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC990642B79757A001558D7 /* MyGarageViewController+Build.swift */; };
-		9DC990672B797586001558D7 /* MyGarageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC990662B797586001558D7 /* MyGarageInteractor.swift */; };
-		9DC990692B797592001558D7 /* MyGaragePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC990682B797592001558D7 /* MyGaragePresenter.swift */; };
-		9DC9906B2B7975B0001558D7 /* MyGarageFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC9906A2B7975B0001558D7 /* MyGarageFlowCoordinator.swift */; };
-		9DC9906D2B7975BC001558D7 /* MyGarageFlowCoordinator+Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC9906C2B7975BC001558D7 /* MyGarageFlowCoordinator+Build.swift */; };
-		9DC9906F2B7975CD001558D7 /* MyGarageFlowCoordinatorModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC9906E2B7975CD001558D7 /* MyGarageFlowCoordinatorModule.swift */; };
-		9DC990712B7975D8001558D7 /* MyGarageFlowCoordinatorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC990702B7975D8001558D7 /* MyGarageFlowCoordinatorAssembly.swift */; };
-		9DC990732B797F90001558D7 /* MyGarageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC990722B797F90001558D7 /* MyGarageTableViewCell.swift */; };
+		9DC990612B79754B001558D7 /* GarageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC990602B79754B001558D7 /* GarageView.swift */; };
+		9DC990632B797568001558D7 /* GarageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC990622B797568001558D7 /* GarageViewController.swift */; };
+		9DC990652B79757A001558D7 /* GarageViewController+Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC990642B79757A001558D7 /* GarageViewController+Build.swift */; };
+		9DC990672B797586001558D7 /* GarageInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC990662B797586001558D7 /* GarageInteractor.swift */; };
+		9DC990692B797592001558D7 /* GaragePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC990682B797592001558D7 /* GaragePresenter.swift */; };
+		9DC9906B2B7975B0001558D7 /* GarageFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC9906A2B7975B0001558D7 /* GarageFlowCoordinator.swift */; };
+		9DC9906D2B7975BC001558D7 /* GarageFlowCoordinator+Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC9906C2B7975BC001558D7 /* GarageFlowCoordinator+Build.swift */; };
+		9DC9906F2B7975CD001558D7 /* GarageFlowCoordinatorModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC9906E2B7975CD001558D7 /* GarageFlowCoordinatorModule.swift */; };
+		9DC990712B7975D8001558D7 /* GarageFlowCoordinatorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC990702B7975D8001558D7 /* GarageFlowCoordinatorAssembly.swift */; };
+		9DC990732B797F90001558D7 /* GarageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC990722B797F90001558D7 /* GarageTableViewCell.swift */; };
 		9DC990762B7984B8001558D7 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC990752B7984B8001558D7 /* Car.swift */; };
 		9DC9907F2B79A851001558D7 /* SelectBrandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC9907E2B79A851001558D7 /* SelectBrandView.swift */; };
 		9DC990812B79A861001558D7 /* SelectBrandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC990802B79A861001558D7 /* SelectBrandViewController.swift */; };
@@ -189,7 +189,7 @@
 		9D401C692B84911600D259E1 /* ParticipantsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsInteractor.swift; sourceTree = "<group>"; };
 		9D401C6B2B84912100D259E1 /* ParticipantsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsPresenter.swift; sourceTree = "<group>"; };
 		9D401C6D2B84AF4E00D259E1 /* ParticipantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantTableViewCell.swift; sourceTree = "<group>"; };
-		9D77A5592B7A997200AC85C3 /* MyGarageViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGarageViewState.swift; sourceTree = "<group>"; };
+		9D77A5592B7A997200AC85C3 /* GarageViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageViewState.swift; sourceTree = "<group>"; };
 		9D77A55B2B7A9B3400AC85C3 /* Maker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Maker.swift; sourceTree = "<group>"; };
 		9D77A55E2B7A9D8F00AC85C3 /* ErrorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewModel.swift; sourceTree = "<group>"; };
 		9D77A5602B7AA42400AC85C3 /* CarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarService.swift; sourceTree = "<group>"; };
@@ -232,16 +232,16 @@
 		9DC915972B7F6D9700CA0820 /* SelectedCarPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCarPresenter.swift; sourceTree = "<group>"; };
 		9DC9159A2B7F6DAB00CA0820 /* SelectedCarViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCarViewState.swift; sourceTree = "<group>"; };
 		9DC9159C2B7F775E00CA0820 /* HolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolderView.swift; sourceTree = "<group>"; };
-		9DC990602B79754B001558D7 /* MyGarageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGarageView.swift; sourceTree = "<group>"; };
-		9DC990622B797568001558D7 /* MyGarageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGarageViewController.swift; sourceTree = "<group>"; };
-		9DC990642B79757A001558D7 /* MyGarageViewController+Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyGarageViewController+Build.swift"; sourceTree = "<group>"; };
-		9DC990662B797586001558D7 /* MyGarageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGarageInteractor.swift; sourceTree = "<group>"; };
-		9DC990682B797592001558D7 /* MyGaragePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGaragePresenter.swift; sourceTree = "<group>"; };
-		9DC9906A2B7975B0001558D7 /* MyGarageFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGarageFlowCoordinator.swift; sourceTree = "<group>"; };
-		9DC9906C2B7975BC001558D7 /* MyGarageFlowCoordinator+Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyGarageFlowCoordinator+Build.swift"; sourceTree = "<group>"; };
-		9DC9906E2B7975CD001558D7 /* MyGarageFlowCoordinatorModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGarageFlowCoordinatorModule.swift; sourceTree = "<group>"; };
-		9DC990702B7975D8001558D7 /* MyGarageFlowCoordinatorAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGarageFlowCoordinatorAssembly.swift; sourceTree = "<group>"; };
-		9DC990722B797F90001558D7 /* MyGarageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGarageTableViewCell.swift; sourceTree = "<group>"; };
+		9DC990602B79754B001558D7 /* GarageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageView.swift; sourceTree = "<group>"; };
+		9DC990622B797568001558D7 /* GarageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageViewController.swift; sourceTree = "<group>"; };
+		9DC990642B79757A001558D7 /* GarageViewController+Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GarageViewController+Build.swift"; sourceTree = "<group>"; };
+		9DC990662B797586001558D7 /* GarageInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageInteractor.swift; sourceTree = "<group>"; };
+		9DC990682B797592001558D7 /* GaragePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaragePresenter.swift; sourceTree = "<group>"; };
+		9DC9906A2B7975B0001558D7 /* GarageFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageFlowCoordinator.swift; sourceTree = "<group>"; };
+		9DC9906C2B7975BC001558D7 /* GarageFlowCoordinator+Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GarageFlowCoordinator+Build.swift"; sourceTree = "<group>"; };
+		9DC9906E2B7975CD001558D7 /* GarageFlowCoordinatorModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageFlowCoordinatorModule.swift; sourceTree = "<group>"; };
+		9DC990702B7975D8001558D7 /* GarageFlowCoordinatorAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageFlowCoordinatorAssembly.swift; sourceTree = "<group>"; };
+		9DC990722B797F90001558D7 /* GarageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageTableViewCell.swift; sourceTree = "<group>"; };
 		9DC990752B7984B8001558D7 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		9DC9907E2B79A851001558D7 /* SelectBrandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBrandView.swift; sourceTree = "<group>"; };
 		9DC990802B79A861001558D7 /* SelectBrandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBrandViewController.swift; sourceTree = "<group>"; };
@@ -338,7 +338,7 @@
 				9D265C772B47C35100D44701 /* [Flow] - Application */,
 				9D017A882B627564008C2D88 /* [Flow] - Login */,
 				9D21E0BC2B62BE2600167FBD /* [Flow] - Dashboard */,
-				9DC990592B7973FC001558D7 /* [Flow] - MyGarage */,
+				9DC990592B7973FC001558D7 /* [Flow] - Garage */,
 				9DC990772B79A110001558D7 /* [Flow] - AddCar */,
 				9D8BC13E2B638B210009DDA9 /* [Flow] - Profile */,
 				9D265C752B47C27C00D44701 /* [Flow] - HomePage */,
@@ -946,21 +946,21 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		9DC990592B7973FC001558D7 /* [Flow] - MyGarage */ = {
+		9DC990592B7973FC001558D7 /* [Flow] - Garage */ = {
 			isa = PBXGroup;
 			children = (
 				9DC9905C2B797523001558D7 /* Screens */,
 				9DC9905B2B79751D001558D7 /* Coordinator */,
 				9DC9905A2B797519001558D7 /* DI */,
 			);
-			path = "[Flow] - MyGarage";
+			path = "[Flow] - Garage";
 			sourceTree = "<group>";
 		};
 		9DC9905A2B797519001558D7 /* DI */ = {
 			isa = PBXGroup;
 			children = (
-				9DC9906E2B7975CD001558D7 /* MyGarageFlowCoordinatorModule.swift */,
-				9DC990702B7975D8001558D7 /* MyGarageFlowCoordinatorAssembly.swift */,
+				9DC9906E2B7975CD001558D7 /* GarageFlowCoordinatorModule.swift */,
+				9DC990702B7975D8001558D7 /* GarageFlowCoordinatorAssembly.swift */,
 			);
 			path = DI;
 			sourceTree = "<group>";
@@ -968,8 +968,8 @@
 		9DC9905B2B79751D001558D7 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				9DC9906A2B7975B0001558D7 /* MyGarageFlowCoordinator.swift */,
-				9DC9906C2B7975BC001558D7 /* MyGarageFlowCoordinator+Build.swift */,
+				9DC9906A2B7975B0001558D7 /* GarageFlowCoordinator.swift */,
+				9DC9906C2B7975BC001558D7 /* GarageFlowCoordinator+Build.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -988,10 +988,10 @@
 		9DC9905D2B79752D001558D7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9DC990602B79754B001558D7 /* MyGarageView.swift */,
-				9DC990622B797568001558D7 /* MyGarageViewController.swift */,
-				9DC990642B79757A001558D7 /* MyGarageViewController+Build.swift */,
-				9DC990722B797F90001558D7 /* MyGarageTableViewCell.swift */,
+				9DC990602B79754B001558D7 /* GarageView.swift */,
+				9DC990622B797568001558D7 /* GarageViewController.swift */,
+				9DC990642B79757A001558D7 /* GarageViewController+Build.swift */,
+				9DC990722B797F90001558D7 /* GarageTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -999,7 +999,7 @@
 		9DC9905E2B797532001558D7 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				9DC990662B797586001558D7 /* MyGarageInteractor.swift */,
+				9DC990662B797586001558D7 /* GarageInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -1007,7 +1007,7 @@
 		9DC9905F2B797537001558D7 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
-				9DC990682B797592001558D7 /* MyGaragePresenter.swift */,
+				9DC990682B797592001558D7 /* GaragePresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -1015,7 +1015,7 @@
 		9DC990742B7984A9001558D7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9D77A5592B7A997200AC85C3 /* MyGarageViewState.swift */,
+				9D77A5592B7A997200AC85C3 /* GarageViewState.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1239,14 +1239,14 @@
 				9DA4A6DC2B75A205004DA8B0 /* TourDetailCollectionViewCell.swift in Sources */,
 				9D77A55C2B7A9B3400AC85C3 /* Maker.swift in Sources */,
 				9D265C922B47E29800D44701 /* HomePageViewModel.swift in Sources */,
-				9DC990632B797568001558D7 /* MyGarageViewController.swift in Sources */,
+				9DC990632B797568001558D7 /* GarageViewController.swift in Sources */,
 				9DC990852B79A875001558D7 /* SelectBrandInteractor.swift in Sources */,
 				9D28755F2B6A514A00BBAA78 /* HomePageFlowCoordinatorAssembly.swift in Sources */,
 				9DC9909F2B79BE1C001558D7 /* SelectModelViewController+Build.swift in Sources */,
 				9D401C642B8490EF00D259E1 /* ParticipantsView.swift in Sources */,
 				9D265C882B47DF3A00D44701 /* HomePageViewController.swift in Sources */,
-				9DC990732B797F90001558D7 /* MyGarageTableViewCell.swift in Sources */,
-				9DC990692B797592001558D7 /* MyGaragePresenter.swift in Sources */,
+				9DC990732B797F90001558D7 /* GarageTableViewCell.swift in Sources */,
+				9DC990692B797592001558D7 /* GaragePresenter.swift in Sources */,
 				9D7A59062B751AD9000105A9 /* TourDetailsFlowCoordinator+Build.swift in Sources */,
 				9D9DD4352B7F38F7003FF874 /* SelectTrimViewController+Build.swift in Sources */,
 				9DC990AB2B79BE72001558D7 /* AddCarFlowCoordinatorAssembly.swift in Sources */,
@@ -1259,9 +1259,9 @@
 				9D2875832B6A5B0B00BBAA78 /* ProfileFlowCoordinatorModule.swift in Sources */,
 				9D2875812B6A5AFE00BBAA78 /* ProfileFlowCoordinator+Build.swift in Sources */,
 				9D401C502B848DEB00D259E1 /* Participants.swift in Sources */,
-				9D77A55A2B7A997200AC85C3 /* MyGarageViewState.swift in Sources */,
+				9D77A55A2B7A997200AC85C3 /* GarageViewState.swift in Sources */,
 				9DC9159B2B7F6DAB00CA0820 /* SelectedCarViewState.swift in Sources */,
-				9DC990652B79757A001558D7 /* MyGarageViewController+Build.swift in Sources */,
+				9DC990652B79757A001558D7 /* GarageViewController+Build.swift in Sources */,
 				9D017A972B6277E8008C2D88 /* LoginPresenter.swift in Sources */,
 				9D21E0BE2B62BE4700167FBD /* DashboardFlowCoordinator.swift in Sources */,
 				9D7A58FA2B751A8F000105A9 /* TourDetailsViewController+Build.swift in Sources */,
@@ -1277,19 +1277,19 @@
 				9DC990A32B79BE31001558D7 /* SelectModelPresenter.swift in Sources */,
 				9D7A59042B751AD0000105A9 /* TourDetailsFlowCoordinator.swift in Sources */,
 				9D8BC14B2B638BE90009DDA9 /* ProfileInteractor.swift in Sources */,
-				9DC9906D2B7975BC001558D7 /* MyGarageFlowCoordinator+Build.swift in Sources */,
+				9DC9906D2B7975BC001558D7 /* GarageFlowCoordinator+Build.swift in Sources */,
 				9DE690902B825BF30090E1E4 /* BrandService.swift in Sources */,
 				9D401C6A2B84911600D259E1 /* ParticipantsInteractor.swift in Sources */,
 				9D7A59022B751AC3000105A9 /* TourDetailsFlowCoordinatorAssembly.swift in Sources */,
 				9D401C5F2B84908200D259E1 /* ParticipantsFlowCoordinator+Build.swift in Sources */,
-				9DC990672B797586001558D7 /* MyGarageInteractor.swift in Sources */,
+				9DC990672B797586001558D7 /* GarageInteractor.swift in Sources */,
 				9D7A58F62B751A76000105A9 /* TourDetailsView.swift in Sources */,
 				9DC990912B79B6BA001558D7 /* SelectionsTableViewCell.swift in Sources */,
 				9D9DD43B2B7F395E003FF874 /* SelectTrimInteractor.swift in Sources */,
 				9D265C622B47C1FF00D44701 /* AppDelegate.swift in Sources */,
 				9D28756F2B6A542000BBAA78 /* LoginFlowCoordinatorModule.swift in Sources */,
 				9D017A952B6277E2008C2D88 /* LoginInteractor.swift in Sources */,
-				9DC9906B2B7975B0001558D7 /* MyGarageFlowCoordinator.swift in Sources */,
+				9DC9906B2B7975B0001558D7 /* GarageFlowCoordinator.swift in Sources */,
 				9D7A58F82B751A81000105A9 /* TourDetailsViewController.swift in Sources */,
 				9D401C5B2B84905E00D259E1 /* ParticipantsFlowCoordinatorAssembly.swift in Sources */,
 				9D401C6C2B84912100D259E1 /* ParticipantsPresenter.swift in Sources */,
@@ -1303,7 +1303,7 @@
 				9D9DD4392B7F393C003FF874 /* SelectTrimTableViewCell.swift in Sources */,
 				9D265C8E2B47DF5900D44701 /* HomePagePresenter.swift in Sources */,
 				9D2875732B6A56BE00BBAA78 /* LoginFlowCoordinator+Build.swift in Sources */,
-				9DC9906F2B7975CD001558D7 /* MyGarageFlowCoordinatorModule.swift in Sources */,
+				9DC9906F2B7975CD001558D7 /* GarageFlowCoordinatorModule.swift in Sources */,
 				9DC9909B2B79BE02001558D7 /* SelectModelView.swift in Sources */,
 				9D017A932B6277D8008C2D88 /* LoginViewController+Build.swift in Sources */,
 				9DC9909D2B79BE0F001558D7 /* SelectModelViewController.swift in Sources */,
@@ -1335,14 +1335,14 @@
 				9D28755D2B6A513D00BBAA78 /* HomePageFlowCoordinatorModule.swift in Sources */,
 				9D017A8D2B627601008C2D88 /* LoginFlowCoordinator.swift in Sources */,
 				9D2875792B6A584200BBAA78 /* DashboardFlowCoordinatorModule.swift in Sources */,
-				9DC990612B79754B001558D7 /* MyGarageView.swift in Sources */,
+				9DC990612B79754B001558D7 /* GarageView.swift in Sources */,
 				9D2875582B6A503000BBAA78 /* CoreAssembly.swift in Sources */,
 				9D7A58FE2B751AA1000105A9 /* TourDetailsPresenter.swift in Sources */,
 				9DC990A12B79BE27001558D7 /* SelectModelInteractor.swift in Sources */,
 				9D8BC13D2B6379E70009DDA9 /* CustomTabBarController.swift in Sources */,
 				9D8BC1452B638BC40009DDA9 /* ProfileView.swift in Sources */,
 				9D265C8A2B47DF4600D44701 /* HomePageViewController+Build.swift in Sources */,
-				9DC990712B7975D8001558D7 /* MyGarageFlowCoordinatorAssembly.swift in Sources */,
+				9DC990712B7975D8001558D7 /* GarageFlowCoordinatorAssembly.swift in Sources */,
 				9D265C8C2B47DF5100D44701 /* HomePageInteractor.swift in Sources */,
 				9D8BC14D2B638BEF0009DDA9 /* ProfilePresenter.swift in Sources */,
 				9DC9159D2B7F775E00CA0820 /* HolderView.swift in Sources */,

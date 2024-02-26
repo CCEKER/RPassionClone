@@ -22,7 +22,7 @@ final class DashboardFlowCoordinator: DashboardFlowCoordinatorProtocol {
     private let window: UIWindow
     private var homePageFlowCoordiantor: HomePageFlowCoordinatorProtocol?
     private var profileFlowCoordinator: ProfileFlowCoordinatorProtocol?
-    private var myGarageFlowCoordinator: MyGarageFlowCoordinatorProtocol?
+    private var myGarageFlowCoordinator: GarageFlowCoordinatorProtocol?
     private let resolver: DashboardFlowCoordinatorResolver
     
     init(window: UIWindow, delegate: DashboardFlowCoordinatorDelegate, resolver: DashboardFlowCoordinatorResolver) {
@@ -59,7 +59,7 @@ extension DashboardFlowCoordinator: ProfileFlowCoordinatorDelegate {
     }
 }
 
-extension DashboardFlowCoordinator: MyGarageFlowCoordinatorDelegate {
+extension DashboardFlowCoordinator: GarageFlowCoordinatorDelegate {
     
     func myGarageFlowCoordinatorDidFinish() {
         delegate?.myGarageFlowCoordinatorDidFinish()
