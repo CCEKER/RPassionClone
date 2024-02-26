@@ -9,11 +9,13 @@ import UIKit
 
 class LoginView: UIView {
     
-    private let logoImageView: UIImageView = {
-        let view = UIImageView(image: UIImage(named: "rpassion"))
+    private let loginLabel: UILabel = {
+        let view = UILabel()
+        view.text = "Login"
+        view.font = UIFont.boldSystemFont(ofSize: 20)
+        view.textColor = .white
+        view.textAlignment = .center
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.contentMode = .scaleAspectFit
-        view.clipsToBounds = true
         return view
     }()
     
@@ -37,53 +39,110 @@ class LoginView: UIView {
         return view
     }()
     
+    private let titleLabel: UILabel = {
+        let view = UILabel()
+        view.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris laoreet."
+        view.numberOfLines = 2
+        view.textAlignment = .center
+        view.textColor = .white
+        view.font = UIFont.boldSystemFont(ofSize: 15)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     let emailTextField: CustomTextField = {
-       let view = CustomTextField()
-       view.textColor = .white
-       view.placeholder = "Email"
-       view.backgroundColor = .background
-       view.layer.cornerRadius = 5
-       view.layer.masksToBounds = true
-       view.translatesAutoresizingMaskIntoConstraints = false
-       view.attributedPlaceholder = NSAttributedString(string: view.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-       view.leftViewMode = .always
-       return view
-   }()
-   
+        let view = CustomTextField()
+        view.textColor = .white
+        view.placeholder = "Email"
+        view.backgroundColor = .background
+        view.layer.cornerRadius = 5
+        view.layer.masksToBounds = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.attributedPlaceholder = NSAttributedString(string: view.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        view.leftViewMode = .always
+        return view
+    }()
+    
     let passwordTextField: CustomTextField = {
-       let view = CustomTextField()
-       view.textColor = .white
-       view.placeholder = "Password"
-       view.backgroundColor = .background
-       view.layer.cornerRadius = 5
-       view.isSecureTextEntry = true
-       view.layer.masksToBounds = true
-       view.translatesAutoresizingMaskIntoConstraints = false
-       view.attributedPlaceholder = NSAttributedString(string: view.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-       return view
-   }()
+        let view = CustomTextField()
+        view.textColor = .white
+        view.placeholder = "Password"
+        view.backgroundColor = .background
+        view.layer.cornerRadius = 5
+        view.isSecureTextEntry = true
+        view.layer.masksToBounds = true
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.attributedPlaceholder = NSAttributedString(string: view.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        return view
+    }()
+    
+    let forgotPasswordButton: UIButton = {
+        let view = UIButton(type: .system)
+        view.setTitle("Forgot Password", for: .normal)
+        view.setTitleColor(.systemBlue, for: .normal)
+        view.backgroundColor = .background
+        view.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
     let loginButton: UIButton = {
         let view = UIButton(type: .system)
         view.backgroundColor = .systemBlue
         view.setTitle("Login", for: .normal)
         view.setTitleColor(.white, for: .normal)
-        view.layer.cornerRadius = 7
+        view.layer.cornerRadius = 3
         view.translatesAutoresizingMaskIntoConstraints = false
         view.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
         return view
     }()
     
+    private let hintLabel: UILabel = {
+        let view = UILabel()
+        view.text = "Type a minimum of 8 characters"
+        view.textColor = .white
+        view.font = UIFont.boldSystemFont(ofSize: 12)
+        return view
+    }()
+    
     private lazy var stackView: UIStackView = {
-        let view = UIStackView(arrangedSubviews: [emailHolderView, passwordHolderView])
+        let view = UIStackView(arrangedSubviews: [emailHolderView, passwordHolderView, hintLabel])
         view.spacing = 12
         view.axis = .vertical
         view.alignment = .fill
-        view.distribution = .fillEqually
+        view.distribution = .fill
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-
+    
+    private let registerTitle: UILabel = {
+        let view = UILabel()
+        view.text = "Don't have an account yet?"
+        view.font = UIFont.boldSystemFont(ofSize: 16)
+        view.numberOfLines = 0
+        view.textColor = .white
+        return view
+    }()
+    
+    let registerButton: UIButton = {
+        let view = UIButton(type: .system)
+        view.setTitle("Register!", for: .normal)
+        view.setTitleColor(.systemBlue, for: .normal)
+        view.backgroundColor = .background
+        view.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17)
+        return view
+    }()
+    
+    private lazy var customStackView: UIStackView = {
+        let view = UIStackView(arrangedSubviews: [registerTitle, registerButton])
+        view.axis = .horizontal
+        view.distribution = .fill
+        view.alignment = .fill
+        view.spacing = 8
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -100,45 +159,67 @@ class LoginView: UIView {
     
     private func setupViews() {
         backgroundColor = .background
-        addSubview(logoImageView)
+        addSubview(titleLabel)
+        addSubview(loginLabel)
         emailHolderView.addSubview(emailTextField)
         passwordHolderView.addSubview(passwordTextField)
+        addSubview(forgotPasswordButton)
         addSubview(stackView)
         addSubview(loginButton)
+        addSubview(customStackView)
     }
     
     private func setupConstraints() {
-        
         NSLayoutConstraint.activate([
-        
-            logoImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 30),
-            logoImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50),
-            logoImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50),
-            logoImageView.heightAnchor.constraint(equalToConstant: 80),
             
-            stackView.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 30),
+            loginLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: -25),
+            loginLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            
+            titleLabel.topAnchor.constraint(equalTo: loginLabel.bottomAnchor, constant: 10),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            
+            stackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 100),
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            
+            forgotPasswordButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            forgotPasswordButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 5),
+            forgotPasswordButton.widthAnchor.constraint(equalToConstant: 200),
+            forgotPasswordButton.heightAnchor.constraint(equalToConstant: 50),
             
             emailHolderView.heightAnchor.constraint(equalToConstant: 50),
             passwordHolderView.heightAnchor.constraint(equalToConstant: 50),
             
-            loginButton.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 20),
+            loginButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -60),
             loginButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             loginButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            loginButton.heightAnchor.constraint(equalToConstant: 50)
+            loginButton.heightAnchor.constraint(equalToConstant: 50),
+            
+            customStackView.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 15),
+            customStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
+            customStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -65),
+            customStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20)
         ])
     }
 }
 
 extension LoginView: UITextFieldDelegate {
- 
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailTextField {
+            passwordTextField.becomeFirstResponder()
+        } else if textField == passwordTextField {
+            textField.becomeFirstResponder()
+        }
+        return true
+    }
 }
 
 class CustomTextField: UITextField {
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
-       bounds.insetBy(dx: 10, dy: 15)
+        bounds.insetBy(dx: 10, dy: 15)
     }
     
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
