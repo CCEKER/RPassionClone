@@ -9,10 +9,12 @@ import Foundation
 
 protocol RegisterInteractorProtocol {
     func didTapNextButton(email: String, password: String)
+    func didTapBackLoginButton()
 }
 
 protocol RegisterInteractorCoordinatorDelegate: AnyObject {
     func registerInteractorDidTapNextButton(email: String)
+    func registerInteractorDidTapBackLoginButton()
 }
 
 final class RegisterInteractor {
@@ -33,8 +35,6 @@ extension RegisterInteractor: RegisterInteractorProtocol {
     
     func didTapNextButton(email: String, password: String) {
         
-        self.coordinator?.registerInteractorDidTapNextButton(email: email)
-        
         authService.register(email: email, password: password) { [weak self] result in
             
             DispatchQueue.main.async {
@@ -44,11 +44,16 @@ extension RegisterInteractor: RegisterInteractorProtocol {
         
                 case .success(let response):
                     self.userService.updateLoggedInUser(user: response.user, token: response.token)
+                    self.coordinator?.registerInteractorDidTapNextButton(email: email)
                 
                 case .failure(let error):
                     self.presenter.presentError(error.toRegisterErrorResponse())
                 }
             }
         }
+    }
+    
+    func didTapBackLoginButton() {
+        coordinator?.registerInteractorDidTapBackLoginButton()
     }
 }

@@ -13,7 +13,7 @@ protocol RegisterFlowCoordinatorProtocol {
 }
 
 protocol RegisterFlowCoordinatorDelegate {
-    
+    func registerFlowCoordinatorDidFinish()
 }
 
 final class RegisterFlowCoordinator: RegisterFlowCoordinatorProtocol {
@@ -39,6 +39,10 @@ final class RegisterFlowCoordinator: RegisterFlowCoordinatorProtocol {
 }
 
 extension RegisterFlowCoordinator: RegisterInteractorCoordinatorDelegate {
+    
+    func registerInteractorDidTapBackLoginButton() {
+        delegate.registerFlowCoordinatorDidFinish()
+    }
     
     func registerInteractorDidTapNextButton(email: String) {
         verificationCodeFlowCoordinator = resolver.resolveVerificationFlowCoordinator(delegate: self, presentingViewController: self.navigationController, email: email)

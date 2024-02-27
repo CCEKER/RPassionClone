@@ -45,19 +45,14 @@ final class AuthService: AuthServiceProtocol {
         guard let url = URL(string: "\(NetworkLayerConstant.baseURL)/auth/register") else { return }
         let parameters: Parameters = ["email": email, "password": password]
         
-        AF.request(url, method: .post, parameters: parameters).response { response in
+        AF.request(url, method: .post, parameters: parameters).responseDecodable(of: AuthResponse.self) { response in
             
             switch response.result {
                 
-            case .success(let response):
-                guard let response else { return }
-                do {
-                    let authResponse = try JSONDecoder().decode(AuthResponse.self, from: response)
-                    completion(.success(authResponse))
-                } catch {
-                    completion(.failure(.jsonDecodingError))
-                }
-                
+            case .success(let authResponse):
+                completion(.success(authResponse))
+                print(authResponse)
+             
             case .failure:
                 if let data = response.data {
                     do {

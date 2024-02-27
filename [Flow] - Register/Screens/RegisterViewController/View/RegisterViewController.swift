@@ -34,6 +34,11 @@ class RegisterViewController: UIViewController {
         
         self.title = "Register"
         customView.nextButton.addTarget(self, action: #selector(didTapNextButton), for: .touchUpInside)
+        customView.backLoginButton.addTarget(self, action: #selector(didTapBackLoginButton), for: .touchUpInside)
+    }
+    
+    @objc private func didTapBackLoginButton() {
+        interactor.didTapBackLoginButton()
     }
     
     @objc private func didTapNextButton() {

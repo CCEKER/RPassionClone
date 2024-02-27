@@ -60,6 +60,11 @@ extension ApplicationFlowCoordinator: LoginFlowCoordinatorDelegate {
 
 extension ApplicationFlowCoordinator: RegisterFlowCoordinatorDelegate {
     
+    func registerFlowCoordinatorDidFinish() {
+        loginFlowCoordinator = resolver.resolveLoginFlowCoordinator(window: self.window, delegate: self)
+        loginFlowCoordinator?.start()
+        registerFlowCoordinator = nil
+    }
 }
 
 extension ApplicationFlowCoordinator: DashboardFlowCoordinatorDelegate {

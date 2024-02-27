@@ -3,4 +3,367 @@
    uuid = "E8776212-00ED-4FDD-90F5-97644F0A0F56"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E321FC5F-1D2D-4C92-BEF6-FB11D8CCDBB2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Services/AuthService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "register(email:password:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E321FC5F-1D2D-4C92-BEF6-FB11D8CCDBB2 - c35092aa76c4dfff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TourApp.AuthService.register(email: Swift.String, password: Swift.String, completion: (Swift.Result&lt;TourApp.AuthResponse, TourApp.AuthServiceError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TourApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cekers/Documents/Apps/RPassionClone/Services/AuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "344">
+               </Location>
+               <Location
+                  uuid = "E321FC5F-1D2D-4C92-BEF6-FB11D8CCDBB2 - 5ea4a2efcc134c5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TourApp.AuthService.register(email: Swift.String, password: Swift.String, completion: (Swift.Result&lt;Foundation.Data, TourApp.AuthServiceError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TourApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cekers/Documents/Apps/RPassionClone/Services/AuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "280">
+               </Location>
+               <Location
+                  uuid = "E321FC5F-1D2D-4C92-BEF6-FB11D8CCDBB2 - c35092aa76c4dfff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TourApp.AuthService.register(email: Swift.String, password: Swift.String, completion: (Swift.Result&lt;TourApp.AuthResponse, TourApp.AuthServiceError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TourApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cekers/Documents/Apps/RPassionClone/Services/AuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "292">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6901EE70-6620-4F1F-B6CD-09ED5000D9CE"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Services/AuthService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "register(email:password:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6901EE70-6620-4F1F-B6CD-09ED5000D9CE - 5b1c8d57b2169b6b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Swift.Optional&lt;Foundation.Data&gt;, Alamofire.AFError&gt;) -&gt; () in TourApp.AuthService.register(email: Swift.String, password: Swift.String, completion: (Swift.Result&lt;TourApp.AuthResponse, TourApp.AuthServiceError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TourApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cekers/Documents/Apps/RPassionClone/Services/AuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "268">
+               </Location>
+               <Location
+                  uuid = "6901EE70-6620-4F1F-B6CD-09ED5000D9CE - 5b1c8d57b2169b6b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Swift.Optional&lt;Foundation.Data&gt;, Alamofire.AFError&gt;) -&gt; () in TourApp.AuthService.register(email: Swift.String, password: Swift.String, completion: (Swift.Result&lt;TourApp.AuthResponse, TourApp.AuthServiceError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TourApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cekers/Documents/Apps/RPassionClone/Services/AuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "292">
+               </Location>
+               <Location
+                  uuid = "6901EE70-6620-4F1F-B6CD-09ED5000D9CE - e56909462e9e999d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in TourApp.AuthService.register(email: Swift.String, password: Swift.String, completion: (Swift.Result&lt;Foundation.Data, TourApp.AuthServiceError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TourApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cekers/Documents/Apps/RPassionClone/Services/AuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "216">
+               </Location>
+               <Location
+                  uuid = "6901EE70-6620-4F1F-B6CD-09ED5000D9CE - e56909462e9e999d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Foundation.Data, Alamofire.AFError&gt;) -&gt; () in TourApp.AuthService.register(email: Swift.String, password: Swift.String, completion: (Swift.Result&lt;Foundation.Data, TourApp.AuthServiceError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TourApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cekers/Documents/Apps/RPassionClone/Services/AuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "244">
+               </Location>
+               <Location
+                  uuid = "6901EE70-6620-4F1F-B6CD-09ED5000D9CE - abbdb408f47a79eb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;TourApp.AuthResponse, Alamofire.AFError&gt;) -&gt; () in TourApp.AuthService.register(email: Swift.String, password: Swift.String, completion: (Swift.Result&lt;TourApp.AuthResponse, TourApp.AuthServiceError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TourApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cekers/Documents/Apps/RPassionClone/Services/AuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "248">
+               </Location>
+               <Location
+                  uuid = "6901EE70-6620-4F1F-B6CD-09ED5000D9CE - abbdb408f47a79eb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;TourApp.AuthResponse, Alamofire.AFError&gt;) -&gt; () in TourApp.AuthService.register(email: Swift.String, password: Swift.String, completion: (Swift.Result&lt;TourApp.AuthResponse, TourApp.AuthServiceError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TourApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cekers/Documents/Apps/RPassionClone/Services/AuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "276">
+               </Location>
+               <Location
+                  uuid = "6901EE70-6620-4F1F-B6CD-09ED5000D9CE - abbdb408f47a79eb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;TourApp.AuthResponse, Alamofire.AFError&gt;) -&gt; () in TourApp.AuthService.register(email: Swift.String, password: Swift.String, completion: (Swift.Result&lt;TourApp.AuthResponse, TourApp.AuthServiceError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TourApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cekers/Documents/Apps/RPassionClone/Services/AuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "264">
+               </Location>
+               <Location
+                  uuid = "6901EE70-6620-4F1F-B6CD-09ED5000D9CE - abbdb408f47a79eb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;TourApp.AuthResponse, Alamofire.AFError&gt;) -&gt; () in TourApp.AuthService.register(email: Swift.String, password: Swift.String, completion: (Swift.Result&lt;TourApp.AuthResponse, TourApp.AuthServiceError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TourApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cekers/Documents/Apps/RPassionClone/Services/AuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "292">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FDCD5EE2-E0E7-4D8B-BCAB-888628179F49"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Services/AuthService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "register(email:password:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FDCD5EE2-E0E7-4D8B-BCAB-888628179F49 - abbdb408f47a78ad"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;TourApp.AuthResponse, Alamofire.AFError&gt;) -&gt; () in TourApp.AuthService.register(email: Swift.String, password: Swift.String, completion: (Swift.Result&lt;TourApp.AuthResponse, TourApp.AuthServiceError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TourApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cekers/Documents/Apps/RPassionClone/Services/AuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "1104">
+               </Location>
+               <Location
+                  uuid = "FDCD5EE2-E0E7-4D8B-BCAB-888628179F49 - abbdb408f47a788e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;TourApp.AuthResponse, Alamofire.AFError&gt;) -&gt; () in TourApp.AuthService.register(email: Swift.String, password: Swift.String, completion: (Swift.Result&lt;TourApp.AuthResponse, TourApp.AuthServiceError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TourApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cekers/Documents/Apps/RPassionClone/Services/AuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "1556">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2FF97956-BF20-4640-86EA-3384962837EF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Services/AuthService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "register(email:password:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2FF97956-BF20-4640-86EA-3384962837EF - abbdb408f47a790a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;TourApp.AuthResponse, Alamofire.AFError&gt;) -&gt; () in TourApp.AuthService.register(email: Swift.String, password: Swift.String, completion: (Swift.Result&lt;TourApp.AuthResponse, TourApp.AuthServiceError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TourApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cekers/Documents/Apps/RPassionClone/Services/AuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "552">
+               </Location>
+               <Location
+                  uuid = "2FF97956-BF20-4640-86EA-3384962837EF - abbdb408f47a790a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;TourApp.AuthResponse, Alamofire.AFError&gt;) -&gt; () in TourApp.AuthService.register(email: Swift.String, password: Swift.String, completion: (Swift.Result&lt;TourApp.AuthResponse, TourApp.AuthServiceError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TourApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cekers/Documents/Apps/RPassionClone/Services/AuthService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "564">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "170FCA49-D86F-4207-8633-C7868457FA33"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "[Flow] - Register/Screens/RegisterViewController/Interactor/RegisterInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "didTapNextButton(email:password:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3112A9A9-4AB1-4480-BC2D-29CF70AC093E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "[Flow] - Register/Screens/RegisterViewController/Interactor/RegisterInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "didTapNextButton(email:password:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "57BCFC8B-5001-4779-88A7-1C973FBA3D9E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Services/AuthService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "register(email:password:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A9EF8290-3AEA-48A7-9E9E-EC6DD25A9C4B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Services/AuthService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "register(email:password:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
