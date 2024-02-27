@@ -12,5 +12,5 @@ struct ProfileViewModel {
     let userName: String
     let firstName: String
     let lastName: String
-    let profileImageUrl: String
+    let profileImageUrl: String?
 }

@@ -42,10 +42,10 @@ class LoginViewController: UIViewController {
     
     @objc private func didTapLoginButton() {
         
-//        guard let email = customView.emailTextField.text else { return }
-//        guard let password = customView.passwordTextField.text else { return }
+        guard let email = customView.emailTextField.text else { return }
+        guard let password = customView.passwordTextField.text else { return }
         
-        interactor.didTapLoginButton(email: "cagatayceker@gmail.com", password: "A1%0000000")
+        interactor.didTapLoginButton(email: email, password: password)
     }
 }
 

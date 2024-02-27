@@ -116,18 +116,22 @@ class ProfileView: UIView {
         ])
     }
     
-    func reloadWith(viewModels: ProfileViewModel) {
+    func reloadWith(viewModel: ProfileViewModel) {
         
-        profileUsername.text = viewModels.userName
-        profileFirstName.text = viewModels.firstName
-        profileLastName.text =  viewModels.lastName
+        profileUsername.text = viewModel.userName
+        profileFirstName.text = viewModel.firstName
+        profileLastName.text =  viewModel.lastName
         
-        DispatchQueue.global().async {
-            if let data = try? Data(contentsOf: URL(string: viewModels.profileImageUrl)!), let image = UIImage(data: data) {
-                DispatchQueue.main.async {
-                    self.profileIcon.image = image
+        if let imageUrl = viewModel.profileImageUrl, let url = URL(string: imageUrl) {
+            DispatchQueue.global().async {
+                if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self.profileIcon.image = image
+                    }
                 }
             }
+        } else {
+            self.profileIcon.image = UIImage(named: "defaultProfile")
         }
     }
 }

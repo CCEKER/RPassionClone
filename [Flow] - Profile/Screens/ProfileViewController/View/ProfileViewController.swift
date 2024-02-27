@@ -57,6 +57,6 @@ extension ProfileViewController: ProfileViewControllerProtocol {
    
     func displayProfile(_ viewModels: ProfileViewModel) {
         self.profileViewModels = viewModels
-        customView.reloadWith(viewModels: viewModels)
+        customView.reloadWith(viewModel: viewModels)
     }
 }

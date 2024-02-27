@@ -13,3 +13,12 @@ struct ErrorViewModel {
     let actionButtonTitle: String?
     let cancelButtonTitle: String
 }
+
+struct ErrorResponse: Codable {
+    let errors: [ErrorDetail]
+}
+
+struct ErrorDetail: Codable {
+    let code: String
+    let message: String
+}

@@ -10,6 +10,7 @@ import Swinject
 
 protocol RegisterFlowCoordinatorResolver {
     func resolveRegisterViewController(delegate: RegisterInteractorCoordinatorDelegate) -> UIViewController
+    func resolveVerificationFlowCoordinator(delegate: VerificationCodeFlowCoordinatorDelegate, presentingViewController: UINavigationController, email: String) -> VerificationCodeFlowCoordinatorProtocol
 }
 
 final class RegisterFlowCoordinatorModule: RegisterFlowCoordinatorResolver {
@@ -28,6 +29,15 @@ final class RegisterFlowCoordinatorModule: RegisterFlowCoordinatorResolver {
         guard let authService = resolver.resolve(AuthServiceProtocol.self) else {
             fatalError("AuthServiceProtocol should be registered")
         }
-        return RegisterViewController.build(coordinator: delegate, authService: authService)
+        
+        guard let userService = resolver.resolve(UserServiceProtocol.self) else {
+            fatalError("UserServiceProtocol should be registered")
+        }
+        return RegisterViewController.build(coordinator: delegate, authService: authService, userService: userService)
+    }
+    
+    func resolveVerificationFlowCoordinator(delegate: VerificationCodeFlowCoordinatorDelegate, presentingViewController: UINavigationController, email: String) -> VerificationCodeFlowCoordinatorProtocol {
+        let verificationFlowCoordinator = VerificationCodeFlowCoordinator.build(delegate: delegate, container: container, presentingViewController: presentingViewController, email: email)
+        return verificationFlowCoordinator
     }
 }

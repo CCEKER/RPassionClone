@@ -22,6 +22,7 @@ final class RegisterFlowCoordinator: RegisterFlowCoordinatorProtocol {
     private let delegate: RegisterFlowCoordinatorDelegate
     private var navigationController = UINavigationController()
     private let resolver: RegisterFlowCoordinatorResolver
+    private var verificationCodeFlowCoordinator: VerificationCodeFlowCoordinatorProtocol?
     
     init(window: UIWindow, delegate: RegisterFlowCoordinatorDelegate, resolver: RegisterFlowCoordinatorResolver) {
         self.window = window
@@ -31,11 +32,20 @@ final class RegisterFlowCoordinator: RegisterFlowCoordinatorProtocol {
     
     func start() {
         let registerViewController = resolver.resolveRegisterViewController(delegate: self)
-        navigationController.viewControllers = [registerViewController]
+        let navigationController = UINavigationController(rootViewController: registerViewController)
+        self.navigationController = navigationController
         self.window.rootViewController = navigationController
     }
 }
 
 extension RegisterFlowCoordinator: RegisterInteractorCoordinatorDelegate {
+    
+    func registerInteractorDidTapNextButton(email: String) {
+        verificationCodeFlowCoordinator = resolver.resolveVerificationFlowCoordinator(delegate: self, presentingViewController: self.navigationController, email: email)
+        verificationCodeFlowCoordinator?.start()
+    }
+}
+
+extension RegisterFlowCoordinator: VerificationCodeFlowCoordinatorDelegate {
     
 }
