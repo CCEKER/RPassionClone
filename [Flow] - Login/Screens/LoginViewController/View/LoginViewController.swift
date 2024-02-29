@@ -11,7 +11,7 @@ protocol LoginViewControllerProtocol: AnyObject {
     
 }
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, RPLoadingDisplayable {
     
     private let interactor: LoginInteractorProtocol
     private let customView = LoginView()
@@ -33,6 +33,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+		hideLoading()
         customView.loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
         customView.registerButton.addTarget(self, action: #selector(didTapRegisterButton), for: .touchUpInside)
     }
@@ -46,15 +47,11 @@ class LoginViewController: UIViewController {
         guard let email = customView.emailTextField.text else { return }
         guard let password = customView.passwordTextField.text else { return }
         
-        interactor.didTapLoginButton(email: email, password: password)
-        showActivity()
-    }
-    func showActivity() {
-        activityIndicator.center = self.view.center
-        activityIndicator.color = .blue
-        activityIndicator.alpha = 2.0
-        self.view.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
+		showLoading(viewModel: .init(caption: "Lütfen Bekleyin"))
+//		interactor.didTapLoginButton(email: email, password: password)
+//		DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
+//			
+//		}
     }
 }
 

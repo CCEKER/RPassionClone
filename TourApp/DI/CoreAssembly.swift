@@ -11,10 +11,6 @@ import Swinject
 final class CoreAssembly: Assembly {
     
     func assemble(container: Container) {
-        container.register(SessionServiceProtocol.self) { _ in
-            SessionService()
-        }
-        
         container.register(UserServiceProtocol.self) { _ in
             UserService()
         }.inObjectScope(.container)

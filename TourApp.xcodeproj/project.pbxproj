@@ -29,7 +29,6 @@
 		9D265C962B47E84100D44701 /* HomePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D265C952B47E84100D44701 /* HomePageTableViewCell.swift */; };
 		9D28754F2B6A4DDF00BBAA78 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D28754E2B6A4DDF00BBAA78 /* AuthService.swift */; };
 		9D2875512B6A4DEA00BBAA78 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2875502B6A4DEA00BBAA78 /* UserService.swift */; };
-		9D2875532B6A4DF400BBAA78 /* SessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2875522B6A4DF400BBAA78 /* SessionService.swift */; };
 		9D2875552B6A4F8200BBAA78 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2875542B6A4F8200BBAA78 /* User.swift */; };
 		9D2875582B6A503000BBAA78 /* CoreAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2875572B6A503000BBAA78 /* CoreAssembly.swift */; };
 		9D28755D2B6A513D00BBAA78 /* HomePageFlowCoordinatorModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D28755C2B6A513D00BBAA78 /* HomePageFlowCoordinatorModule.swift */; };
@@ -162,6 +161,9 @@
 		9DC990AD2B79C3B5001558D7 /* SelectModelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC990AC2B79C3B5001558D7 /* SelectModelTableViewCell.swift */; };
 		9DE690902B825BF30090E1E4 /* BrandService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE6908F2B825BF30090E1E4 /* BrandService.swift */; };
 		A136B1F314378EFAC50FA9CC /* Pods_TourApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F86D037B2DEDC7DA1D4ABA37 /* Pods_TourApp.framework */; };
+		E83572B42B91063400D63985 /* RPLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83572B32B91063400D63985 /* RPLoadingViewController.swift */; };
+		E83572B62B91080A00D63985 /* RPLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83572B52B91080A00D63985 /* RPLoadingView.swift */; };
+		E83572B82B9109D800D63985 /* RPLoadingDisplayable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83572B72B9109D800D63985 /* RPLoadingDisplayable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -190,7 +192,6 @@
 		9D265C952B47E84100D44701 /* HomePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageTableViewCell.swift; sourceTree = "<group>"; };
 		9D28754E2B6A4DDF00BBAA78 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		9D2875502B6A4DEA00BBAA78 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
-		9D2875522B6A4DF400BBAA78 /* SessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionService.swift; sourceTree = "<group>"; };
 		9D2875542B6A4F8200BBAA78 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9D2875572B6A503000BBAA78 /* CoreAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAssembly.swift; sourceTree = "<group>"; };
 		9D28755C2B6A513D00BBAA78 /* HomePageFlowCoordinatorModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageFlowCoordinatorModule.swift; sourceTree = "<group>"; };
@@ -323,6 +324,9 @@
 		9DC990AC2B79C3B5001558D7 /* SelectModelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModelTableViewCell.swift; sourceTree = "<group>"; };
 		9DE6908F2B825BF30090E1E4 /* BrandService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandService.swift; sourceTree = "<group>"; };
 		CE2DD4BA249292DFCBCE5BAC /* Pods-TourApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TourApp.release.xcconfig"; path = "Target Support Files/Pods-TourApp/Pods-TourApp.release.xcconfig"; sourceTree = "<group>"; };
+		E83572B32B91063400D63985 /* RPLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPLoadingViewController.swift; sourceTree = "<group>"; };
+		E83572B52B91080A00D63985 /* RPLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPLoadingView.swift; sourceTree = "<group>"; };
+		E83572B72B9109D800D63985 /* RPLoadingDisplayable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPLoadingDisplayable.swift; sourceTree = "<group>"; };
 		F86D037B2DEDC7DA1D4ABA37 /* Pods_TourApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TourApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -507,7 +511,6 @@
 			children = (
 				9D28754E2B6A4DDF00BBAA78 /* AuthService.swift */,
 				9D2875502B6A4DEA00BBAA78 /* UserService.swift */,
-				9D2875522B6A4DF400BBAA78 /* SessionService.swift */,
 				9D9972F52B7280890020D3CF /* NetworkLayerConstant.swift */,
 				9D7A58E32B74E988000105A9 /* HomePageService.swift */,
 				9D7A58EA2B750ED2000105A9 /* TourService.swift */,
@@ -857,6 +860,7 @@
 		9D8BC13A2B63799D0009DDA9 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				E83572B22B9105C500D63985 /* RPLoading */,
 				9D8BC13B2B6379C60009DDA9 /* CustomTabBarController */,
 			);
 			path = Components;
@@ -1423,6 +1427,16 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E83572B22B9105C500D63985 /* RPLoading */ = {
+			isa = PBXGroup;
+			children = (
+				E83572B32B91063400D63985 /* RPLoadingViewController.swift */,
+				E83572B52B91080A00D63985 /* RPLoadingView.swift */,
+				E83572B72B9109D800D63985 /* RPLoadingDisplayable.swift */,
+			);
+			path = RPLoading;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1575,9 +1589,9 @@
 				9D017A972B6277E8008C2D88 /* LoginPresenter.swift in Sources */,
 				9D21E0BE2B62BE4700167FBD /* DashboardFlowCoordinator.swift in Sources */,
 				9D7A58FA2B751A8F000105A9 /* TourDetailsViewController+Build.swift in Sources */,
-				9D2875532B6A4DF400BBAA78 /* SessionService.swift in Sources */,
 				9DC915982B7F6D9700CA0820 /* SelectedCarPresenter.swift in Sources */,
 				9DC6C4C22B8D2B2300E95C7F /* WelcomeViewController+Build.swift in Sources */,
+				E83572B62B91080A00D63985 /* RPLoadingView.swift in Sources */,
 				9D9972F62B7280890020D3CF /* NetworkLayerConstant.swift in Sources */,
 				9DC6C5002B8D685500E95C7F /* VerificationCodeFlowCoordinatorAssembly.swift in Sources */,
 				9D2875612B6A523500BBAA78 /* HomePageFlowCoordinator+Build.swift in Sources */,
@@ -1634,9 +1648,11 @@
 				9D401C6E2B84AF4E00D259E1 /* ParticipantTableViewCell.swift in Sources */,
 				9DC6C4BA2B8D2AF300E95C7F /* WelcomeFlowCoordinatorModule.swift in Sources */,
 				9DC6C5072B8D845D00E95C7F /* VerificationCodeViewState.swift in Sources */,
+				E83572B82B9109D800D63985 /* RPLoadingDisplayable.swift in Sources */,
 				9D77A5612B7AA42400AC85C3 /* CarService.swift in Sources */,
 				9DA4A6DA2B75743A004DA8B0 /* TourDetailsViewModel.swift in Sources */,
 				9D401C5D2B84907500D259E1 /* ParticipantsFlowCoordinator.swift in Sources */,
+				E83572B42B91063400D63985 /* RPLoadingViewController.swift in Sources */,
 				9D2875852B6A5B1400BBAA78 /* ProfileFlowCoordinatorAssembly.swift in Sources */,
 				9D7A58E42B74E988000105A9 /* HomePageService.swift in Sources */,
 				9D401C622B84909B00D259E1 /* ParticipantsViewState.swift in Sources */,

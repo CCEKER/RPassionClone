@@ -17,9 +17,9 @@ protocol ApplicationFlowCoordinatorResolver {
 }
 
 final class ApplicationFlowCoordinatorModule: ApplicationFlowCoordinatorResolver {
-    
+	
     private let container: Container
-    
+
     init(parentContainer: Container) {
         container = Container(parent: parentContainer)
         _ = Assembler([ApplicationFlowCoordinatorAssembly()], container: container)
