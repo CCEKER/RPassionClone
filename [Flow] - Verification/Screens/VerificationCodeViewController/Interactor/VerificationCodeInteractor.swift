@@ -12,7 +12,7 @@ protocol VerificationCodeInteractorProtocol {
 }
 
 protocol VerificationCodeInteractorCoordinatorDelegate: AnyObject {
-    
+    func didTapInteractorConfirmButton()
 }
 
 final class VerificationCodeInteractor {
@@ -39,6 +39,7 @@ extension VerificationCodeInteractor: VerificationCodeInteractorProtocol {
 
             case .success(let response):
                 self.userService.updateLoggedInUser(user: response.user, token: response.token)
+                self.coordinator?.didTapInteractorConfirmButton()
             
             case .failure(let error):
                 self.presenter.presentError(error.toVerificationErrorVerificationCode())

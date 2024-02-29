@@ -20,6 +20,7 @@ final class ApplicationFlowCoordinator: ApplicationFlowCoordinatorProtocol {
     private var profileFlowCoordinator: ProfileFlowCoordinatorProtocol?
     private var garageFlowCoordinator: GarageFlowCoordinatorProtocol?
     private var registerFlowCoordinator: RegisterFlowCoordinatorProtocol?
+    private var verificationFlowCoordinator: VerificationCodeFlowCoordinatorProtocol?
     private let resolver: ApplicationFlowCoordinatorResolver
    
     init(window: UIWindow, resolver: ApplicationFlowCoordinatorResolver) {
@@ -59,6 +60,13 @@ extension ApplicationFlowCoordinator: LoginFlowCoordinatorDelegate {
 }
 
 extension ApplicationFlowCoordinator: RegisterFlowCoordinatorDelegate {
+    
+    func verificationCodeFlowDidFinish() {
+        dashboardFlowCoordinator = resolver.resolveDashBoardFlowCoordinator(window: window, delegate: self)
+        dashboardFlowCoordinator?.start()
+        verificationFlowCoordinator = nil
+        registerFlowCoordinator = nil
+    }
     
     func registerFlowCoordinatorDidFinish() {
         loginFlowCoordinator = resolver.resolveLoginFlowCoordinator(window: self.window, delegate: self)

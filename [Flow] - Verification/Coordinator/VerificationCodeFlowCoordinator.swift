@@ -13,7 +13,7 @@ protocol VerificationCodeFlowCoordinatorProtocol {
 }
 
 protocol VerificationCodeFlowCoordinatorDelegate {
-    
+    func verificationFlowDidFinish()
 }
 
 final class VerificationCodeFlowCoordinator: VerificationCodeFlowCoordinatorProtocol {
@@ -37,4 +37,7 @@ final class VerificationCodeFlowCoordinator: VerificationCodeFlowCoordinatorProt
 
 extension VerificationCodeFlowCoordinator: VerificationCodeInteractorCoordinatorDelegate {
     
+    func didTapInteractorConfirmButton() {
+        delegate.verificationFlowDidFinish()
+    }
 }

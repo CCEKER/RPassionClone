@@ -14,6 +14,7 @@ protocol RegisterFlowCoordinatorProtocol {
 
 protocol RegisterFlowCoordinatorDelegate {
     func registerFlowCoordinatorDidFinish()
+    func verificationCodeFlowDidFinish()
 }
 
 final class RegisterFlowCoordinator: RegisterFlowCoordinatorProtocol {
@@ -51,5 +52,8 @@ extension RegisterFlowCoordinator: RegisterInteractorCoordinatorDelegate {
 }
 
 extension RegisterFlowCoordinator: VerificationCodeFlowCoordinatorDelegate {
-    
+   
+    func verificationFlowDidFinish() {
+        delegate.verificationCodeFlowDidFinish()
+    }
 }
