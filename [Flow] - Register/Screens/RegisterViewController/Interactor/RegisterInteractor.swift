@@ -42,8 +42,8 @@ extension RegisterInteractor: RegisterInteractorProtocol {
                 
                 switch result {
         
-                case .success(let response):
-                    self.userService.updateLoggedInUser(user: response.user, token: response.token)
+                case .success:
+                    //self.userService.updateLoggedInUser(user: response.user, token: response.token)
                     self.coordinator?.registerInteractorDidTapNextButton(email: email)
                 
                 case .failure(let error):

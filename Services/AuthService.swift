@@ -19,12 +19,12 @@ enum AuthServiceError: Error {
 
 protocol AuthServiceProtocol {
     func login(email: String, password: String, completion: @escaping (Result<AuthResponse, AuthServiceError>) -> Void)
-    func register(email: String, password: String, completion: @escaping (Result<AuthResponse, AuthServiceError>) -> Void)
+    func register(email: String, password: String, completion: @escaping (Result<Void, AuthServiceError>) -> Void)
     func verificationCode(email: String, verificationCode: String, completion: @escaping (Result<AuthResponse, AuthServiceError>) -> Void)
 }
 
 final class AuthService: AuthServiceProtocol {
-   
+    
     func login(email: String, password: String, completion: @escaping (Result<AuthResponse, AuthServiceError>) -> Void) {
         
         guard let loginUrl = URL(string: "\(NetworkLayerConstant.baseURL)/auth/login") else { return }
@@ -40,20 +40,18 @@ final class AuthService: AuthServiceProtocol {
         }
     }
     
-    func register(email: String, password: String, completion: @escaping (Result<AuthResponse, AuthServiceError>) -> Void) {
+    func register(email: String, password: String, completion: @escaping (Result<Void, AuthServiceError>) -> Void) {
         
         guard let url = URL(string: "\(NetworkLayerConstant.baseURL)/auth/register") else { return }
         let parameters: Parameters = ["email": email, "password": password]
         
-        AF.request(url, method: .post, parameters: parameters).responseDecodable(of: AuthResponse.self) { response in
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default).response { response in
             
-            switch response.result {
-                
-            case .success(let authResponse):
-                completion(.success(authResponse))
-                print(authResponse)
-             
-            case .failure:
+            let statusCode = response.response?.statusCode
+            switch statusCode {
+            case 201:
+                completion(.success(()))
+            case 400:
                 if let data = response.data {
                     do {
                         let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: data)
@@ -61,14 +59,15 @@ final class AuthService: AuthServiceProtocol {
                             completion(.failure(.otherError(message: errorDetail.message)))
                         }
                     } catch {
-                        completion(.failure(.jsonDecodingError))
-                        
+                        completion(.failure(.loginFailed))
                     }
                 }
+            default:
+                break
             }
         }
     }
-        
+    
         func verificationCode(email: String, verificationCode: String, completion: @escaping (Result<AuthResponse, AuthServiceError>) -> Void) {
             guard let url = URL(string: "\(NetworkLayerConstant.baseURL)/auth/verify-otp") else { return }
             let parameters: Parameters = ["email": email, "verificationCode": verificationCode]
@@ -77,7 +76,7 @@ final class AuthService: AuthServiceProtocol {
                 switch response.result {
                 case .success(let response):
                     completion(.success(response))
-                
+                    
                 case .failure:
                     if let data = response.data {
                         do {
@@ -93,7 +92,6 @@ final class AuthService: AuthServiceProtocol {
             }
         }
     }
-
 
 extension AuthServiceError {
     func toRegisterErrorResponse() -> ErrorResponse {
