@@ -15,7 +15,6 @@ class LoginViewController: UIViewController, RPLoadingDisplayable {
     
     private let interactor: LoginInteractorProtocol
     private let customView = LoginView()
-    private var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
     
     override func loadView() {
         view = customView
@@ -44,14 +43,11 @@ class LoginViewController: UIViewController, RPLoadingDisplayable {
     
     @objc private func didTapLoginButton() {
         
-        guard let email = customView.emailTextField.text else { return }
-        guard let password = customView.passwordTextField.text else { return }
+        guard let email = customView.emailTextField.text, !email.isEmpty else { return }
+        guard let password = customView.passwordTextField.text, !password.isEmpty else { return }
         
-		showLoading(viewModel: .init(caption: "Lütfen Bekleyin"))
-//		interactor.didTapLoginButton(email: email, password: password)
-//		DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
-//			
-//		}
+		showLoading(viewModel: .init(caption: "Loading"))
+		interactor.didTapLoginButton(email: email, password: password)
     }
 }
 
