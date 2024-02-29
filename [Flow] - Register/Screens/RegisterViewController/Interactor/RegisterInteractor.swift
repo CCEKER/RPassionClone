@@ -22,12 +22,10 @@ final class RegisterInteractor {
     weak var coordinator: RegisterInteractorCoordinatorDelegate?
     private let presenter: RegisterPresenterProtocol
     private let authService: AuthServiceProtocol
-    private let userService: UserServiceProtocol
     
-    init(presenter: RegisterPresenterProtocol, authService: AuthServiceProtocol, userService: UserServiceProtocol) {
+    init(presenter: RegisterPresenterProtocol, authService: AuthServiceProtocol) {
         self.presenter = presenter
         self.authService = authService
-        self.userService = userService
     }
 }
 

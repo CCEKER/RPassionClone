@@ -29,11 +29,7 @@ final class RegisterFlowCoordinatorModule: RegisterFlowCoordinatorResolver {
         guard let authService = resolver.resolve(AuthServiceProtocol.self) else {
             fatalError("AuthServiceProtocol should be registered")
         }
-        
-        guard let userService = resolver.resolve(UserServiceProtocol.self) else {
-            fatalError("UserServiceProtocol should be registered")
-        }
-        return RegisterViewController.build(coordinator: delegate, authService: authService, userService: userService)
+        return RegisterViewController.build(coordinator: delegate, authService: authService)
     }
     
     func resolveVerificationFlowCoordinator(delegate: VerificationCodeFlowCoordinatorDelegate, presentingViewController: UINavigationController, email: String) -> VerificationCodeFlowCoordinatorProtocol {

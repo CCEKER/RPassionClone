@@ -8,14 +8,14 @@
 import Foundation
 
 protocol VerificationCodePresenterProtocol {
-    func presentError(_ errorReponse: ErrorResponse, remaining: Int)
+    func presentError(_ errorReponse: ErrorResponse, remainingAttemp: Int)
 }
 
 final class VerificationCodePresenter: VerificationCodePresenterProtocol {
     
     weak var viewController: VerificationCodeViewControllerProtocol?
     
-    func presentError(_ errorReponse: ErrorResponse, remaining: Int) {
+    func presentError(_ errorReponse: ErrorResponse, remainingAttemp: Int) {
         var displayErrorMessage = ""
         
         for error in errorReponse.errors {
@@ -23,6 +23,6 @@ final class VerificationCodePresenter: VerificationCodePresenterProtocol {
                 displayErrorMessage = error.message
             }
         }
-        viewController?.displayViewState(.error(displayErrorMessage), remainingAttemp: remaining)
+        viewController?.displayViewState(.error(displayErrorMessage), remainingAttemp: remainingAttemp)
     }
 }

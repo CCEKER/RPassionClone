@@ -44,7 +44,7 @@ extension VerificationCodeInteractor: VerificationCodeInteractorProtocol {
             
             case .failure(let error):
                 self.remainingAttempts -= 1
-                self.presenter.presentError(error.toVerificationErrorVerificationCode(), remaining: self.remainingAttempts)
+                self.presenter.presentError(error.toVerificationErrorVerificationCode(), remainingAttemp: self.remainingAttempts)
             }
         }
     }
