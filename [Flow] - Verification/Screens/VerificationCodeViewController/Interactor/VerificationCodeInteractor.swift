@@ -22,6 +22,7 @@ final class VerificationCodeInteractor {
     private let authService: AuthServiceProtocol
     private let userService: UserServiceProtocol
     private var email: String
+    private var remainingAttempts = 3
     
     init(presenter: VerificationCodePresenterProtocol, authService: AuthServiceProtocol, userService: UserServiceProtocol, email: String) {
         self.presenter = presenter
@@ -42,7 +43,8 @@ extension VerificationCodeInteractor: VerificationCodeInteractorProtocol {
                 self.coordinator?.didTapInteractorConfirmButton()
             
             case .failure(let error):
-                self.presenter.presentError(error.toVerificationErrorVerificationCode())
+                self.remainingAttempts -= 1
+                self.presenter.presentError(error.toVerificationErrorVerificationCode(), remaining: self.remainingAttempts)
             }
         }
     }

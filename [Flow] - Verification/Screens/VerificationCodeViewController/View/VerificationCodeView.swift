@@ -7,7 +7,15 @@
 
 import UIKit
 
+protocol VerificationViewDelegate: AnyObject {
+    func timerDidFinish()
+}
+
 class VerificationCodeView: UIView {
+    
+    private var timer: Timer?
+    private var remainingSeconds: Int = 60
+    weak var delegate: VerificationViewDelegate?
     
     private let title: UILabel = {
         let view = UILabel()
@@ -34,10 +42,10 @@ class VerificationCodeView: UIView {
         let view = CustomTextField()
         view.textColor = .white
         view.placeholder = "Enter your verification code"
-        view.textAlignment = .center
+        view.textAlignment = .left
         view.backgroundColor = .background
         view.layer.cornerRadius = 5
-        view.isSecureTextEntry = true
+        view.isSecureTextEntry = false
         view.layer.masksToBounds = true
         view.keyboardType = .numberPad
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -54,15 +62,25 @@ class VerificationCodeView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-
+    
+    private var timerLabel: UILabel = {
+        let view = UILabel()
+        view.font = UIFont.boldSystemFont(ofSize: 15)
+        view.textAlignment = .natural
+        view.numberOfLines = 0
+        view.textColor = .white
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-    
+        
         setupViews()
         setupConstraints()
-        
+        startTimer()
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -74,12 +92,13 @@ class VerificationCodeView: UIView {
         addSubview(otpHolderView)
         otpHolderView.addSubview(otpTextField)
         addSubview(confirmButton)
+        addSubview(timerLabel)
     }
     
     private func setupConstraints() {
         
         NSLayoutConstraint.activate([
-        
+            
             title.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
             title.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             title.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
@@ -89,14 +108,49 @@ class VerificationCodeView: UIView {
             otpHolderView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             otpHolderView.heightAnchor.constraint(equalToConstant: 50),
             
+            timerLabel.topAnchor.constraint(equalTo: otpHolderView.bottomAnchor, constant: 10),
+            timerLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            
             confirmButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             confirmButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            confirmButton.topAnchor.constraint(equalTo: otpHolderView.bottomAnchor, constant: 20),
+            confirmButton.topAnchor.constraint(equalTo: timerLabel.bottomAnchor, constant: 20),
             confirmButton.heightAnchor.constraint(equalToConstant: 50)
+            
         ])
+    }
+    
+    private func startTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
+        updateTimerLabel()
+    }
+    
+    @objc private func updateTimerLabel() {
+        if remainingSeconds >= 0 {
+            
+            let fullText = "Time Remaining: "
+            let time = String(format: "%02d:%02d", remainingSeconds / 60, remainingSeconds % 60)
+            let attributedString = NSMutableAttributedString(string: fullText, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+            let timeAttributedString = NSAttributedString(string: time, attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemBlue])
+            attributedString.append(timeAttributedString)
+            timerLabel.attributedText = attributedString
+            remainingSeconds -= 1
+        } else {
+            timer?.invalidate()
+            timer = nil
+            delegate?.timerDidFinish()
+        }
     }
 }
 
 extension VerificationCodeView: UITextFieldDelegate {
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let currentText = textField.text ?? ""
+        guard let textRange = Range(range, in: currentText), let replacedText = currentText.replacingCharacters(in: textRange, with: string) as String? else {
+            return false
+        }
+
+        let newLength = replacedText.count
+        return newLength <= 4
+    }
 }

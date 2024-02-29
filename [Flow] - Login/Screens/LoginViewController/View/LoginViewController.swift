@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     
     private let interactor: LoginInteractorProtocol
     private let customView = LoginView()
+    private var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
     
     override func loadView() {
         view = customView
@@ -46,6 +47,14 @@ class LoginViewController: UIViewController {
         guard let password = customView.passwordTextField.text else { return }
         
         interactor.didTapLoginButton(email: email, password: password)
+        showActivity()
+    }
+    func showActivity() {
+        activityIndicator.center = self.view.center
+        activityIndicator.color = .blue
+        activityIndicator.alpha = 2.0
+        self.view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
     }
 }
 

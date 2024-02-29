@@ -8,7 +8,7 @@
 import UIKit
 
 protocol VerificationCodeViewControllerProtocol: AnyObject {
-    func displayViewState(_ viewState: VerificationCodeViewState)
+    func displayViewState(_ viewState: VerificationCodeViewState, remainingAttemp: Int)
 }
 
 class VerificationCodeViewController: UIViewController {
@@ -33,6 +33,7 @@ class VerificationCodeViewController: UIViewController {
         super.viewDidLoad()
         
         self.title = "Enter Verification Code"
+        customView.delegate = self
         
         customView.confirmButton.addTarget(self, action: #selector(didTapConfirmButton), for: .touchUpInside)
     }
@@ -44,21 +45,27 @@ class VerificationCodeViewController: UIViewController {
     }
 }
 
-extension VerificationCodeViewController: VerificationCodeViewControllerProtocol {
+extension VerificationCodeViewController: VerificationCodeViewControllerProtocol, VerificationViewDelegate {
     
-    func displayViewState(_ viewState: VerificationCodeViewState) {
+    func displayViewState(_ viewState: VerificationCodeViewState, remainingAttemp: Int) {
         
         switch viewState {
         case .initial:
             break
         case .error(let error):
-           showAlert(message: error)
+           showAlert(message: "\(error) \(remainingAttemp)")
         }
     }
     
     private func showAlert(message: String) {
         let alertController = UIAlertController(title: "Verification code is invalid", message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Try Again!", style: .default, handler: nil))
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func timerDidFinish() {
+        let alert = UIAlertController(title: "Time is up!", message: "Your time for entering the code has expired.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true)
     }
 }
