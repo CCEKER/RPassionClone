@@ -63,7 +63,7 @@ final class AuthService: AuthServiceProtocol {
                     }
                 }
             default:
-                break
+                completion(.failure(.loginFailed))
             }
         }
     }

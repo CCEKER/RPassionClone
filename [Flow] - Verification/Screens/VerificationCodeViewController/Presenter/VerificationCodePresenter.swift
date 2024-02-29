@@ -16,13 +16,9 @@ final class VerificationCodePresenter: VerificationCodePresenterProtocol {
     weak var viewController: VerificationCodeViewControllerProtocol?
     
     func presentError(_ errorReponse: ErrorResponse, remainingAttemp: Int) {
-        var displayErrorMessage = ""
         
-        for error in errorReponse.errors {
-            if error.code == "VERIFICATION_NOT_VALID" {
-                displayErrorMessage = error.message
-            }
-        }
-        viewController?.displayViewState(.error(displayErrorMessage), remainingAttemp: remainingAttemp)
+        guard let error = errorReponse.errors.first else { return }
+        
+        viewController?.displayViewState(.error(error.message), remainingAttemp: remainingAttemp)
     }
 }
