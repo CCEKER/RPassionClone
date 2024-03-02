@@ -104,9 +104,8 @@ extension ApplicationFlowCoordinator: DashboardFlowCoordinatorDelegate {
 
 extension ApplicationFlowCoordinator: EditProfileFlowCoordinatorDelegate {
     
-    func editProfileFlowDidFinis(user: User) {
-        guard let token = userService.token else { return }
-        self.userService.updateLoggedInUser(user: user, token: token)
+    func editProfileFlowDidFinish() {
+
         dashboardFlowCoordinator = resolver.resolveDashBoardFlowCoordinator(window: self.window, delegate: self)
         dashboardFlowCoordinator?.start()
         editProfileFlowCoordinator = nil

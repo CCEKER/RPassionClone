@@ -12,7 +12,7 @@ protocol EditProfileInteractorProtocol {
 }
 
 protocol EditProfileInteractorCoordinatorDelegate: AnyObject {
-    func editProfileFlowDidTapSaveButton(user: User)
+    func editProfileFlowDidTapSaveButton()
 }
 
 final class EditProfileInteractor {
@@ -37,7 +37,9 @@ extension EditProfileInteractor: EditProfileInteractorProtocol {
             DispatchQueue.main.async {
                 switch response {
                 case .success(let response):
-                    self.coordinator?.editProfileFlowDidTapSaveButton(user: response)
+                    guard let token = self.userService.token else { return }
+                    self.userService.updateLoggedInUser(user: response, token: token)
+                    self.coordinator?.editProfileFlowDidTapSaveButton()
                 case .failure(let error):
                     print("Error: \(error)")
                 }

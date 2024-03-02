@@ -214,7 +214,6 @@ class EditProfileView: UIView {
             profileImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
             profileImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
             profileImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
-            profileImageView.widthAnchor.constraint(equalToConstant: 60),
             profileImageView.heightAnchor.constraint(equalToConstant: 60),
             
             usernameHolderView.heightAnchor.constraint(equalToConstant: 50),

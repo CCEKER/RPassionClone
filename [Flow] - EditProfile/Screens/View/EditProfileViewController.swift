@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol EditProfileViewControllerProtocol: AnyObject {
+protocol EditProfileViewControllerProtocol: AnyObject, RPLoadingDisplayable {
     
 }
 
@@ -32,6 +32,8 @@ class EditProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.hideLoading()
+        
         self.title = "Edit My Profile"
         customView.saveButton.addTarget(self, action: #selector(didTapSaveButton), for: .touchUpInside)
     }
@@ -44,6 +46,7 @@ class EditProfileViewController: UIViewController {
         guard let dateOfBirth = customView.dateOfBirthTextField.text, !dateOfBirth.isEmpty else { return }
         guard let countryCode = customView.countryTextField.text, !countryCode.isEmpty else { return }
         //guard let instagram = customView.instagramTextField.text, !instagram.isEmpty else { return }
+        self.showLoading(viewModel: .init(caption: "Loading..."))
         
         interactor.editProfile(firstName: firstName, dateOfBirth: dateOfBirth, lastName: lastName, username: username, countrCode: countryCode)
     }
