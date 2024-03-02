@@ -9,7 +9,7 @@ import Alamofire
 
 enum AuthServiceError: Error {
     case loginFailed
-    case invalidURL
+    case invalidURL(String)
     case unkownError
     case jsonDecodingError
     case emailAlreadyInUse
@@ -25,7 +25,7 @@ protocol AuthServiceProtocol {
 }
 
 final class AuthService: AuthServiceProtocol {
-    
+   
     private let userService: UserServiceProtocol
     
     init(userService: UserServiceProtocol) {
@@ -100,9 +100,16 @@ final class AuthService: AuthServiceProtocol {
         }
     
     func editProfile(firstName: String, dateOfBirth: String, lastName: String, username: String, countryCode: String, completion: @escaping (Result<User, AuthServiceError>) -> Void) {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+
+        guard let dateOfBirthDate = dateFormatter.date(from: dateOfBirth) else { return }
+        let formattedDateOfBirth = dateFormatter.string(from: dateOfBirthDate)
+        
         guard let url = URL(string: "\(NetworkLayerConstant.baseURL)/users/update") else { return }
         var headers: HTTPHeaders = []
-        var parameters: Parameters = ["firstName": firstName, "dateOfBirth": dateOfBirth, "lastName": lastName, "username": username, "countrCode": countryCode]
+        let parameters: Parameters = ["firstName": firstName, "dateOfBirth": formattedDateOfBirth, "lastName": lastName, "username": username, "countryCode": countryCode]
         if let token = userService.token {
             headers.add(.authorization(bearerToken: token))
         }
@@ -111,8 +118,9 @@ final class AuthService: AuthServiceProtocol {
             switch response.result {
             case .success(let response):
                 completion(.success(response))
-            case .failure:
-                completion(.failure(.invalidURL))
+        
+            case .failure(let error):
+                completion(.failure(.invalidURL("Error: \(error)")))
             }
         }
     }

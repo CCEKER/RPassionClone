@@ -13,7 +13,7 @@ protocol EditProfileFlowCoordinatorProtocol {
 }
 
 protocol EditProfileFlowCoordinatorDelegate {
-    
+    func editProfileFlowDidFinis(user: User)
 }
 
 final class EditProfileFlowCoordinator: EditProfileFlowCoordinatorProtocol {
@@ -38,4 +38,7 @@ final class EditProfileFlowCoordinator: EditProfileFlowCoordinatorProtocol {
 
 extension EditProfileFlowCoordinator: EditProfileInteractorCoordinatorDelegate {
     
+    func editProfileFlowDidTapSaveButton(user: User) {
+        delegate.editProfileFlowDidFinis(user: user)
+    }
 }

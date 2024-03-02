@@ -32,15 +32,20 @@ class EditProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        customView.datePicker.addTarget(self, action: #selector(dateChanged(datePicker:)), for: .valueChanged)
-        
         self.title = "Edit My Profile"
+        customView.saveButton.addTarget(self, action: #selector(didTapSaveButton), for: .touchUpInside)
     }
     
-    @objc private func dateChanged(datePicker: UIDatePicker) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let dateOfBirth = dateFormatter.string(from: datePicker.date)
+    @objc private func didTapSaveButton() {
+       
+        guard let username = customView.usernameTextField.text, !username.isEmpty else { return }
+        guard let firstName = customView.firstNameTextField.text, !firstName.isEmpty else { return }
+        guard let lastName = customView.lastNameTextField.text, !lastName.isEmpty else { return }
+        guard let dateOfBirth = customView.dateOfBirthTextField.text, !dateOfBirth.isEmpty else { return }
+        guard let countryCode = customView.countryTextField.text, !countryCode.isEmpty else { return }
+        //guard let instagram = customView.instagramTextField.text, !instagram.isEmpty else { return }
+        
+        interactor.editProfile(firstName: firstName, dateOfBirth: dateOfBirth, lastName: lastName, username: username, countrCode: countryCode)
     }
 }
 

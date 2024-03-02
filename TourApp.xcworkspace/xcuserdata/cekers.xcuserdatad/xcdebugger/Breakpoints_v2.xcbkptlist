@@ -3,4 +3,69 @@
    uuid = "E8776212-00ED-4FDD-90F5-97644F0A0F56"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "021889A0-5E46-4675-9DF6-7618BD32738D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "[Flow] - EditProfile/Screens/Interactor/EditProfileInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "editProfile(firstName:dateOfBirth:lastName:username:countrCode:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "021889A0-5E46-4675-9DF6-7618BD32738D - afb96ce2ae0ca23c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.Result&lt;TourApp.UserModels, TourApp.AuthServiceError&gt;) -&gt; () in TourApp.EditProfileInteractor.editProfile(firstName: Swift.String, dateOfBirth: Swift.String, lastName: Swift.String, username: Swift.String, countrCode: Swift.String) -&gt; ()"
+                  moduleName = "TourApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cekers/Documents/Apps/RPassionClone/%5BFlow%5D%20-%20EditProfile/Screens/Interactor/EditProfileInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  uuid = "021889A0-5E46-4675-9DF6-7618BD32738D - 98ada209d52d4ae5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.Result&lt;TourApp.User, TourApp.AuthServiceError&gt;) -&gt; () in TourApp.EditProfileInteractor.editProfile(firstName: Swift.String, dateOfBirth: Swift.String, lastName: Swift.String, username: Swift.String, countrCode: Swift.String) -&gt; ()"
+                  moduleName = "TourApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cekers/Documents/Apps/RPassionClone/%5BFlow%5D%20-%20EditProfile/Screens/Interactor/EditProfileInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  uuid = "021889A0-5E46-4675-9DF6-7618BD32738D - 98ada209d52d4a84"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.Result&lt;TourApp.User, TourApp.AuthServiceError&gt;) -&gt; () in TourApp.EditProfileInteractor.editProfile(firstName: Swift.String, dateOfBirth: Swift.String, lastName: Swift.String, username: Swift.String, countrCode: Swift.String) -&gt; ()"
+                  moduleName = "TourApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cekers/Documents/Apps/RPassionClone/%5BFlow%5D%20-%20EditProfile/Screens/Interactor/EditProfileInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "112">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

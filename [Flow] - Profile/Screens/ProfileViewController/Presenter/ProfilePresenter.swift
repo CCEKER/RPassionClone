@@ -19,7 +19,7 @@ final class ProfilePresenter: ProfilePresenterProtocol {
     func presentProfile(_ user: User) {
         
         
-        let viewModels = ProfileViewModel(id: user.id, userName: user.username ?? "", firstName: user.firstName ?? "", lastName: user.lastName ?? "", profileImageUrl: user.profileImageUrl ?? "")
+        let viewModels = ProfileViewModel(id: user.id ?? "", userName: user.username ?? "", firstName: user.firstName ?? "", lastName: user.lastName ?? "", profileImageUrl: user.profileImageUrl ?? "")
         viewController?.displayProfile(viewModels)
     }
 }

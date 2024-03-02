@@ -52,6 +52,7 @@ class RegisterView: UIView {
         view.returnKeyType = .next
         view.attributedPlaceholder = NSAttributedString(string: view.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         view.leftViewMode = .always
+        view.autocapitalizationType = .none
         return view
     }()
     

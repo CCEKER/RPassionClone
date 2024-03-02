@@ -27,6 +27,10 @@ final class EditProfileFlowCoordinatorModule: EditProfileFlowCoordinatorResolver
         guard let authService = resolver.resolve(AuthServiceProtocol.self) else {
             fatalError("AuthServiceProtocol should be registered")
         }
-        return EditProfileViewController.build(coordinator: delegate, authService: authService)
+        
+        guard let userService = resolver.resolve(UserServiceProtocol.self) else {
+            fatalError("UserServiceProtocol should be registered")
+        }
+        return EditProfileViewController.build(coordinator: delegate, authService: authService, userService: userService)
     }
 }

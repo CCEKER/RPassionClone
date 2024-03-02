@@ -12,7 +12,7 @@ protocol EditProfileInteractorProtocol {
 }
 
 protocol EditProfileInteractorCoordinatorDelegate: AnyObject {
-    
+    func editProfileFlowDidTapSaveButton(user: User)
 }
 
 final class EditProfileInteractor {
@@ -20,22 +20,27 @@ final class EditProfileInteractor {
     weak var coordinator: EditProfileInteractorCoordinatorDelegate?
     private let presenter: EditProfilePresenterProtocol
     private var authService: AuthServiceProtocol
+    private var userService: UserServiceProtocol
     
-    init(presenter: EditProfilePresenterProtocol, authService: AuthServiceProtocol) {
+    init(presenter: EditProfilePresenterProtocol, authService: AuthServiceProtocol, userService: UserServiceProtocol) {
         self.presenter = presenter
         self.authService = authService
+        self.userService = userService
     }
 }
 
 extension EditProfileInteractor: EditProfileInteractorProtocol {
     
     func editProfile(firstName: String, dateOfBirth: String, lastName: String, username: String, countrCode: String) {
-        authService.editProfile(firstName: firstName, dateOfBirth: dateOfBirth, lastName: lastName, username: username, countryCode: countrCode) { response in
-            switch response {
-            case .success(let success):
-                
-            case .failure(let failure):
-                <#code#>
+        authService.editProfile(firstName: firstName, dateOfBirth: dateOfBirth, lastName: lastName, username: username, countryCode: countrCode) { [weak self] response in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                switch response {
+                case .success(let response):
+                    self.coordinator?.editProfileFlowDidTapSaveButton(user: response)
+                case .failure(let error):
+                    print("Error: \(error)")
+                }
             }
         }
     }
