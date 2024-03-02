@@ -11,7 +11,7 @@ protocol VerificationCodeViewControllerProtocol: AnyObject {
     func displayViewState(_ viewState: VerificationCodeViewState, remainingAttemp: Int)
 }
 
-class VerificationCodeViewController: UIViewController {
+class VerificationCodeViewController: UIViewController, RPLoadingDisplayable {
     
     private let customView = VerificationCodeView()
     private let interactor: VerificationCodeInteractorProtocol
@@ -32,6 +32,8 @@ class VerificationCodeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        hideLoading()
+        
         self.title = "Enter Verification Code"
         customView.delegate = self
         
@@ -41,6 +43,7 @@ class VerificationCodeViewController: UIViewController {
     @objc private func didTapConfirmButton() {
         
         guard let verificationCode = customView.otpTextField.text, !verificationCode.isEmpty else { return }
+        showLoading(viewModel: .init(caption: "Loading..."))
         interactor.didTapConfirmButton(verificationCode: verificationCode)
     }
 }
@@ -53,7 +56,7 @@ extension VerificationCodeViewController: VerificationCodeViewControllerProtocol
         case .initial:
             break
         case .error(let error):
-           showAlert(message: "\(error) \(remainingAttemp)")
+           showAlert(message: "\(error)\(remainingAttemp)")
         }
     }
     

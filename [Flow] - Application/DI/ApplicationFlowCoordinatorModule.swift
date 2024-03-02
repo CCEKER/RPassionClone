@@ -14,6 +14,7 @@ protocol ApplicationFlowCoordinatorResolver {
     func resolveLoginFlowCoordinator(window: UIWindow, delegate: LoginFlowCoordinatorDelegate) -> LoginFlowCoordinatorProtocol
     func resolveDashBoardFlowCoordinator(window: UIWindow, delegate: DashboardFlowCoordinatorDelegate) -> DashboardFlowCoordinatorProtocol
     func resolveRegisterFlowCoordinator(window: UIWindow, delegate: RegisterFlowCoordinatorDelegate) -> RegisterFlowCoordinatorProtocol
+    func resolveEditProfileFlowCoordinator(window: UIWindow, delegate: EditProfileFlowCoordinatorDelegate) -> EditProfileFlowCoordinatorProtocol
 }
 
 final class ApplicationFlowCoordinatorModule: ApplicationFlowCoordinatorResolver {
@@ -39,5 +40,9 @@ final class ApplicationFlowCoordinatorModule: ApplicationFlowCoordinatorResolver
     
     func resolveRegisterFlowCoordinator(window: UIWindow, delegate: RegisterFlowCoordinatorDelegate) -> RegisterFlowCoordinatorProtocol {
         RegisterFlowCoordinator.build(window: window, delegate: delegate, container: container)
+    }
+    
+    func resolveEditProfileFlowCoordinator(window: UIWindow, delegate: EditProfileFlowCoordinatorDelegate) -> EditProfileFlowCoordinatorProtocol {
+        EditProfileFlowCoordinator.build(window: window, delegate: delegate, container: container)
     }
 }

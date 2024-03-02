@@ -33,7 +33,7 @@ final class ParticipantsFlowCoordinatorModule: ParticipantsFlowCoordinatorResolv
     }
     
     func resolveGarageFlowCoordinator(delegate: GarageFlowCoordinatorDelegate, driverId: String, presentingViewController: UINavigationController) -> GarageFlowCoordinatorProtocol {
-		let garageFlowCoordinator = GarageFlowCoordinator.build(startMode: .push(presentingViewController), delegate: delegate, driverId: driverId, container: container)
+        let garageFlowCoordinator = GarageFlowCoordinator.build(startMode: .push(presentingViewController), delegate: delegate, driverId: driverId, container: container)
         return garageFlowCoordinator
     }
 }

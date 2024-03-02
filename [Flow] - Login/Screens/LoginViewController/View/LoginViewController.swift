@@ -31,7 +31,7 @@ class LoginViewController: UIViewController, RPLoadingDisplayable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
 		hideLoading()
         customView.loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
         customView.registerButton.addTarget(self, action: #selector(didTapRegisterButton), for: .touchUpInside)
@@ -45,8 +45,8 @@ class LoginViewController: UIViewController, RPLoadingDisplayable {
         
         guard let email = customView.emailTextField.text, !email.isEmpty else { return }
         guard let password = customView.passwordTextField.text, !password.isEmpty else { return }
-        
-		showLoading(viewModel: .init(caption: "Loading"))
+    
+		showLoading(viewModel: .init(caption: "Loading..."))
 		interactor.didTapLoginButton(email: email, password: password)
     }
 }

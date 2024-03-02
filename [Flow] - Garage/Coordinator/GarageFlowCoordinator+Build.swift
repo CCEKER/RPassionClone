@@ -17,7 +17,7 @@ extension GarageFlowCoordinator {
 		case present(UIViewController)
 	}
 	
-	static func build(startMode: StartMode, delegate: GarageFlowCoordinatorDelegate, driverId: String, container: Container) -> GarageFlowCoordinatorProtocol {
+    static func build(startMode: StartMode, delegate: GarageFlowCoordinatorDelegate, driverId: String, container: Container) -> GarageFlowCoordinatorProtocol {
         let module = GarageFlowCoordinatorModule(parentContainer: container)
 		return GarageFlowCoordinator(startMode: startMode, delegate: delegate, driverId: driverId, resolver: module)
     }

@@ -9,7 +9,7 @@ import UIKit
 import Swinject
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    
     var window: UIWindow?
     var applicationFlowCoordinator: ApplicationFlowCoordinatorProtocol?
     private var rootContainer: Container = Container()

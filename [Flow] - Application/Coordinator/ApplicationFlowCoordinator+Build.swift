@@ -11,6 +11,7 @@ import Swinject
 extension ApplicationFlowCoordinator {
     static func build(window: UIWindow, container: Container) -> ApplicationFlowCoordinatorProtocol {
         let module = ApplicationFlowCoordinatorModule(parentContainer: container)
-        return ApplicationFlowCoordinator(window: window, resolver: module)
+        let userService = container.resolve(UserServiceProtocol.self)!
+        return ApplicationFlowCoordinator(window: window, resolver: module, userService: userService)
     }
 }

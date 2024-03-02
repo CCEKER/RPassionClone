@@ -11,7 +11,7 @@ protocol RegisterViewControllerProtocol: AnyObject {
     func displayViewState(_ viewState: RegisterViewState)
 }
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController, RPLoadingDisplayable {
     
     private let customView = RegisterView()
     private let interactor: RegisterInteractorProtocol
@@ -32,7 +32,10 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        hideLoading()
+        
         self.title = "Register"
+        
         customView.nextButton.addTarget(self, action: #selector(didTapNextButton), for: .touchUpInside)
         customView.backLoginButton.addTarget(self, action: #selector(didTapBackLoginButton), for: .touchUpInside)
     }
@@ -46,6 +49,7 @@ class RegisterViewController: UIViewController {
         guard let email = customView.emailTextField.text, !email.isEmpty else { return }
         guard let password = customView.passwordTextField.text, !password.isEmpty else { return }
         
+        showLoading(viewModel: .init(caption: "Loading..."))
         interactor.didTapNextButton(email: email, password: password)
     }
 }

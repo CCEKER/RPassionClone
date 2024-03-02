@@ -17,10 +17,13 @@ protocol DashboardFlowCoordinatorResolver {
 final class DashboardFlowCoordinatorModule: DashboardFlowCoordinatorResolver {
     
     private let container: Container
+    private let resolver: Resolver
     
+
     init(parentContainer: Container) {
         container = Container(parent: parentContainer)
         _ = Assembler([DashboardFlowCoordinatorAssembly()], container: container)
+        self.resolver = container
     }
     
     func resolveHomePageFlowCoordinator(tabBarController: UITabBarController, delegate: HomePageFlowCoordinatorDelegate) -> HomePageFlowCoordinatorProtocol {
@@ -32,10 +35,10 @@ final class DashboardFlowCoordinatorModule: DashboardFlowCoordinatorResolver {
     }
     
     func resolveGarageFlowCoordinator(tabBarController: UITabBarController, delegate: GarageFlowCoordinatorDelegate) -> GarageFlowCoordinatorProtocol {
-		let userService = container.resolve(UserServiceProtocol.self)!
-		guard let driverId = userService.user?.id else {
+		let userService = resolver.resolve(UserServiceProtocol.self)!
+        guard let driverId = userService.user?.id else {
 			fatalError("user must be logged in")
 		}
-		return GarageFlowCoordinator.build(startMode: .toTabBar(tabBarController), delegate: delegate, driverId: driverId, container: container)
+        return GarageFlowCoordinator.build(startMode: .toTabBar(tabBarController), delegate: delegate, driverId: driverId, container: container)
     }
 }

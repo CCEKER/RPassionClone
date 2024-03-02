@@ -21,16 +21,25 @@ final class ApplicationFlowCoordinator: ApplicationFlowCoordinatorProtocol {
     private var garageFlowCoordinator: GarageFlowCoordinatorProtocol?
     private var registerFlowCoordinator: RegisterFlowCoordinatorProtocol?
     private var verificationFlowCoordinator: VerificationCodeFlowCoordinatorProtocol?
+    private var editProfileFlowCoordinator: EditProfileFlowCoordinatorProtocol?
     private let resolver: ApplicationFlowCoordinatorResolver
+    private let userService: UserServiceProtocol
    
-    init(window: UIWindow, resolver: ApplicationFlowCoordinatorResolver) {
+    init(window: UIWindow, resolver: ApplicationFlowCoordinatorResolver, userService: UserServiceProtocol) {
         self.window = window
         self.resolver = resolver
+        self.userService = userService
     }
     
     func start() {
-        welcomeFlowCoordinator = resolver.resolveWelcomeFlowCoordinator(window: self.window, delegate: self)
-        welcomeFlowCoordinator?.start()
+        
+        if userService.user != nil {
+            dashboardFlowCoordinator = resolver.resolveDashBoardFlowCoordinator(window: self.window, delegate: self)
+            dashboardFlowCoordinator?.start()
+        } else {
+            welcomeFlowCoordinator = resolver.resolveWelcomeFlowCoordinator(window: self.window, delegate: self)
+            welcomeFlowCoordinator?.start()
+        }
     }
 }
 
@@ -62,8 +71,8 @@ extension ApplicationFlowCoordinator: LoginFlowCoordinatorDelegate {
 extension ApplicationFlowCoordinator: RegisterFlowCoordinatorDelegate {
     
     func verificationCodeFlowDidFinish() {
-        dashboardFlowCoordinator = resolver.resolveDashBoardFlowCoordinator(window: window, delegate: self)
-        dashboardFlowCoordinator?.start()
+        editProfileFlowCoordinator = resolver.resolveEditProfileFlowCoordinator(window: self.window, delegate: self)
+        editProfileFlowCoordinator?.start()
         verificationFlowCoordinator = nil
         registerFlowCoordinator = nil
     }
@@ -78,9 +87,11 @@ extension ApplicationFlowCoordinator: RegisterFlowCoordinatorDelegate {
 extension ApplicationFlowCoordinator: DashboardFlowCoordinatorDelegate {
     
     func profileFlowCoordinatorDidFinish() {
-    
+        
+        
         loginFlowCoordinator = resolver.resolveLoginFlowCoordinator(window: window, delegate: self)
         loginFlowCoordinator?.start()
+        userService.logout()
         profileFlowCoordinator = nil
     }
     
@@ -89,4 +100,8 @@ extension ApplicationFlowCoordinator: DashboardFlowCoordinatorDelegate {
         dashboardFlowCoordinator?.start()
         garageFlowCoordinator = nil
     }
+}
+
+extension ApplicationFlowCoordinator: EditProfileFlowCoordinatorDelegate {
+    
 }

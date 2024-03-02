@@ -60,6 +60,7 @@ class LoginView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.attributedPlaceholder = NSAttributedString(string: view.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         view.leftViewMode = .always
+        view.autocapitalizationType = .none
         return view
     }()
     

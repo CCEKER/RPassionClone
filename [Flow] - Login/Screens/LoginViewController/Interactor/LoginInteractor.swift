@@ -41,6 +41,10 @@ extension LoginInteractor: LoginInteractorProtocol {
                 switch result {
                 case .success(let response):
                     self.userService.updateLoggedInUser(user: response.user, token: response.token)
+                    if let userData = try? JSONEncoder().encode(response.user) {
+                        UserDefaults.standard.set(userData, forKey: "user")
+                    }
+                    UserDefaults.standard.set(response.token, forKey: "token")
                     self.coordinator?.loginInteractorUserDidLogin()
                     
                 case .failure(let error):
