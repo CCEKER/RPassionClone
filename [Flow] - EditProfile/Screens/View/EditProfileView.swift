@@ -88,6 +88,7 @@ class EditProfileView: UIView {
         view.attributedPlaceholder = NSAttributedString(string: view.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         view.leftViewMode = .always
         view.autocapitalizationType = .none
+        view.autocorrectionType = .no
         return view
     }()
     
@@ -102,6 +103,7 @@ class EditProfileView: UIView {
         view.attributedPlaceholder = NSAttributedString(string: view.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         view.leftViewMode = .always
         view.autocapitalizationType = .none
+        view.autocorrectionType = .no
         return view
     }()
     
@@ -116,13 +118,13 @@ class EditProfileView: UIView {
         view.attributedPlaceholder = NSAttributedString(string: view.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         view.leftViewMode = .always
         view.autocapitalizationType = .none
+        view.autocorrectionType = .no
         return view
     }()
     
     let dateOfBirthTextField: CustomTextField = {
         let view = CustomTextField()
         view.textColor = .white
-        view.placeholder = "Date Of Birth"
         view.backgroundColor = .background
         view.layer.cornerRadius = 5
         view.layer.masksToBounds = true
@@ -130,6 +132,8 @@ class EditProfileView: UIView {
         view.attributedPlaceholder = NSAttributedString(string: view.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         view.leftViewMode = .always
         view.autocapitalizationType = .none
+        view.autocorrectionType = .no
+        view.placeholder = "Date Of Birth"
         return view
     }()
     
@@ -144,6 +148,7 @@ class EditProfileView: UIView {
         view.attributedPlaceholder = NSAttributedString(string: view.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         view.leftViewMode = .always
         view.autocapitalizationType = .none
+        view.autocorrectionType = .no
         return view
     }()
     
@@ -158,6 +163,7 @@ class EditProfileView: UIView {
         view.attributedPlaceholder = NSAttributedString(string: view.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         view.leftViewMode = .always
         view.autocapitalizationType = .none
+        view.autocorrectionType = .no
         return view
     }()
     
@@ -181,7 +187,7 @@ class EditProfileView: UIView {
         view.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
         return view
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -202,6 +208,7 @@ class EditProfileView: UIView {
         lastNameHolderView.addSubview(lastNameTextField)
         instagramHolderView.addSubview(instagramTextField)
         dateOfBirthHolderView.addSubview(dateOfBirthTextField)
+      
         countryCodeHolderView.addSubview(countryTextField)
         addSubview(stackView)
         addSubview(saveButton)
@@ -226,7 +233,7 @@ class EditProfileView: UIView {
             stackView.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 35),
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            
+          
             saveButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -60),
             saveButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             saveButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),

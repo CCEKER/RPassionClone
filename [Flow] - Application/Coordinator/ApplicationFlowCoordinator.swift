@@ -105,7 +105,7 @@ extension ApplicationFlowCoordinator: DashboardFlowCoordinatorDelegate {
 extension ApplicationFlowCoordinator: EditProfileFlowCoordinatorDelegate {
     
     func editProfileFlowDidFinish() {
-
+        
         dashboardFlowCoordinator = resolver.resolveDashBoardFlowCoordinator(window: self.window, delegate: self)
         dashboardFlowCoordinator?.start()
         editProfileFlowCoordinator = nil

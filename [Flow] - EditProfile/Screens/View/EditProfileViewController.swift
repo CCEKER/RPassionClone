@@ -35,6 +35,7 @@ class EditProfileViewController: UIViewController {
         self.hideLoading()
         
         self.title = "Edit My Profile"
+        
         customView.saveButton.addTarget(self, action: #selector(didTapSaveButton), for: .touchUpInside)
     }
     
