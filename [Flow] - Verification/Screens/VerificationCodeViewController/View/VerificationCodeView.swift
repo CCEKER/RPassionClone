@@ -14,7 +14,7 @@ protocol VerificationViewDelegate: AnyObject {
 class VerificationCodeView: UIView {
     
     private var timer: Timer?
-    private var remainingSeconds: Int = 60
+    var remainingSeconds: Int = 60
     weak var delegate: VerificationViewDelegate?
     
     private let title: UILabel = {
@@ -63,13 +63,23 @@ class VerificationCodeView: UIView {
         return view
     }()
     
-    private var timerLabel: UILabel = {
+    var timerLabel: UILabel = {
         let view = UILabel()
         view.font = UIFont.boldSystemFont(ofSize: 15)
         view.textAlignment = .natural
         view.numberOfLines = 0
         view.textColor = .white
+        view.isHidden = true
         view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    let resendCodeButton: UIButton = {
+        let view = UIButton(type: .system)
+        view.setTitle("Resend Code", for: .normal)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .clear
+        view.setTitleColor(.systemBlue, for: .normal)
         return view
     }()
     
@@ -78,7 +88,6 @@ class VerificationCodeView: UIView {
         
         setupViews()
         setupConstraints()
-        startTimer()
     }
     
     required init?(coder: NSCoder) {
@@ -93,6 +102,7 @@ class VerificationCodeView: UIView {
         otpHolderView.addSubview(otpTextField)
         addSubview(confirmButton)
         addSubview(timerLabel)
+        addSubview(resendCodeButton)
     }
     
     private func setupConstraints() {
@@ -108,18 +118,20 @@ class VerificationCodeView: UIView {
             otpHolderView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             otpHolderView.heightAnchor.constraint(equalToConstant: 50),
             
+            resendCodeButton.topAnchor.constraint(equalTo: otpHolderView.bottomAnchor, constant: 10),
+            resendCodeButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            
             timerLabel.topAnchor.constraint(equalTo: otpHolderView.bottomAnchor, constant: 10),
             timerLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             
             confirmButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             confirmButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            confirmButton.topAnchor.constraint(equalTo: timerLabel.bottomAnchor, constant: 20),
+            confirmButton.topAnchor.constraint(equalTo: resendCodeButton.bottomAnchor, constant: 15),
             confirmButton.heightAnchor.constraint(equalToConstant: 50)
-            
         ])
     }
     
-    private func startTimer() {
+    func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
         updateTimerLabel()
     }

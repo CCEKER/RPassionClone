@@ -9,6 +9,7 @@ import UIKit
 
 protocol VerificationCodeViewControllerProtocol: AnyObject {
     func displayViewState(_ viewState: VerificationCodeViewState, remainingAttemp: Int)
+    func displayResendCodeResult(success: Bool)
 }
 
 class VerificationCodeViewController: UIViewController, RPLoadingDisplayable {
@@ -38,6 +39,15 @@ class VerificationCodeViewController: UIViewController, RPLoadingDisplayable {
         customView.delegate = self
         
         customView.confirmButton.addTarget(self, action: #selector(didTapConfirmButton), for: .touchUpInside)
+        customView.resendCodeButton.addTarget(self, action: #selector(didTapResendCodeButton), for: .touchUpInside)
+    }
+    
+    @objc private func didTapResendCodeButton() {
+        customView.timerLabel.isHidden = false
+        customView.resendCodeButton.isHidden = true
+        customView.remainingSeconds = 60
+        customView.startTimer()
+        interactor.didTapResendCodeButton()
     }
     
     @objc private func didTapConfirmButton() {
@@ -70,5 +80,14 @@ extension VerificationCodeViewController: VerificationCodeViewControllerProtocol
         let alert = UIAlertController(title: "Time is up!", message: "Your time for entering the code has expired.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true)
+    }
+    
+    func displayResendCodeResult(success: Bool) {
+        
+        if success {
+            showAlert(message: "Verification Code Resent")
+        } else {
+            showAlert(message: "Failed to send verification code")
+        }
     }
 }

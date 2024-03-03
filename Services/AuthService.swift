@@ -22,6 +22,7 @@ protocol AuthServiceProtocol {
     func register(email: String, password: String, completion: @escaping (Result<Void, AuthServiceError>) -> Void)
     func verificationCode(email: String, verificationCode: String, completion: @escaping (Result<AuthResponse, AuthServiceError>) -> Void)
     func editProfile(firstName: String, dateOfBirth: String, lastName: String, username: String, countryCode: String, completion: @escaping (Result<User, AuthServiceError>) -> Void)
+    func resendVerificationCode(email: String, completion: @escaping (Result<AuthResponse, AuthServiceError>) -> Void)
 }
 
 final class AuthService: AuthServiceProtocol {
@@ -98,6 +99,32 @@ final class AuthService: AuthServiceProtocol {
                 }
             }
         }
+    
+    func resendVerificationCode(email: String, completion: @escaping (Result<AuthResponse, AuthServiceError>) -> Void) {
+        
+        guard let url = URL(string: "\(NetworkLayerConstant.baseURL)/auth/resend-verify-otp") else { return }
+
+           let parameters: Parameters = ["email": email]
+
+           AF.request(url, method: .post, parameters: parameters).responseDecodable(of: AuthResponse.self) { response in
+               switch response.result {
+               case .success(let response):
+                   completion(.success(response))
+
+               case .failure:
+                   if let data = response.data {
+                       do {
+                           let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: data)
+                           if let errorDetail = errorResponse.errors.first, errorDetail.code == "VERIFICATION_NOT_VALID" {
+                               completion(.failure(.otherError(message: errorDetail.message)))
+                           }
+                       } catch {
+                           completion(.failure(.jsonDecodingError))
+                       }
+                   }
+               }
+           }
+    }
     
     func editProfile(firstName: String, dateOfBirth: String, lastName: String, username: String, countryCode: String, completion: @escaping (Result<User, AuthServiceError>) -> Void) {
         

@@ -9,6 +9,7 @@ import Foundation
 
 protocol VerificationCodeInteractorProtocol {
     func didTapConfirmButton(verificationCode: String)
+    func didTapResendCodeButton()
 }
 
 protocol VerificationCodeInteractorCoordinatorDelegate: AnyObject {
@@ -45,6 +46,18 @@ extension VerificationCodeInteractor: VerificationCodeInteractorProtocol {
             case .failure(let error):
                 self.remainingAttempts -= 1
                 self.presenter.presentError(error.toVerificationErrorVerificationCode(), remainingAttemp: self.remainingAttempts)
+            }
+        }
+    }
+    
+    func didTapResendCodeButton() {
+       
+        authService.resendVerificationCode(email: email) { result in
+            switch result {
+            case .success:
+                self.presenter.presentResendCodeResponse(success: true)
+            case .failure(let error):
+                print("Error: \(error)")
             }
         }
     }
