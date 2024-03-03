@@ -44,7 +44,7 @@ class EditProfileViewController: UIViewController {
         guard let username = customView.usernameTextField.text, !username.isEmpty else { return }
         guard let firstName = customView.firstNameTextField.text, !firstName.isEmpty else { return }
         guard let lastName = customView.lastNameTextField.text, !lastName.isEmpty else { return }
-        guard let dateOfBirth = customView.dateOfBirthTextField.text, !dateOfBirth.isEmpty else { return }
+        guard let dateOfBirth = customView.rpDatePicker.dateOfBirthLabel.text, !dateOfBirth.isEmpty else { return }
         guard let countryCode = customView.countryTextField.text, !countryCode.isEmpty else { return }
         //guard let instagram = customView.instagramTextField.text, !instagram.isEmpty else { return }
         self.showLoading(viewModel: .init(caption: "Loading..."))

@@ -9,6 +9,8 @@ import UIKit
 
 class EditProfileView: UIView {
     
+    let rpDatePicker = RPDatePicker()
+    
     private let profileImageView: UIImageView = {
         let view = UIImageView(image: UIImage(named: "defaultProfile"))
         view.contentMode = .scaleAspectFit
@@ -48,16 +50,6 @@ class EditProfileView: UIView {
     }()
     
     private let instagramHolderView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .background
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor.white.cgColor
-        view.layer.cornerRadius = 5
-        return view
-    }()
-    
-    private let dateOfBirthHolderView: UIView = {
         let view = UIView()
         view.backgroundColor = .background
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -122,21 +114,6 @@ class EditProfileView: UIView {
         return view
     }()
     
-    let dateOfBirthTextField: CustomTextField = {
-        let view = CustomTextField()
-        view.textColor = .white
-        view.backgroundColor = .background
-        view.layer.cornerRadius = 5
-        view.layer.masksToBounds = true
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.attributedPlaceholder = NSAttributedString(string: view.placeholder ?? "", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
-        view.leftViewMode = .always
-        view.autocapitalizationType = .none
-        view.autocorrectionType = .no
-        view.placeholder = "Date Of Birth"
-        return view
-    }()
-    
     let countryTextField: CustomTextField = {
         let view = CustomTextField()
         view.textColor = .white
@@ -168,7 +145,7 @@ class EditProfileView: UIView {
     }()
     
     private lazy var stackView: UIStackView = {
-       let view = UIStackView(arrangedSubviews: [usernameHolderView, firstNameHolderView, lastNameHolderView, dateOfBirthHolderView, countryCodeHolderView, instagramHolderView])
+        let view = UIStackView(arrangedSubviews: [usernameHolderView, firstNameHolderView, lastNameHolderView, rpDatePicker, countryCodeHolderView, instagramHolderView])
         view.axis = .vertical
         view.distribution = .fill
         view.alignment = .fill
@@ -187,7 +164,7 @@ class EditProfileView: UIView {
         view.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
         return view
     }()
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -207,8 +184,6 @@ class EditProfileView: UIView {
         firstNameHolderView.addSubview(firstNameTextField)
         lastNameHolderView.addSubview(lastNameTextField)
         instagramHolderView.addSubview(instagramTextField)
-        dateOfBirthHolderView.addSubview(dateOfBirthTextField)
-      
         countryCodeHolderView.addSubview(countryTextField)
         addSubview(stackView)
         addSubview(saveButton)
@@ -216,8 +191,10 @@ class EditProfileView: UIView {
     
     private func setupConstraints() {
         
-        NSLayoutConstraint.activate([
+        rpDatePicker.translatesAutoresizingMaskIntoConstraints = false
         
+        NSLayoutConstraint.activate([
+            
             profileImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
             profileImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
             profileImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
@@ -227,13 +204,13 @@ class EditProfileView: UIView {
             firstNameHolderView.heightAnchor.constraint(equalToConstant: 50),
             lastNameHolderView.heightAnchor.constraint(equalToConstant: 50),
             instagramHolderView.heightAnchor.constraint(equalToConstant: 50),
-            dateOfBirthHolderView.heightAnchor.constraint(equalToConstant: 50),
+            rpDatePicker.heightAnchor.constraint(equalToConstant: 50),
             countryCodeHolderView.heightAnchor.constraint(equalToConstant: 50),
             
             stackView.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 35),
             stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-          
+            
             saveButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -60),
             saveButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             saveButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
@@ -244,7 +221,6 @@ class EditProfileView: UIView {
     private func setupDelegate() {
         lastNameTextField.delegate = self
         firstNameTextField.delegate = self
-        dateOfBirthTextField.delegate = self
         instagramTextField.delegate = self
         usernameTextField.delegate = self
         countryTextField.delegate = self

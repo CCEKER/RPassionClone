@@ -169,6 +169,7 @@
 		9DC990AB2B79BE72001558D7 /* AddCarFlowCoordinatorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC990AA2B79BE72001558D7 /* AddCarFlowCoordinatorAssembly.swift */; };
 		9DC990AD2B79C3B5001558D7 /* SelectModelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC990AC2B79C3B5001558D7 /* SelectModelTableViewCell.swift */; };
 		9DE690902B825BF30090E1E4 /* BrandService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE6908F2B825BF30090E1E4 /* BrandService.swift */; };
+		9DEA1E282B948C0000AD5A76 /* RPDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEA1E272B948C0000AD5A76 /* RPDatePicker.swift */; };
 		A136B1F314378EFAC50FA9CC /* Pods_TourApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F86D037B2DEDC7DA1D4ABA37 /* Pods_TourApp.framework */; };
 		E83572B42B91063400D63985 /* RPLoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83572B32B91063400D63985 /* RPLoadingViewController.swift */; };
 		E83572B62B91080A00D63985 /* RPLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83572B52B91080A00D63985 /* RPLoadingView.swift */; };
@@ -341,6 +342,7 @@
 		9DC990AA2B79BE72001558D7 /* AddCarFlowCoordinatorAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarFlowCoordinatorAssembly.swift; sourceTree = "<group>"; };
 		9DC990AC2B79C3B5001558D7 /* SelectModelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModelTableViewCell.swift; sourceTree = "<group>"; };
 		9DE6908F2B825BF30090E1E4 /* BrandService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandService.swift; sourceTree = "<group>"; };
+		9DEA1E272B948C0000AD5A76 /* RPDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPDatePicker.swift; sourceTree = "<group>"; };
 		CE2DD4BA249292DFCBCE5BAC /* Pods-TourApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TourApp.release.xcconfig"; path = "Target Support Files/Pods-TourApp/Pods-TourApp.release.xcconfig"; sourceTree = "<group>"; };
 		E83572B32B91063400D63985 /* RPLoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPLoadingViewController.swift; sourceTree = "<group>"; };
 		E83572B52B91080A00D63985 /* RPLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPLoadingView.swift; sourceTree = "<group>"; };
@@ -943,6 +945,7 @@
 		9D8BC13A2B63799D0009DDA9 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				9DEA1E262B948BE700AD5A76 /* RPDatePicker */,
 				E83572B22B9105C500D63985 /* RPLoading */,
 				9D8BC13B2B6379C60009DDA9 /* CustomTabBarController */,
 			);
@@ -1501,6 +1504,14 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		9DEA1E262B948BE700AD5A76 /* RPDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				9DEA1E272B948C0000AD5A76 /* RPDatePicker.swift */,
+			);
+			path = RPDatePicker;
+			sourceTree = "<group>";
+		};
 		A44270DA2801FA3DC9856803 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1708,6 +1719,7 @@
 				9D7A58F82B751A81000105A9 /* TourDetailsViewController.swift in Sources */,
 				9D401C5B2B84905E00D259E1 /* ParticipantsFlowCoordinatorAssembly.swift in Sources */,
 				9D401C6C2B84912100D259E1 /* ParticipantsPresenter.swift in Sources */,
+				9DEA1E282B948C0000AD5A76 /* RPDatePicker.swift in Sources */,
 				9D672C912B932962000A9A73 /* EditProfileFlowCoordinatorModule.swift in Sources */,
 				9DC6C4E92B8D504A00E95C7F /* RegisterViewState.swift in Sources */,
 				9D2875672B6A52DB00BBAA78 /* ApplicationFlowCoordinatorAssembly.swift in Sources */,
