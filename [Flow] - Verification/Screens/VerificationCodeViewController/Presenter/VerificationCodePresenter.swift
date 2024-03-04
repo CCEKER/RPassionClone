@@ -9,7 +9,7 @@ import Foundation
 
 protocol VerificationCodePresenterProtocol {
     func presentError(_ errorReponse: ErrorResponse, remainingAttemp: Int)
-    func presentResendCodeResponse(success: Bool)
+    func presentVerificationCodeResentSuccess()
 }
 
 final class VerificationCodePresenter: VerificationCodePresenterProtocol {
@@ -23,7 +23,7 @@ final class VerificationCodePresenter: VerificationCodePresenterProtocol {
         viewController?.displayViewState(.error(error.message), remainingAttemp: remainingAttemp)
     }
     
-    func presentResendCodeResponse(success: Bool) {
-        self.viewController?.displayResendCodeResult(success: success)
+    func presentVerificationCodeResentSuccess() {
+        viewController?.displayResendVerificationCodeSuccess()
     }
 }

@@ -36,28 +36,35 @@ final class VerificationCodeInteractor {
 extension VerificationCodeInteractor: VerificationCodeInteractorProtocol {
     
     func didTapConfirmButton(verificationCode: String) {
-        authService.verificationCode(email: email, verificationCode: verificationCode) { result in
-            switch result {
-
-            case .success(let response):
-                self.userService.updateLoggedInUser(user: response.user, token: response.token)
-                self.coordinator?.didTapInteractorConfirmButton()
-            
-            case .failure(let error):
-                self.remainingAttempts -= 1
-                self.presenter.presentError(error.toVerificationErrorVerificationCode(), remainingAttemp: self.remainingAttempts)
+        
+        authService.getVerificationCode(email: email, verificationCode: verificationCode) { [weak self] result in
+            DispatchQueue.main.async {
+                guard let self else { return }
+                switch result {
+                    
+                case .success(let response):
+                    self.userService.updateLoggedInUser(user: response.user, token: response.token)
+                    self.coordinator?.didTapInteractorConfirmButton()
+                    
+                case .failure(let error):
+                    self.remainingAttempts -= 1
+                    self.presenter.presentError(error.toVerificationCodeError(), remainingAttemp: self.remainingAttempts)
+                }
             }
         }
     }
     
     func didTapResendCodeButton() {
        
-        authService.resendVerificationCode(email: email) { result in
-            switch result {
-            case .success:
-                self.presenter.presentResendCodeResponse(success: true)
-            case .failure(let error):
-                print("Error: \(error)")
+        authService.resendVerificationCode(email: email) { [weak self] result in
+            DispatchQueue.main.async {
+                guard let self else { return }
+                switch result {
+                case .success:
+                    self.presenter.presentVerificationCodeResentSuccess()
+                case .failure(let error):
+                    print("Error: \(error)")
+                }
             }
         }
     }

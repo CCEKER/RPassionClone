@@ -9,7 +9,7 @@ import UIKit
 
 protocol VerificationCodeViewControllerProtocol: AnyObject {
     func displayViewState(_ viewState: VerificationCodeViewState, remainingAttemp: Int)
-    func displayResendCodeResult(success: Bool)
+    func displayResendVerificationCodeSuccess()
 }
 
 class VerificationCodeViewController: UIViewController, RPLoadingDisplayable {
@@ -44,6 +44,7 @@ class VerificationCodeViewController: UIViewController, RPLoadingDisplayable {
     
     @objc private func didTapResendCodeButton() {
         configureResendVerificationCode()
+        displayResendVerificationCodeSuccess()
         interactor.didTapResendCodeButton()
     }
     
@@ -55,8 +56,9 @@ class VerificationCodeViewController: UIViewController, RPLoadingDisplayable {
     }
     
     private func configureResendVerificationCode() {
-        customView.timerLabel.isHidden = false
+        
         customView.resendCodeButton.isHidden = true
+        customView.timerLabel.isHidden = false
         customView.remainingSeconds = 60
         customView.startTimer()
     }
@@ -74,6 +76,12 @@ extension VerificationCodeViewController: VerificationCodeViewControllerProtocol
         }
     }
     
+    func displayResendVerificationCodeSuccess() {
+        let alert = UIAlertController(title: "Check your email", message: "Verification code has been resent.", preferredStyle: .alert)
+        alert.addAction(.init(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     private func showAlert(message: String) {
         let alertController = UIAlertController(title: "Verification code is invalid", message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Try Again!", style: .default, handler: nil))
@@ -84,14 +92,5 @@ extension VerificationCodeViewController: VerificationCodeViewControllerProtocol
         let alert = UIAlertController(title: "Time is up!", message: "Your time for entering the code has expired.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true)
-    }
-    
-    func displayResendCodeResult(success: Bool) {
-        
-        if success {
-            showAlert(message: "Verification Code Resent")
-        } else {
-            showAlert(message: "Failed to send verification code")
-        }
     }
 }

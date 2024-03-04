@@ -20,7 +20,7 @@ enum AuthServiceError: Error {
 protocol AuthServiceProtocol {
     func login(email: String, password: String, completion: @escaping (Result<AuthResponse, AuthServiceError>) -> Void)
     func register(email: String, password: String, completion: @escaping (Result<Void, AuthServiceError>) -> Void)
-    func verificationCode(email: String, verificationCode: String, completion: @escaping (Result<AuthResponse, AuthServiceError>) -> Void)
+    func getVerificationCode(email: String, verificationCode: String, completion: @escaping (Result<AuthResponse, AuthServiceError>) -> Void)
     func editProfile(firstName: String, dateOfBirth: String, lastName: String, username: String, countryCode: String, completion: @escaping (Result<User, AuthServiceError>) -> Void)
     func resendVerificationCode(email: String, completion: @escaping (Result<AuthResponse, AuthServiceError>) -> Void)
 }
@@ -76,7 +76,7 @@ final class AuthService: AuthServiceProtocol {
         }
     }
     
-        func verificationCode(email: String, verificationCode: String, completion: @escaping (Result<AuthResponse, AuthServiceError>) -> Void) {
+        func getVerificationCode(email: String, verificationCode: String, completion: @escaping (Result<AuthResponse, AuthServiceError>) -> Void) {
             guard let url = URL(string: "\(NetworkLayerConstant.baseURL)/auth/verify-otp") else { return }
             let parameters: Parameters = ["email": email, "verificationCode": verificationCode]
             
@@ -157,7 +157,7 @@ extension AuthServiceError {
     func toRegisterErrorResponse() -> ErrorResponse {
         return ErrorResponse(errors: [ErrorDetail(code: "EMAIL_IS_TAKEN", message: "Email is Taken")])
     }
-    func toVerificationErrorVerificationCode() -> ErrorResponse {
+    func toVerificationCodeError() -> ErrorResponse {
         return ErrorResponse(errors: [ErrorDetail(code: "VERIFICATION_NOT_VALID", message: "Verification code is wrong! You have 3 attempts left")])
     }
 }
