@@ -132,7 +132,7 @@ class EditProfileView: UIView {
     let instagramTextField: CustomTextField = {
         let view = CustomTextField()
         view.textColor = .white
-        view.placeholder = "instagram"
+        view.placeholder = "@instagram"
         view.backgroundColor = .background
         view.layer.cornerRadius = 5
         view.layer.masksToBounds = true

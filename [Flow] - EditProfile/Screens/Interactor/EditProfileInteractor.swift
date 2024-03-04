@@ -8,7 +8,7 @@
 import Foundation
 
 protocol EditProfileInteractorProtocol {
-    func editProfile(firstName: String, dateOfBirth: String, lastName: String, username: String, countrCode: String)
+    func editProfile(firstName: String, dateOfBirth: String, lastName: String, username: String, countrCode: String, instagram: String)
 }
 
 protocol EditProfileInteractorCoordinatorDelegate: AnyObject {
@@ -31,8 +31,8 @@ final class EditProfileInteractor {
 
 extension EditProfileInteractor: EditProfileInteractorProtocol {
     
-    func editProfile(firstName: String, dateOfBirth: String, lastName: String, username: String, countrCode: String) {
-        authService.editProfile(firstName: firstName, dateOfBirth: dateOfBirth, lastName: lastName, username: username, countryCode: countrCode) { [weak self] response in
+    func editProfile(firstName: String, dateOfBirth: String, lastName: String, username: String, countrCode: String, instagram: String) {
+        authService.editProfile(firstName: firstName, dateOfBirth: dateOfBirth, lastName: lastName, username: username, countryCode: countrCode, instagram: instagram) { [weak self] response in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 switch response {

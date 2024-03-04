@@ -21,7 +21,7 @@ protocol AuthServiceProtocol {
     func login(email: String, password: String, completion: @escaping (Result<AuthResponse, AuthServiceError>) -> Void)
     func register(email: String, password: String, completion: @escaping (Result<Void, AuthServiceError>) -> Void)
     func getVerificationCode(email: String, verificationCode: String, completion: @escaping (Result<AuthResponse, AuthServiceError>) -> Void)
-    func editProfile(firstName: String, dateOfBirth: String, lastName: String, username: String, countryCode: String, completion: @escaping (Result<User, AuthServiceError>) -> Void)
+    func editProfile(firstName: String, dateOfBirth: String, lastName: String, username: String, countryCode: String, instagram: String, completion: @escaping (Result<User, AuthServiceError>) -> Void)
     func resendVerificationCode(email: String, completion: @escaping (Result<Void, AuthServiceError>) -> Void)
 }
 
@@ -126,7 +126,7 @@ final class AuthService: AuthServiceProtocol {
            }
     }
     
-    func editProfile(firstName: String, dateOfBirth: String, lastName: String, username: String, countryCode: String, completion: @escaping (Result<User, AuthServiceError>) -> Void) {
+    func editProfile(firstName: String, dateOfBirth: String, lastName: String, username: String, countryCode: String, instagram: String, completion: @escaping (Result<User, AuthServiceError>) -> Void) {
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -134,9 +134,11 @@ final class AuthService: AuthServiceProtocol {
         guard let dateOfBirthDate = dateFormatter.date(from: dateOfBirth) else { return }
         let formattedDateOfBirth = dateFormatter.string(from: dateOfBirthDate)
         
+        let instagramFormat = instagram.hasPrefix("@") ? instagram : "@\(instagram)"
+        
         guard let url = URL(string: "\(NetworkLayerConstant.baseURL)/users/update") else { return }
         var headers: HTTPHeaders = []
-        let parameters: Parameters = ["firstName": firstName, "dateOfBirth": formattedDateOfBirth, "lastName": lastName, "username": username, "countryCode": countryCode]
+        let parameters: Parameters = ["firstName": firstName, "dateOfBirth": formattedDateOfBirth, "lastName": lastName, "username": username, "countryCode": countryCode, "instagram": instagramFormat]
         if let token = userService.token {
             headers.add(.authorization(bearerToken: token))
         }
