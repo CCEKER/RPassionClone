@@ -9,7 +9,7 @@ import UIKit
 
 protocol VerificationCodeViewControllerProtocol: AnyObject {
     func displayViewState(_ viewState: VerificationCodeViewState, remainingAttemp: Int)
-    func displayResendVerificationCodeSuccess()
+    func displayResendVerificationCodeSuccess(email: String)
 }
 
 class VerificationCodeViewController: UIViewController, RPLoadingDisplayable {
@@ -44,7 +44,6 @@ class VerificationCodeViewController: UIViewController, RPLoadingDisplayable {
     
     @objc private func didTapResendCodeButton() {
         configureResendVerificationCode()
-        displayResendVerificationCodeSuccess()
         interactor.didTapResendCodeButton()
     }
     
@@ -76,16 +75,20 @@ extension VerificationCodeViewController: VerificationCodeViewControllerProtocol
         }
     }
     
-    func displayResendVerificationCodeSuccess() {
-        let alert = UIAlertController(title: "Check your email", message: "Verification code has been resent.", preferredStyle: .alert)
-        alert.addAction(.init(title: "OK", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
+    func displayResendVerificationCodeSuccess(email: String) {
+       resendCodeAlert(message: email)
     }
     
     private func showAlert(message: String) {
         let alertController = UIAlertController(title: "Verification code is invalid", message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "Try Again!", style: .default, handler: nil))
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    private func resendCodeAlert(message: String) {
+        let alert = UIAlertController(title: "Verification code has been resent", message: "Check \(message)", preferredStyle: .alert)
+        alert.addAction(.init(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func timerDidFinish() {

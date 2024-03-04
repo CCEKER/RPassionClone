@@ -60,8 +60,8 @@ extension VerificationCodeInteractor: VerificationCodeInteractorProtocol {
             DispatchQueue.main.async {
                 guard let self else { return }
                 switch result {
-                case .success:
-                    self.presenter.presentVerificationCodeResentSuccess()
+                case .success(let response):
+                    self.presenter.presentVerificationCodeResentSuccess(email: response.user.email ?? "")
                 case .failure(let error):
                     print("Error: \(error)")
                 }
