@@ -40,9 +40,13 @@ extension VerificationCodeInteractor: VerificationCodeInteractorProtocol {
         authService.getVerificationCode(email: email, verificationCode: verificationCode) { [weak self] result in
             DispatchQueue.main.async {
                 guard let self else { return }
+                
                 switch result {
                     
                 case .success(let response):
+                    if let email = response.user.email {
+                        self.email = email
+                    }
                     self.userService.updateLoggedInUser(user: response.user, token: response.token)
                     self.coordinator?.didTapInteractorConfirmButton()
                     
@@ -60,8 +64,8 @@ extension VerificationCodeInteractor: VerificationCodeInteractorProtocol {
             DispatchQueue.main.async {
                 guard let self else { return }
                 switch result {
-                case .success(let response):
-                    self.presenter.presentVerificationCodeResentSuccess(email: response.user.email ?? "")
+                case .success:
+                    self.presenter.presentVerificationCodeResentSuccess(email: self.email)
                 case .failure(let error):
                     print("Error: \(error)")
                 }

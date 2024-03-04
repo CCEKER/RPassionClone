@@ -64,6 +64,7 @@ extension RegisterViewController: RegisterViewControllerProtocol {
         
         case .error(let error):
             showAlert(message: error)
+            hideLoading()
         }
     }
     

@@ -22,7 +22,7 @@ protocol AuthServiceProtocol {
     func register(email: String, password: String, completion: @escaping (Result<Void, AuthServiceError>) -> Void)
     func getVerificationCode(email: String, verificationCode: String, completion: @escaping (Result<AuthResponse, AuthServiceError>) -> Void)
     func editProfile(firstName: String, dateOfBirth: String, lastName: String, username: String, countryCode: String, completion: @escaping (Result<User, AuthServiceError>) -> Void)
-    func resendVerificationCode(email: String, completion: @escaping (Result<AuthResponse, AuthServiceError>) -> Void)
+    func resendVerificationCode(email: String, completion: @escaping (Result<Void, AuthServiceError>) -> Void)
 }
 
 final class AuthService: AuthServiceProtocol {
@@ -100,16 +100,16 @@ final class AuthService: AuthServiceProtocol {
             }
         }
     
-    func resendVerificationCode(email: String, completion: @escaping (Result<AuthResponse, AuthServiceError>) -> Void) {
+    func resendVerificationCode(email: String, completion: @escaping (Result<Void, AuthServiceError>) -> Void) {
         
         guard let url = URL(string: "\(NetworkLayerConstant.baseURL)/auth/resend-verify-otp") else { return }
 
            let parameters: Parameters = ["email": email]
 
-           AF.request(url, method: .post, parameters: parameters).responseDecodable(of: AuthResponse.self) { response in
+           AF.request(url, method: .post, parameters: parameters).response { response in
                switch response.result {
-               case .success(let response):
-                   completion(.success(response))
+               case .success:
+                   completion(.success(()))
 
                case .failure:
                    if let data = response.data {
