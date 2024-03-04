@@ -43,10 +43,7 @@ class VerificationCodeViewController: UIViewController, RPLoadingDisplayable {
     }
     
     @objc private func didTapResendCodeButton() {
-        customView.timerLabel.isHidden = false
-        customView.resendCodeButton.isHidden = true
-        customView.remainingSeconds = 60
-        customView.startTimer()
+        configureResendVerificationCode()
         interactor.didTapResendCodeButton()
     }
     
@@ -55,6 +52,13 @@ class VerificationCodeViewController: UIViewController, RPLoadingDisplayable {
         guard let verificationCode = customView.otpTextField.text, !verificationCode.isEmpty else { return }
         showLoading(viewModel: .init(caption: "Loading..."))
         interactor.didTapConfirmButton(verificationCode: verificationCode)
+    }
+    
+    private func configureResendVerificationCode() {
+        customView.timerLabel.isHidden = false
+        customView.resendCodeButton.isHidden = true
+        customView.remainingSeconds = 60
+        customView.startTimer()
     }
 }
 
@@ -66,7 +70,7 @@ extension VerificationCodeViewController: VerificationCodeViewControllerProtocol
         case .initial:
             break
         case .error(let error):
-           showAlert(message: "\(error)\(remainingAttemp)")
+           showAlert(message: "\(error) - \(remainingAttemp)")
         }
     }
     
