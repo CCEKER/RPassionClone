@@ -76,7 +76,7 @@ extension VerificationCodeViewController: VerificationCodeViewControllerProtocol
     }
     
     func displayResendVerificationCodeSuccess(email: String) {
-       resendCodeAlert(message: email)
+       resendVerificationCodeAlert(message: email)
     }
     
     private func showAlert(message: String) {
@@ -85,7 +85,7 @@ extension VerificationCodeViewController: VerificationCodeViewControllerProtocol
         self.present(alertController, animated: true, completion: nil)
     }
     
-    private func resendCodeAlert(message: String) {
+    private func resendVerificationCodeAlert(message: String) {
         let alert = UIAlertController(title: "Verification code has been resent", message: "Check \(message)", preferredStyle: .alert)
         alert.addAction(.init(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
