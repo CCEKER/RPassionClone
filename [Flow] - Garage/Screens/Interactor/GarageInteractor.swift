@@ -11,6 +11,7 @@ protocol GarageInteractorProtocol {
     func viewDidLoad()
     func didTapAddCarButton()
     func addNewCarToList(_ newCar: Car)
+    func deleteCarToList(_ index: Int)
 }
 
 protocol GarageInteractorCoordinatorDelegate: AnyObject {
@@ -56,5 +57,20 @@ extension GarageInteractor: GarageInteractorProtocol {
     
     func didTapAddCarButton() {
         coordinator?.didTapAddCarButton()
+    }
+    
+    func deleteCarToList(_ index: Int) {
+        carService.deleteCar(carId: cars[index].id) { [weak self] result in
+            guard let self else { return }
+            DispatchQueue.main.async {
+                switch result {
+                case .success:
+                    self.cars.remove(at: index)
+                    self.presenter.presentList(cars: self.cars)
+                case .failure(let error):
+                    print("Interactor error: \(error)")
+                }
+            }
+        }
     }
 }

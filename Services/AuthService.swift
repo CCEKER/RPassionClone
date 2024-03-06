@@ -115,7 +115,7 @@ final class AuthService: AuthServiceProtocol {
                    if let data = response.data {
                        do {
                            let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: data)
-                           if let errorDetail = errorResponse.errors.first, errorDetail.code == "VERIFICATION_NOT_VALID" {
+                           if let errorDetail = errorResponse.errors.first, errorDetail.code == "REGISTRATION_REQUIRED" {
                                completion(.failure(.otherError(message: errorDetail.message)))
                            }
                        } catch {

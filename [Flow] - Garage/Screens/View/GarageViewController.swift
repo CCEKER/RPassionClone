@@ -91,6 +91,17 @@ extension GarageViewController: UITableViewDelegate, UITableViewDataSource {
         cell.reloadWith(viewModel: carViewModel)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            interactor.deleteCarToList(indexPath.row)
+            customView.tableView.reloadData()
+        }
+    }
 }
 
 extension GarageViewController: GarageViewControllerProtocol {

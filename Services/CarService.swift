@@ -16,6 +16,7 @@ struct CarListResponse: Decodable {
 protocol CarServiceProtocol {
     func getCarList(userId: String, completion: @escaping (Result<[Car], Error>) -> Void)
     func createCar(trimId: String, nickname: String, completion: @escaping (Result<Car, Error>) -> Void)
+    func deleteCar(carId: String, completion: @escaping (Result<Void, Error>) -> Void)
 }
 
 final class CarService: CarServiceProtocol {
@@ -61,6 +62,25 @@ final class CarService: CarServiceProtocol {
                 completion(.failure(error))
                 print("Error: \(error)")
             }
+        }
+    }
+    
+    func deleteCar(carId: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        
+        guard let url = URL(string: "\(NetworkLayerConstant.baseURL)/car/\(carId)") else { return }
+        var headers: HTTPHeaders = []
+        if let token = userService.token {
+            headers.add(.authorization(bearerToken: token))
+        }
+        
+        AF.request(url, method: .delete, headers: headers).response { response in
+            switch response.result {
+            case .success:
+                completion(.success(()))
+            case .failure(let error):
+                print("Delete error: \(error)")
+            }
+            
         }
     }
 }
