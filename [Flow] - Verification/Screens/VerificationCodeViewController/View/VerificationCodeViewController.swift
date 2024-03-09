@@ -9,7 +9,8 @@ import UIKit
 
 protocol VerificationCodeViewControllerProtocol: AnyObject {
     func displayViewState(_ viewState: VerificationCodeViewState, remainingAttemp: Int)
-    func displayResendVerificationCodeSuccess(email: String)
+    func displayResendVerificationCodeSuccess(viewModel: ResendVerificationCodeSuccessViewModel)
+	func displayLoading(_ viewModel: RPLoadingViewModel)
 }
 
 class VerificationCodeViewController: UIViewController, RPLoadingDisplayable {
@@ -33,34 +34,28 @@ class VerificationCodeViewController: UIViewController, RPLoadingDisplayable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        hideLoading()
-        
-        self.title = "Enter Verification Code"
         customView.delegate = self
-        
         customView.confirmButton.addTarget(self, action: #selector(didTapConfirmButton), for: .touchUpInside)
         customView.resendCodeButton.addTarget(self, action: #selector(didTapResendCodeButton), for: .touchUpInside)
     }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		hideLoading()
+	}
     
     @objc private func didTapResendCodeButton() {
-        configureResendVerificationCode()
-        interactor.didTapResendCodeButton()
+		interactor.didTapResendCodeButton()
     }
     
     @objc private func didTapConfirmButton() {
-        
         guard let verificationCode = customView.otpTextField.text, !verificationCode.isEmpty else { return }
-        showLoading(viewModel: .init(caption: "Loading..."))
         interactor.didTapConfirmButton(verificationCode: verificationCode)
     }
-    
-    private func configureResendVerificationCode() {
-        
-        customView.resendCodeButton.isHidden = true
-        customView.timerLabel.isHidden = false
-        customView.remainingSeconds = 60
-        customView.startTimer()
-    }
+	
+	private func handleAlertCloseButtonAction(action: UIAlertAction) {
+		hideLoading()
+	}
 }
 
 extension VerificationCodeViewController: VerificationCodeViewControllerProtocol, VerificationViewDelegate {
@@ -69,31 +64,35 @@ extension VerificationCodeViewController: VerificationCodeViewControllerProtocol
         
         switch viewState {
         case .initial:
-            break
+			hideLoading()
         case .error(let error):
-           showAlert(message: "\(error) - \(remainingAttemp)")
+			let message = "\(error) - \(remainingAttemp)"
+			displayAlert(title: "Verification code is invalid", message: message, actionTitle: "Try Again!", action: handleAlertCloseButtonAction)
         }
     }
-    
-    func displayResendVerificationCodeSuccess(email: String) {
-       resendVerificationCodeAlert(message: email)
-    }
-    
-    private func showAlert(message: String) {
-        let alertController = UIAlertController(title: "Verification code is invalid", message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Try Again!", style: .default, handler: nil))
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
-    private func resendVerificationCodeAlert(message: String) {
-        let alert = UIAlertController(title: "Verification code has been resent", message: "Check \(message)", preferredStyle: .alert)
-        alert.addAction(.init(title: "OK", style: .default, handler: nil))
-        self.present(alert, animated: true, completion: nil)
-    }
-    
+	
+	func displayResendVerificationCodeSuccess(viewModel: ResendVerificationCodeSuccessViewModel) {
+		customView.resendCodeButton.isHidden = viewModel.isResendCodeButtonHidden
+		customView.timerLabel.isHidden = viewModel.isTimerLabelHidden
+		customView.remainingSeconds = viewModel.remainingSeconds
+		if viewModel.shouldTimerStart {
+			customView.startTimer()
+		}
+		displayAlert(title: "Verification code has been resent", message: "Check \(viewModel.userEmail)", actionTitle: "OK", action: handleAlertCloseButtonAction)
+		hideLoading()
+	}
+
     func timerDidFinish() {
-        let alert = UIAlertController(title: "Time is up!", message: "Your time for entering the code has expired.", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true)
+		displayAlert(title: "Time is up!", message: "Your time for entering the code has expired.", actionTitle: "OK", action: handleAlertCloseButtonAction)
     }
+	
+	func displayLoading(_ viewModel: RPLoadingViewModel) {
+		showLoading(viewModel: viewModel)
+	}
+	
+	private func displayAlert(title: String, message: String?, actionTitle: String, action: ((UIAlertAction) -> Void)?) {
+		let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+		alert.addAction(UIAlertAction(title: actionTitle, style: .default, handler: action))
+		present(alert, animated: true)
+	}
 }

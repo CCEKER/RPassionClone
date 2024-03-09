@@ -17,13 +17,17 @@ protocol VerificationCodeInteractorCoordinatorDelegate: AnyObject {
 }
 
 final class VerificationCodeInteractor {
+	
+	enum Constant {
+		static var maximumAttempt = 5
+	}
     
     weak var coordinator: VerificationCodeInteractorCoordinatorDelegate?
     private let presenter: VerificationCodePresenterProtocol
     private let authService: AuthServiceProtocol
     private let userService: UserServiceProtocol
     private var email: String
-    private var remainingAttempts = 3
+	private var remainingAttempts = Constant.maximumAttempt
     
     init(presenter: VerificationCodePresenterProtocol, authService: AuthServiceProtocol, userService: UserServiceProtocol, email: String) {
         self.presenter = presenter
@@ -37,6 +41,7 @@ extension VerificationCodeInteractor: VerificationCodeInteractorProtocol {
     
     func didTapConfirmButton(verificationCode: String) {
         
+		presenter.presentLoading()
         authService.getVerificationCode(email: email, verificationCode: verificationCode) { [weak self] result in
             DispatchQueue.main.async {
                 guard let self else { return }
@@ -60,12 +65,13 @@ extension VerificationCodeInteractor: VerificationCodeInteractorProtocol {
     
     func didTapResendCodeButton() {
        
+		presenter.presentLoading()
         authService.resendVerificationCode(email: email) { [weak self] result in
+			guard let self else { return }
             DispatchQueue.main.async {
-                guard let self else { return }
                 switch result {
                 case .success:
-                    self.presenter.presentVerificationCodeResentSuccess(email: self.email)
+					self.presenter.presentVerificationCodeResentSuccess(email: self.email)
                 case .failure(let error):
                     print("Error: \(error)")
                 }

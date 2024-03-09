@@ -9,10 +9,15 @@ import Foundation
 
 protocol VerificationCodePresenterProtocol {
     func presentError(_ errorReponse: ErrorResponse, remainingAttemp: Int)
+	func presentLoading()
     func presentVerificationCodeResentSuccess(email: String)
 }
 
 final class VerificationCodePresenter: VerificationCodePresenterProtocol {
+	
+	enum Constant {
+		static let remainingSeconds = 60
+	}
     
     weak var viewController: VerificationCodeViewControllerProtocol?
     
@@ -24,6 +29,21 @@ final class VerificationCodePresenter: VerificationCodePresenterProtocol {
     }
     
     func presentVerificationCodeResentSuccess(email: String) {
-        viewController?.displayResendVerificationCodeSuccess(email: email)
+		
+		let viewModel = ResendVerificationCodeSuccessViewModel(
+			remainingSeconds: Constant.remainingSeconds,
+			isTimerLabelHidden: true,
+			isResendCodeButtonHidden: false,
+			shouldTimerStart: true,
+			userEmail: email
+		)
+		
+        viewController?.displayResendVerificationCodeSuccess(viewModel: viewModel)
     }
+	
+	func presentLoading() {
+		let caption = "Please wait..."
+		let viewModel = RPLoadingViewModel(caption: caption)
+		viewController?.displayLoading(viewModel)
+	}
 }
