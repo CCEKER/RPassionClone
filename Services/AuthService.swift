@@ -124,7 +124,7 @@ final class AuthService: AuthServiceProtocol {
                    }
                }
            }
-    }
+        }
     
     func editProfile(firstName: String, dateOfBirth: String, lastName: String, username: String, countryCode: String, instagram: String, completion: @escaping (Result<User, AuthServiceError>) -> Void) {
         
