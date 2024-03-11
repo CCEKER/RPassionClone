@@ -19,7 +19,7 @@ protocol VerificationCodeInteractorCoordinatorDelegate: AnyObject {
 final class VerificationCodeInteractor {
 	
 	enum Constant {
-		static var maximumAttempt = 5
+		static var maximumAttempt = 3
 	}
     
     weak var coordinator: VerificationCodeInteractorCoordinatorDelegate?

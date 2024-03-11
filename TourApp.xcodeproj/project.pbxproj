@@ -13,6 +13,22 @@
 		9D017A932B6277D8008C2D88 /* LoginViewController+Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D017A922B6277D8008C2D88 /* LoginViewController+Build.swift */; };
 		9D017A952B6277E2008C2D88 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D017A942B6277E2008C2D88 /* LoginInteractor.swift */; };
 		9D017A972B6277E8008C2D88 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D017A962B6277E8008C2D88 /* LoginPresenter.swift */; };
+		9D1D88882B9F42D900F41E82 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D88872B9F42D900F41E82 /* LoginViewModel.swift */; };
+		9D1D88962B9F590400F41E82 /* CreateTourWelcomeFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D88952B9F590400F41E82 /* CreateTourWelcomeFlowCoordinator.swift */; };
+		9D1D88982B9F590E00F41E82 /* CreateTourWelcomeFlowCoordinator+Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D88972B9F590E00F41E82 /* CreateTourWelcomeFlowCoordinator+Build.swift */; };
+		9D1D889E2B9F595000F41E82 /* CreateTourWelcomeFlowCoordinatorModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D889D2B9F595000F41E82 /* CreateTourWelcomeFlowCoordinatorModule.swift */; };
+		9D1D88A02B9F596400F41E82 /* CreateTourWelcomeFlowCoordinatorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D889F2B9F596400F41E82 /* CreateTourWelcomeFlowCoordinatorAssembly.swift */; };
+		9D1D88A22B9F598B00F41E82 /* CreateTourWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D88A12B9F598B00F41E82 /* CreateTourWelcomeView.swift */; };
+		9D1D88A42B9F599800F41E82 /* CreateTourWelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D88A32B9F599800F41E82 /* CreateTourWelcomeViewController.swift */; };
+		9D1D88A62B9F59A800F41E82 /* CreateTourWelcomeViewController+Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D88A52B9F59A800F41E82 /* CreateTourWelcomeViewController+Build.swift */; };
+		9D1D88A82B9F59B300F41E82 /* CreateTourWelcomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D88A72B9F59B300F41E82 /* CreateTourWelcomeInteractor.swift */; };
+		9D1D88AA2B9F59C200F41E82 /* CreateTourWelcomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D88A92B9F59C200F41E82 /* CreateTourWelcomePresenter.swift */; };
+		9D1D88AD2B9F5B1D00F41E82 /* CreateTourWelcomeViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D88AC2B9F5B1D00F41E82 /* CreateTourWelcomeViewState.swift */; };
+		9D1D88B32B9FA0E500F41E82 /* CreateTourView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D88B22B9FA0E500F41E82 /* CreateTourView.swift */; };
+		9D1D88B52B9FA0F400F41E82 /* CreateTourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D88B42B9FA0F400F41E82 /* CreateTourViewController.swift */; };
+		9D1D88B72B9FA10200F41E82 /* CreateTourViewController+Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D88B62B9FA10200F41E82 /* CreateTourViewController+Build.swift */; };
+		9D1D88B92B9FA10C00F41E82 /* CreateTourInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D88B82B9FA10C00F41E82 /* CreateTourInteractor.swift */; };
+		9D1D88BB2B9FA11700F41E82 /* CreateTourPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1D88BA2B9FA11700F41E82 /* CreateTourPresenter.swift */; };
 		9D21E0BE2B62BE4700167FBD /* DashboardFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D21E0BD2B62BE4700167FBD /* DashboardFlowCoordinator.swift */; };
 		9D265C622B47C1FF00D44701 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D265C612B47C1FF00D44701 /* AppDelegate.swift */; };
 		9D265C642B47C1FF00D44701 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D265C632B47C1FF00D44701 /* SceneDelegate.swift */; };
@@ -184,6 +200,22 @@
 		9D017A922B6277D8008C2D88 /* LoginViewController+Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Build.swift"; sourceTree = "<group>"; };
 		9D017A942B6277E2008C2D88 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		9D017A962B6277E8008C2D88 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		9D1D88872B9F42D900F41E82 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		9D1D88952B9F590400F41E82 /* CreateTourWelcomeFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTourWelcomeFlowCoordinator.swift; sourceTree = "<group>"; };
+		9D1D88972B9F590E00F41E82 /* CreateTourWelcomeFlowCoordinator+Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreateTourWelcomeFlowCoordinator+Build.swift"; sourceTree = "<group>"; };
+		9D1D889D2B9F595000F41E82 /* CreateTourWelcomeFlowCoordinatorModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTourWelcomeFlowCoordinatorModule.swift; sourceTree = "<group>"; };
+		9D1D889F2B9F596400F41E82 /* CreateTourWelcomeFlowCoordinatorAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTourWelcomeFlowCoordinatorAssembly.swift; sourceTree = "<group>"; };
+		9D1D88A12B9F598B00F41E82 /* CreateTourWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTourWelcomeView.swift; sourceTree = "<group>"; };
+		9D1D88A32B9F599800F41E82 /* CreateTourWelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTourWelcomeViewController.swift; sourceTree = "<group>"; };
+		9D1D88A52B9F59A800F41E82 /* CreateTourWelcomeViewController+Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreateTourWelcomeViewController+Build.swift"; sourceTree = "<group>"; };
+		9D1D88A72B9F59B300F41E82 /* CreateTourWelcomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTourWelcomeInteractor.swift; sourceTree = "<group>"; };
+		9D1D88A92B9F59C200F41E82 /* CreateTourWelcomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTourWelcomePresenter.swift; sourceTree = "<group>"; };
+		9D1D88AC2B9F5B1D00F41E82 /* CreateTourWelcomeViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTourWelcomeViewState.swift; sourceTree = "<group>"; };
+		9D1D88B22B9FA0E500F41E82 /* CreateTourView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTourView.swift; sourceTree = "<group>"; };
+		9D1D88B42B9FA0F400F41E82 /* CreateTourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTourViewController.swift; sourceTree = "<group>"; };
+		9D1D88B62B9FA10200F41E82 /* CreateTourViewController+Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CreateTourViewController+Build.swift"; sourceTree = "<group>"; };
+		9D1D88B82B9FA10C00F41E82 /* CreateTourInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTourInteractor.swift; sourceTree = "<group>"; };
+		9D1D88BA2B9FA11700F41E82 /* CreateTourPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTourPresenter.swift; sourceTree = "<group>"; };
 		9D21E0BD2B62BE4700167FBD /* DashboardFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardFlowCoordinator.swift; sourceTree = "<group>"; };
 		9D265C5E2B47C1FF00D44701 /* TourApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TourApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D265C612B47C1FF00D44701 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -406,6 +438,139 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		9D1D88862B9F42CD00F41E82 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9D1D88872B9F42D900F41E82 /* LoginViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9D1D88892B9F569000F41E82 /* [Flow] - TourCreationWizard */ = {
+			isa = PBXGroup;
+			children = (
+				9D1D888C2B9F574700F41E82 /* Screens */,
+				9D1D888B2B9F574300F41E82 /* Coordinator */,
+				9D1D888A2B9F573C00F41E82 /* DI */,
+			);
+			path = "[Flow] - TourCreationWizard";
+			sourceTree = "<group>";
+		};
+		9D1D888A2B9F573C00F41E82 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				9D1D889D2B9F595000F41E82 /* CreateTourWelcomeFlowCoordinatorModule.swift */,
+				9D1D889F2B9F596400F41E82 /* CreateTourWelcomeFlowCoordinatorAssembly.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		9D1D888B2B9F574300F41E82 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				9D1D88952B9F590400F41E82 /* CreateTourWelcomeFlowCoordinator.swift */,
+				9D1D88972B9F590E00F41E82 /* CreateTourWelcomeFlowCoordinator+Build.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		9D1D888C2B9F574700F41E82 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				9D1D88AE2B9FA03800F41E82 /* CreateTourViewController */,
+				9D1D88902B9F584800F41E82 /* CreateTourWelcomeViewController */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		9D1D888D2B9F574D00F41E82 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9D1D88A12B9F598B00F41E82 /* CreateTourWelcomeView.swift */,
+				9D1D88A32B9F599800F41E82 /* CreateTourWelcomeViewController.swift */,
+				9D1D88A52B9F59A800F41E82 /* CreateTourWelcomeViewController+Build.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9D1D888E2B9F575200F41E82 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				9D1D88A72B9F59B300F41E82 /* CreateTourWelcomeInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		9D1D888F2B9F575600F41E82 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9D1D88A92B9F59C200F41E82 /* CreateTourWelcomePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		9D1D88902B9F584800F41E82 /* CreateTourWelcomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D1D88AB2B9F5B0F00F41E82 /* Model */,
+				9D1D888D2B9F574D00F41E82 /* View */,
+				9D1D888E2B9F575200F41E82 /* Interactor */,
+				9D1D888F2B9F575600F41E82 /* Presenter */,
+			);
+			path = CreateTourWelcomeViewController;
+			sourceTree = "<group>";
+		};
+		9D1D88AB2B9F5B0F00F41E82 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9D1D88AC2B9F5B1D00F41E82 /* CreateTourWelcomeViewState.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9D1D88AE2B9FA03800F41E82 /* CreateTourViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D1D88AF2B9FA03E00F41E82 /* View */,
+				9D1D88B02B9FA04100F41E82 /* Interactor */,
+				9D1D88B12B9FA04700F41E82 /* Presenter */,
+			);
+			path = CreateTourViewController;
+			sourceTree = "<group>";
+		};
+		9D1D88AF2B9FA03E00F41E82 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9D1D88B22B9FA0E500F41E82 /* CreateTourView.swift */,
+				9D1D88B42B9FA0F400F41E82 /* CreateTourViewController.swift */,
+				9D1D88B62B9FA10200F41E82 /* CreateTourViewController+Build.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9D1D88B02B9FA04100F41E82 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				9D1D88B82B9FA10C00F41E82 /* CreateTourInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		9D1D88B12B9FA04700F41E82 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9D1D88BA2B9FA11700F41E82 /* CreateTourPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		9D1D88BC2B9FB15400F41E82 /* RPProgressBar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RPProgressBar;
+			sourceTree = "<group>";
+		};
 		9D21E0BC2B62BE2600167FBD /* [Flow] - Dashboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -429,6 +594,7 @@
 				9D672C7A2B93282C000A9A73 /* [Flow] - EditProfile */,
 				9D21E0BC2B62BE2600167FBD /* [Flow] - Dashboard */,
 				9DC990592B7973FC001558D7 /* [Flow] - Garage */,
+				9D1D88892B9F569000F41E82 /* [Flow] - TourCreationWizard */,
 				9DC990772B79A110001558D7 /* [Flow] - AddCar */,
 				9D8BC13E2B638B210009DDA9 /* [Flow] - Profile */,
 				9D265C752B47C27C00D44701 /* [Flow] - HomePage */,
@@ -622,6 +788,7 @@
 		9D28756D2B6A53F300BBAA78 /* LoginViewController */ = {
 			isa = PBXGroup;
 			children = (
+				9D1D88862B9F42CD00F41E82 /* Model */,
 				9D017A892B627591008C2D88 /* View */,
 				9D017A8A2B627596008C2D88 /* Interactor */,
 				9D017A8B2B6275F4008C2D88 /* Presenter */,
@@ -945,6 +1112,7 @@
 		9D8BC13A2B63799D0009DDA9 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				9D1D88BC2B9FB15400F41E82 /* RPProgressBar */,
 				9DEA1E262B948BE700AD5A76 /* RPDatePicker */,
 				E83572B22B9105C500D63985 /* RPLoading */,
 				9D8BC13B2B6379C60009DDA9 /* CustomTabBarController */,
@@ -1646,18 +1814,22 @@
 			files = (
 				9D265C842B47DEFB00D44701 /* HomePageModel.swift in Sources */,
 				9DC6C4C02B8D2B1600E95C7F /* WelcomeViewController.swift in Sources */,
+				9D1D88A22B9F598B00F41E82 /* CreateTourWelcomeView.swift in Sources */,
 				9DC6C4DC2B8D3EC900E95C7F /* RegisterFlowCoordinator+Build.swift in Sources */,
 				9D672C8F2B932955000A9A73 /* EditProfileFlowCoordinator+Build.swift in Sources */,
+				9D1D88A42B9F599800F41E82 /* CreateTourWelcomeViewController.swift in Sources */,
 				9DC6C4C82B8D30BB00E95C7F /* GradientView.swift in Sources */,
 				9DA4A6DC2B75A205004DA8B0 /* TourDetailCollectionViewCell.swift in Sources */,
 				9D77A55C2B7A9B3400AC85C3 /* Maker.swift in Sources */,
 				9D265C922B47E29800D44701 /* HomePageViewModel.swift in Sources */,
+				9D1D88B32B9FA0E500F41E82 /* CreateTourView.swift in Sources */,
 				9DC990632B797568001558D7 /* GarageViewController.swift in Sources */,
 				9DC6C4F82B8D5E7500E95C7F /* VerificationCodePresenter.swift in Sources */,
 				9DC6C4F22B8D5E4D00E95C7F /* VerificationCodeViewController.swift in Sources */,
 				9DC990852B79A875001558D7 /* SelectBrandInteractor.swift in Sources */,
 				9DC6C4DE2B8D3ED200E95C7F /* RegisterView.swift in Sources */,
 				9D28755F2B6A514A00BBAA78 /* HomePageFlowCoordinatorAssembly.swift in Sources */,
+				9D1D88AA2B9F59C200F41E82 /* CreateTourWelcomePresenter.swift in Sources */,
 				9DC9909F2B79BE1C001558D7 /* SelectModelViewController+Build.swift in Sources */,
 				9D401C642B8490EF00D259E1 /* ParticipantsView.swift in Sources */,
 				9D265C882B47DF3A00D44701 /* HomePageViewController.swift in Sources */,
@@ -1666,6 +1838,7 @@
 				9DC990692B797592001558D7 /* GaragePresenter.swift in Sources */,
 				9D7A59062B751AD9000105A9 /* TourDetailsFlowCoordinator+Build.swift in Sources */,
 				9D9DD4352B7F38F7003FF874 /* SelectTrimViewController+Build.swift in Sources */,
+				9D1D88B52B9FA0F400F41E82 /* CreateTourViewController.swift in Sources */,
 				9DC990AB2B79BE72001558D7 /* AddCarFlowCoordinatorAssembly.swift in Sources */,
 				9D2875772B6A583800BBAA78 /* DashboardFlowCoordinator+Build.swift in Sources */,
 				9D2875652B6A52CD00BBAA78 /* ApplicationFlowCoordinator+Build.swift in Sources */,
@@ -1676,6 +1849,7 @@
 				9D2875552B6A4F8200BBAA78 /* User.swift in Sources */,
 				9D2875832B6A5B0B00BBAA78 /* ProfileFlowCoordinatorModule.swift in Sources */,
 				9D2875812B6A5AFE00BBAA78 /* ProfileFlowCoordinator+Build.swift in Sources */,
+				9D1D88982B9F590E00F41E82 /* CreateTourWelcomeFlowCoordinator+Build.swift in Sources */,
 				9D401C502B848DEB00D259E1 /* Participants.swift in Sources */,
 				9D77A55A2B7A997200AC85C3 /* GarageViewState.swift in Sources */,
 				9DC6C4F02B8D5E3C00E95C7F /* VerificationCodeView.swift in Sources */,
@@ -1692,6 +1866,7 @@
 				9D672C842B9328CC000A9A73 /* EditProfileViewController.swift in Sources */,
 				9DC6C5002B8D685500E95C7F /* VerificationCodeFlowCoordinatorAssembly.swift in Sources */,
 				9D2875612B6A523500BBAA78 /* HomePageFlowCoordinator+Build.swift in Sources */,
+				9D1D88BB2B9FA11700F41E82 /* CreateTourPresenter.swift in Sources */,
 				9D9DD4332B7F38E0003FF874 /* SelectTrimViewController.swift in Sources */,
 				9D7A59002B751AB5000105A9 /* TourDetailsFlowCoordinatorModule.swift in Sources */,
 				9D8BC1472B638BD50009DDA9 /* ProfileViewController.swift in Sources */,
@@ -1715,6 +1890,7 @@
 				9D265C622B47C1FF00D44701 /* AppDelegate.swift in Sources */,
 				9D28756F2B6A542000BBAA78 /* LoginFlowCoordinatorModule.swift in Sources */,
 				9D017A952B6277E2008C2D88 /* LoginInteractor.swift in Sources */,
+				9D1D889E2B9F595000F41E82 /* CreateTourWelcomeFlowCoordinatorModule.swift in Sources */,
 				9DC9906B2B7975B0001558D7 /* GarageFlowCoordinator.swift in Sources */,
 				9D7A58F82B751A81000105A9 /* TourDetailsViewController.swift in Sources */,
 				9D401C5B2B84905E00D259E1 /* ParticipantsFlowCoordinatorAssembly.swift in Sources */,
@@ -1723,10 +1899,12 @@
 				9D672C912B932962000A9A73 /* EditProfileFlowCoordinatorModule.swift in Sources */,
 				9DC6C4E92B8D504A00E95C7F /* RegisterViewState.swift in Sources */,
 				9D2875672B6A52DB00BBAA78 /* ApplicationFlowCoordinatorAssembly.swift in Sources */,
+				9D1D88B92B9FA10C00F41E82 /* CreateTourInteractor.swift in Sources */,
 				9DC990A72B79BE46001558D7 /* AddCarFlowCoordinator+Build.swift in Sources */,
 				9DC990A52B79BE3B001558D7 /* AddCarFlowCoordinator.swift in Sources */,
 				9D401C682B84910B00D259E1 /* ParticipantsViewController+Build.swift in Sources */,
 				9D9DD42C2B7F2E8A003FF874 /* SelectModelViewState.swift in Sources */,
+				9D1D88A62B9F59A800F41E82 /* CreateTourWelcomeViewController+Build.swift in Sources */,
 				9DC6C4F42B8D5E5E00E95C7F /* VerificationCodeViewController+Build.swift in Sources */,
 				9D265C962B47E84100D44701 /* HomePageTableViewCell.swift in Sources */,
 				9D7A58EB2B750ED2000105A9 /* TourService.swift in Sources */,
@@ -1739,6 +1917,7 @@
 				9DC6C4BC2B8D2AFE00E95C7F /* WelcomeFlowCoordinatorAssembly.swift in Sources */,
 				9DC6C4B62B8D2ADC00E95C7F /* WelcomeFlowCoordinator.swift in Sources */,
 				9DC9909B2B79BE02001558D7 /* SelectModelView.swift in Sources */,
+				9D1D88B72B9FA10200F41E82 /* CreateTourViewController+Build.swift in Sources */,
 				9D017A932B6277D8008C2D88 /* LoginViewController+Build.swift in Sources */,
 				9DC6C4B82B8D2AE600E95C7F /* WelcomeFlowCoordinator+Build.swift in Sources */,
 				9DC9909D2B79BE0F001558D7 /* SelectModelViewController.swift in Sources */,
@@ -1760,6 +1939,7 @@
 				9D7A58E42B74E988000105A9 /* HomePageService.swift in Sources */,
 				9D401C622B84909B00D259E1 /* ParticipantsViewState.swift in Sources */,
 				9DC990762B7984B8001558D7 /* Car.swift in Sources */,
+				9D1D88882B9F42D900F41E82 /* LoginViewModel.swift in Sources */,
 				9DC6C4F62B8D5E6C00E95C7F /* VerificationCodeInteractor.swift in Sources */,
 				9D672C8D2B93294A000A9A73 /* EditProfileFlowCoordinator.swift in Sources */,
 				9DC990AD2B79C3B5001558D7 /* SelectModelTableViewCell.swift in Sources */,
@@ -1772,6 +1952,8 @@
 				9D8BC1492B638BE00009DDA9 /* ProfileViewController+Build.swift in Sources */,
 				9D2875712B6A542700BBAA78 /* LoginFlowCoordinatorAssembly.swift in Sources */,
 				9DC6C4E22B8D3EE600E95C7F /* RegisterViewController+Build.swift in Sources */,
+				9D1D88A02B9F596400F41E82 /* CreateTourWelcomeFlowCoordinatorAssembly.swift in Sources */,
+				9D1D88A82B9F59B300F41E82 /* CreateTourWelcomeInteractor.swift in Sources */,
 				9D7A58FC2B751A9A000105A9 /* TourDetailsInteractor.swift in Sources */,
 				9D7A58ED2B750F79000105A9 /* TourDetailModel.swift in Sources */,
 				9DC6C4D82B8D3EB700E95C7F /* RegisterFlowCoordinatorAssembly.swift in Sources */,
@@ -1797,11 +1979,13 @@
 				9DC9159D2B7F775E00CA0820 /* HolderView.swift in Sources */,
 				9D8BDD192B7BB04B00FB662E /* SelectBrandViewState.swift in Sources */,
 				9D401C592B84904B00D259E1 /* ParticipantsFlowCoordinatorModule.swift in Sources */,
+				9D1D88AD2B9F5B1D00F41E82 /* CreateTourWelcomeViewState.swift in Sources */,
 				9DC915962B7F6D9000CA0820 /* SelectedCarInteractor.swift in Sources */,
 				9DC990872B79A87D001558D7 /* SelectBrandPresenter.swift in Sources */,
 				9D2875692B6A52EE00BBAA78 /* ApplicationFlowCoordinatorModule.swift in Sources */,
 				9D017A912B6277CD008C2D88 /* LoginView.swift in Sources */,
 				9DC990832B79A86C001558D7 /* SelectBrandViewController+Build.swift in Sources */,
+				9D1D88962B9F590400F41E82 /* CreateTourWelcomeFlowCoordinator.swift in Sources */,
 				9DC6C4FE2B8D684700E95C7F /* VerificationCodeFlowCoordinatorModule.swift in Sources */,
 				9D9DD4312B7F38D3003FF874 /* SelectTrimView.swift in Sources */,
 				9DC6C4BE2B8D2B0B00E95C7F /* WelcomeView.swift in Sources */,

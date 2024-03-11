@@ -76,7 +76,9 @@ extension VerificationCodeViewController: VerificationCodeViewControllerProtocol
 		customView.timerLabel.isHidden = viewModel.isTimerLabelHidden
 		customView.remainingSeconds = viewModel.remainingSeconds
 		if viewModel.shouldTimerStart {
-			customView.startTimer()
+            customView.resendCodeButton.isHidden  = true
+            customView.timerLabel.isHidden = false
+            customView.startTimer()
 		}
 		displayAlert(title: "Verification code has been resent", message: "Check \(viewModel.userEmail)", actionTitle: "OK", action: handleAlertCloseButtonAction)
 		hideLoading()

@@ -22,6 +22,7 @@ final class HomePageFlowCoordinator: HomePageFlowCoordinatorProtocol {
     private var navigationController = UINavigationController()
     private var resolver: HomePageFlowCoordinatorResolver
     private var tourDetailsFlowCoordinator: TourDetailFlowCoordinatorProtocol?
+    private var createTourWelcomeFlowCoordinator: CreateTourWelcomeFlowCoordinatorProtocol?
 
     init(tabBarController: UITabBarController, delegate: HomePageFlowCoordinatorDelegate, resolver: HomePageFlowCoordinatorResolver) {
         self.tabBarController = tabBarController
@@ -51,8 +52,17 @@ extension HomePageFlowCoordinator: HomePageInteractorCoordinatorDelegate {
         tourDetailsFlowCoordinator = resolver.resolveTourDetailFlow(delegate: self, presenting: self.navigationController, tourId: tourId)
         tourDetailsFlowCoordinator?.start()
     }
+    
+    func didTapCreateTourButton() {
+        createTourWelcomeFlowCoordinator = resolver.resolveCreateTourWelcomeFlowCoordinator(delegate: self, presentingViewController: self.navigationController)
+        createTourWelcomeFlowCoordinator?.start()
+    }
 }
 
 extension HomePageFlowCoordinator: TourDetailFlowCoordinatorDelegate {
+    
+}
+
+extension HomePageFlowCoordinator: CreateTourWelcomeFlowCoordinatorDelegate {
     
 }

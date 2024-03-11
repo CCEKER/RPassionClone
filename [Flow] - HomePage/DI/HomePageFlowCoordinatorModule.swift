@@ -12,6 +12,7 @@ import UIKit
 protocol HomePageFlowCoordinatorResolver {
     func resolveHomePageViewController(coordinator: HomePageInteractorCoordinatorDelegate) -> UIViewController
     func resolveTourDetailFlow(delegate: TourDetailFlowCoordinatorDelegate, presenting: UINavigationController, tourId: String) -> TourDetailFlowCoordinatorProtocol
+    func resolveCreateTourWelcomeFlowCoordinator(delegate: CreateTourWelcomeFlowCoordinatorDelegate, presentingViewController: UINavigationController) -> CreateTourWelcomeFlowCoordinatorProtocol
 }
 
 final class HomePageFlowCoordinatorModule: HomePageFlowCoordinatorResolver {
@@ -35,5 +36,10 @@ final class HomePageFlowCoordinatorModule: HomePageFlowCoordinatorResolver {
     func resolveTourDetailFlow(delegate: TourDetailFlowCoordinatorDelegate, presenting: UINavigationController, tourId: String) -> TourDetailFlowCoordinatorProtocol {
         let tourDetailFlowCoordinator = TourDetailFlowCoordinator.build(delegate: delegate, container: container, tourId: tourId, presentingViewController: presenting)
         return tourDetailFlowCoordinator
+    }
+    
+    func resolveCreateTourWelcomeFlowCoordinator(delegate: CreateTourWelcomeFlowCoordinatorDelegate, presentingViewController: UINavigationController) -> CreateTourWelcomeFlowCoordinatorProtocol {
+        let createTourWelcomeFlowCoordinator = CreateTourWelcomeFlowCoordinator.build(delegate: delegate, container: container, presentingViewController: presentingViewController)
+        return createTourWelcomeFlowCoordinator
     }
 }

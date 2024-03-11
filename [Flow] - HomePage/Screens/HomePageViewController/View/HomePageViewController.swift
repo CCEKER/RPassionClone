@@ -35,8 +35,19 @@ class HomePageViewContoller: UIViewController {
         
         customView.tableView.dataSource = self
         customView.tableView.delegate = self
+        configureNavigationBar()
         
         interactor.viewDidLoad()
+    }
+    
+    private func configureNavigationBar() {
+        let createTourButton = UIBarButtonItem(title: "+ Create Tour", style: .plain, target: self, action: #selector(didTapCreateTourButton))
+        navigationItem.rightBarButtonItem = createTourButton
+        navigationItem.rightBarButtonItem?.tintColor = .systemBlue
+    }
+    
+    @objc private func didTapCreateTourButton() {
+        interactor.didTapCreateTourButton()
     }
 }
 

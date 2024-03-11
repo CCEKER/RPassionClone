@@ -46,6 +46,17 @@ class HomePageView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
+    let createTourButton: UIButton = {
+        let view = UIButton(type: .system)
+        view.setTitle("Create Tour", for: .normal)
+        view.setTitleColor(.white, for: .normal)
+        view.backgroundColor = .systemBlue
+        view.layer.cornerRadius = 8
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.isHidden = true
+        return view
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)

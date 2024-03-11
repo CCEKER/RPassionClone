@@ -8,7 +8,7 @@
 import UIKit
 
 protocol LoginViewControllerProtocol: AnyObject {
-    
+    func displayLoadingScreen(_ viewModel: RPLoadingViewModel)
 }
 
 class LoginViewController: UIViewController, RPLoadingDisplayable {
@@ -32,9 +32,13 @@ class LoginViewController: UIViewController, RPLoadingDisplayable {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-		hideLoading()
         customView.loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside)
         customView.registerButton.addTarget(self, action: #selector(didTapRegisterButton), for: .touchUpInside)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hideLoading()
     }
     
     @objc private func didTapRegisterButton() {
@@ -45,12 +49,14 @@ class LoginViewController: UIViewController, RPLoadingDisplayable {
         
         guard let email = customView.emailTextField.text, !email.isEmpty else { return }
         guard let password = customView.passwordTextField.text, !password.isEmpty else { return }
-    
-		showLoading(viewModel: .init(caption: "Loading..."))
+
 		interactor.didTapLoginButton(email: email, password: password)
     }
 }
 
 extension LoginViewController: LoginViewControllerProtocol {
     
+    func displayLoadingScreen(_ viewModel: RPLoadingViewModel) {
+        showLoading(viewModel: viewModel)
+    }
 }

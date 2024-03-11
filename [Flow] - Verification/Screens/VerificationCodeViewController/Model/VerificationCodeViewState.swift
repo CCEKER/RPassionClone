@@ -14,8 +14,8 @@ enum VerificationCodeViewState {
 
 struct ResendVerificationCodeSuccessViewModel {
 	let remainingSeconds: Int
-	let isTimerLabelHidden: Bool
-	let isResendCodeButtonHidden: Bool
+	var isTimerLabelHidden: Bool
+	var isResendCodeButtonHidden: Bool
 	let shouldTimerStart: Bool
 	let userEmail: String
 }

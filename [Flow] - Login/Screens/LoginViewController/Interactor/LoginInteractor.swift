@@ -35,6 +35,7 @@ extension LoginInteractor: LoginInteractorProtocol {
     
     func didTapLoginButton(email: String, password: String) {
         
+        presenter.presentLoginLoadingScreen()
         authService.login(email: email, password: password) { [weak self] result in
             DispatchQueue.main.async {
                 guard let self = self else { return }

@@ -8,9 +8,16 @@
 import Foundation
 
 protocol LoginPresenterProtocol {
+    func presentLoginLoadingScreen()
 }
 
 final class LoginPresenter: LoginPresenterProtocol {
     
     weak var viewController: LoginViewControllerProtocol?
+    
+    func presentLoginLoadingScreen() {
+        let caption = "Please Waiting..."
+        let viewModel = RPLoadingViewModel(caption: caption)
+        viewController?.displayLoadingScreen(viewModel)
+    }
 }

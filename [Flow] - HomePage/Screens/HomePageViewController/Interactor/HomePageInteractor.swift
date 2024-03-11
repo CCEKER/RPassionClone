@@ -10,10 +10,12 @@ import Foundation
 protocol HomePageInteractorProtocol {
     func viewDidLoad()
     func didTapTourDetail(_ index: Int)
+    func didTapCreateTourButton()
 }
 
 protocol HomePageInteractorCoordinatorDelegate: AnyObject {
     func didTapTourDetail(tourId: String)
+    func didTapCreateTourButton()
 }
 
 final class HomePageInteractor {
@@ -47,5 +49,9 @@ extension HomePageInteractor: HomePageInteractorProtocol {
     func didTapTourDetail(_ index: Int) {
         guard let tourDetail = tourDetailList?.list[index] else { return }
         coordinator?.didTapTourDetail(tourId: tourDetail.id)
+    }
+    
+    func didTapCreateTourButton() {
+        coordinator?.didTapCreateTourButton()
     }
 }
