@@ -33,9 +33,14 @@ final class ApplicationFlowCoordinator: ApplicationFlowCoordinatorProtocol {
     
     func start() {
         
-        if userService.user != nil {
-            dashboardFlowCoordinator = resolver.resolveDashBoardFlowCoordinator(window: self.window, delegate: self)
-            dashboardFlowCoordinator?.start()
+        if let user = userService.user {
+            if user.isRegistrationCompleted {
+                dashboardFlowCoordinator = resolver.resolveDashBoardFlowCoordinator(window: self.window, delegate: self)
+                dashboardFlowCoordinator?.start()
+            } else {
+                editProfileFlowCoordinator = resolver.resolveEditProfileFlowCoordinator(window: self.window, delegate: self)
+                editProfileFlowCoordinator?.start()
+            }
         } else {
             welcomeFlowCoordinator = resolver.resolveWelcomeFlowCoordinator(window: self.window, delegate: self)
             welcomeFlowCoordinator?.start()
@@ -87,7 +92,6 @@ extension ApplicationFlowCoordinator: RegisterFlowCoordinatorDelegate {
 extension ApplicationFlowCoordinator: DashboardFlowCoordinatorDelegate {
     
     func profileFlowCoordinatorDidFinish() {
-        
         
         loginFlowCoordinator = resolver.resolveLoginFlowCoordinator(window: window, delegate: self)
         loginFlowCoordinator?.start()

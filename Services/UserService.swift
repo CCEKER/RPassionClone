@@ -23,7 +23,6 @@ final class UserService: UserServiceProtocol {
         self.checkForSavedUser()
     }
         
-    
     func updateLoggedInUser(user: User, token: String) {
         self.user = user
         self.token = token
