@@ -3,4 +3,192 @@
    uuid = "E8776212-00ED-4FDD-90F5-97644F0A0F56"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2BC6D5C5-B6AB-45ED-9B5F-786997C44F59"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Services/TourService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "createTour(title:description:tourType:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2BC6D5C5-B6AB-45ED-9B5F-786997C44F59 - c02c5ad9868f54f8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Swift.String, Alamofire.AFError&gt;) -&gt; () in TourApp.TourService.createTour(title: Swift.String, description: Swift.Optional&lt;Swift.String&gt;, tourType: Swift.Int, completion: (Swift.Result&lt;TourApp.CreateTourResponse, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TourApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cekers/Documents/Apps/RPassionClone/Services/TourService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "760">
+               </Location>
+               <Location
+                  uuid = "2BC6D5C5-B6AB-45ED-9B5F-786997C44F59 - 35d382e615d6426e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Swift.String, Alamofire.AFError&gt;) -&gt; () in TourApp.TourService.createTour(title: Swift.String, description: Swift.Optional&lt;Swift.String&gt;, tourType: TourApp.TourType, completion: (Swift.Result&lt;TourApp.CreateTourResponse, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TourApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cekers/Documents/Apps/RPassionClone/Services/TourService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "336">
+               </Location>
+               <Location
+                  uuid = "2BC6D5C5-B6AB-45ED-9B5F-786997C44F59 - c02c5ad9868f553e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Swift.String, Alamofire.AFError&gt;) -&gt; () in TourApp.TourService.createTour(title: Swift.String, description: Swift.Optional&lt;Swift.String&gt;, tourType: Swift.Int, completion: (Swift.Result&lt;TourApp.CreateTourResponse, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TourApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cekers/Documents/Apps/RPassionClone/Services/TourService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "336">
+               </Location>
+               <Location
+                  uuid = "2BC6D5C5-B6AB-45ED-9B5F-786997C44F59 - 863da3d0d9d51b62"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Swift.String, Alamofire.AFError&gt;) -&gt; () in TourApp.TourService.createTour(title: Swift.String, description: Swift.Optional&lt;Swift.String&gt;, tourType: Swift.String, completion: (Swift.Result&lt;TourApp.CreateTourResponse, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TourApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cekers/Documents/Apps/RPassionClone/Services/TourService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "70"
+                  endingLineNumber = "70"
+                  offsetFromSymbolStart = "336">
+               </Location>
+               <Location
+                  uuid = "2BC6D5C5-B6AB-45ED-9B5F-786997C44F59 - b5e981339f03dbc6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Swift.String, Alamofire.AFError&gt;) -&gt; () in TourApp.TourService.createTour(title: Swift.String, description: Swift.Optional&lt;Swift.String&gt;, completion: (Swift.Result&lt;TourApp.CreateTourResponse, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TourApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cekers/Documents/Apps/RPassionClone/Services/TourService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "336">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C01623B6-30AE-4D0E-AE09-D8ED502DC014"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Services/TourService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "createTour(title:description:tourType:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C01623B6-30AE-4D0E-AE09-D8ED502DC014 - c02c5ad9868f54ba"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Swift.String, Alamofire.AFError&gt;) -&gt; () in TourApp.TourService.createTour(title: Swift.String, description: Swift.Optional&lt;Swift.String&gt;, tourType: Swift.Int, completion: (Swift.Result&lt;TourApp.CreateTourResponse, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TourApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cekers/Documents/Apps/RPassionClone/Services/TourService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "1160">
+               </Location>
+               <Location
+                  uuid = "C01623B6-30AE-4D0E-AE09-D8ED502DC014 - 35d382e615d643a8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Swift.String, Alamofire.AFError&gt;) -&gt; () in TourApp.TourService.createTour(title: Swift.String, description: Swift.Optional&lt;Swift.String&gt;, tourType: TourApp.TourType, completion: (Swift.Result&lt;TourApp.CreateTourResponse, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TourApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cekers/Documents/Apps/RPassionClone/Services/TourService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "760">
+               </Location>
+               <Location
+                  uuid = "C01623B6-30AE-4D0E-AE09-D8ED502DC014 - c02c5ad9868f54f8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Swift.String, Alamofire.AFError&gt;) -&gt; () in TourApp.TourService.createTour(title: Swift.String, description: Swift.Optional&lt;Swift.String&gt;, tourType: Swift.Int, completion: (Swift.Result&lt;TourApp.CreateTourResponse, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TourApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cekers/Documents/Apps/RPassionClone/Services/TourService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "760">
+               </Location>
+               <Location
+                  uuid = "C01623B6-30AE-4D0E-AE09-D8ED502DC014 - 863da3d0d9d51aa4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Swift.String, Alamofire.AFError&gt;) -&gt; () in TourApp.TourService.createTour(title: Swift.String, description: Swift.Optional&lt;Swift.String&gt;, tourType: Swift.String, completion: (Swift.Result&lt;TourApp.CreateTourResponse, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TourApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cekers/Documents/Apps/RPassionClone/Services/TourService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "760">
+               </Location>
+               <Location
+                  uuid = "C01623B6-30AE-4D0E-AE09-D8ED502DC014 - b5e981339f03db80"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Swift.String, Alamofire.AFError&gt;) -&gt; () in TourApp.TourService.createTour(title: Swift.String, description: Swift.Optional&lt;Swift.String&gt;, completion: (Swift.Result&lt;TourApp.CreateTourResponse, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TourApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cekers/Documents/Apps/RPassionClone/Services/TourService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "760">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

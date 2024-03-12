@@ -50,8 +50,8 @@ class LoginView: UIView {
         return view
     }()
     
-    let emailTextField: CustomTextField = {
-        let view = CustomTextField()
+    let emailTextField: RPTextField = {
+        let view = RPTextField()
         view.textColor = .white
         view.placeholder = "Email"
         view.backgroundColor = .background
@@ -64,8 +64,8 @@ class LoginView: UIView {
         return view
     }()
     
-    let passwordTextField: CustomTextField = {
-        let view = CustomTextField()
+    let passwordTextField: RPTextField = {
+        let view = RPTextField()
         view.textColor = .white
         view.placeholder = "Password"
         view.backgroundColor = .background
@@ -214,20 +214,5 @@ extension LoginView: UITextFieldDelegate {
             textField.becomeFirstResponder()
         }
         return true
-    }
-}
-
-class CustomTextField: UITextField {
-    
-    override func textRect(forBounds bounds: CGRect) -> CGRect {
-        bounds.insetBy(dx: 10, dy: 15)
-    }
-    
-    override func editingRect(forBounds bounds: CGRect) -> CGRect {
-        bounds.insetBy(dx: 10, dy: 15)
-    }
-    
-    override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
-        bounds.insetBy(dx: 10, dy: 15)
     }
 }

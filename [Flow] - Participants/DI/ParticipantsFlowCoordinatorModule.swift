@@ -26,7 +26,7 @@ final class ParticipantsFlowCoordinatorModule: ParticipantsFlowCoordinatorResolv
     }
     
     func resolveParticipantsViewController(delegate: ParticipantsInteractorCoordinatorDelegate, tourId: String, participantsLimit: Int, participantsJoined: Int) -> UIViewController {
-        guard let tourService = resolver.resolve(TourDetailServiceProtocol.self) else {
+        guard let tourService = resolver.resolve(TourServiceProtocol.self) else {
             fatalError("TourDetailServiceProtocol should be registered!")
         }
         return ParticipantsViewController.build(coordinator: delegate, tourId: tourId, tourService: tourService, participantsLimit: participantsLimit, participantsJoined: participantsJoined)

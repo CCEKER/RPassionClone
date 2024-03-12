@@ -20,11 +20,11 @@ final class TourDetailsInteractor {
     
     private let presenter: TourDetailsPresenterProtocol
     weak var coordinator: TourDetailsInteractorCoordinatorDelegate?
-    private let tourDetailService: TourDetailServiceProtocol
+    private let tourDetailService: TourServiceProtocol
     private let tourId: String
     private var tourDetailModel: TourDetailModel?
     
-    init(presenter: TourDetailsPresenterProtocol, tourDetailService: TourDetailServiceProtocol, tourId: String) {
+    init(presenter: TourDetailsPresenterProtocol, tourDetailService: TourServiceProtocol, tourId: String) {
         self.presenter = presenter
         self.tourDetailService = tourDetailService
         self.tourId = tourId

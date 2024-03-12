@@ -69,8 +69,8 @@ class EditProfileView: UIView {
         return view
     }()
     
-    let usernameTextField: CustomTextField = {
-        let view = CustomTextField()
+    let usernameTextField: RPTextField = {
+        let view = RPTextField()
         view.textColor = .white
         view.placeholder = "Username"
         view.backgroundColor = .background
@@ -84,8 +84,8 @@ class EditProfileView: UIView {
         return view
     }()
     
-    let firstNameTextField: CustomTextField = {
-        let view = CustomTextField()
+    let firstNameTextField: RPTextField = {
+        let view = RPTextField()
         view.textColor = .white
         view.placeholder = "First Name"
         view.backgroundColor = .background
@@ -99,8 +99,8 @@ class EditProfileView: UIView {
         return view
     }()
     
-    let lastNameTextField: CustomTextField = {
-        let view = CustomTextField()
+    let lastNameTextField: RPTextField = {
+        let view = RPTextField()
         view.textColor = .white
         view.placeholder = "Last Name"
         view.backgroundColor = .background
@@ -114,8 +114,8 @@ class EditProfileView: UIView {
         return view
     }()
     
-    let countryTextField: CustomTextField = {
-        let view = CustomTextField()
+    let countryTextField: RPTextField = {
+        let view = RPTextField()
         view.textColor = .white
         view.placeholder = "Country Code"
         view.backgroundColor = .background
@@ -129,8 +129,8 @@ class EditProfileView: UIView {
         return view
     }()
     
-    let instagramTextField: CustomTextField = {
-        let view = CustomTextField()
+    let instagramTextField: RPTextField = {
+        let view = RPTextField()
         view.textColor = .white
         view.placeholder = "@instagram"
         view.backgroundColor = .background

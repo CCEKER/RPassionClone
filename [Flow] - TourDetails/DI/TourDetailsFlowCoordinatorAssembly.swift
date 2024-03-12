@@ -10,9 +10,9 @@ import Swinject
 
 final class TourDetailsFlowCoordinatorAssembly: Assembly {
     func assemble(container: Container) {
-        container.register(TourDetailServiceProtocol.self) { resolver in
+        container.register(TourServiceProtocol.self) { resolver in
             let userService = resolver.resolve(UserServiceProtocol.self)!
-            return TourDetailService(userService: userService)
+            return TourService(userService: userService)
         }
     }
 }

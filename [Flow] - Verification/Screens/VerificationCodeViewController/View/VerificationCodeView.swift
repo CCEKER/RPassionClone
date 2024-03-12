@@ -38,8 +38,8 @@ class VerificationCodeView: UIView {
         return view
     }()
     
-    let otpTextField: CustomTextField = {
-        let view = CustomTextField()
+    let otpTextField: RPTextField = {
+        let view = RPTextField()
         view.textColor = .white
         view.placeholder = "Enter your verification code"
         view.textAlignment = .left

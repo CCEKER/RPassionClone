@@ -54,4 +54,7 @@ extension CreateTourWelcomeFlowCoordinator: CreateTourWelcomeInteractorCoordinat
 
 extension CreateTourWelcomeFlowCoordinator: CreateTourInteractorCoordinatorDelegate {
     
+    func didTapCreateTourButton(tourId: String) {
+        
+    }
 }

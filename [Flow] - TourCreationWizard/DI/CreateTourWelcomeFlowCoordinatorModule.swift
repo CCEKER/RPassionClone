@@ -29,6 +29,9 @@ final class CreateTourWelcomeFlowCoordinatorModule: CreateTourWelcomeFlowCoordin
     }
     
     func resolveCreateTourViewController(delegate: CreateTourInteractorCoordinatorDelegate) -> UIViewController {
-        CreateTourViewController.build(coordinator: delegate)
+        guard let tourService = resolver.resolve(TourServiceProtocol.self) else {
+            fatalError("TourServiceProtocol must be registered.")
+        }
+        return CreateTourViewController.build(coordinator: delegate, tourService: tourService)
     }
 }

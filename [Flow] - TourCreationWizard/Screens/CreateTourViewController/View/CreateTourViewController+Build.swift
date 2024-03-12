@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 extension CreateTourViewController {
-    static func build(coordinator: CreateTourInteractorCoordinatorDelegate) -> UIViewController {
+    static func build(coordinator: CreateTourInteractorCoordinatorDelegate, tourService: TourServiceProtocol) -> UIViewController {
         let presenter = CreateTourPresenter()
-        let interactor = CreateTourInteractor(presenter: presenter)
+        let interactor = CreateTourInteractor(presenter: presenter, tourService: tourService)
         interactor.coordinator = coordinator
         let viewController = CreateTourViewController(interactor: interactor)
         presenter.viewController = viewController

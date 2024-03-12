@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension ParticipantsViewController {
-    static func build(coordinator: ParticipantsInteractorCoordinatorDelegate, tourId: String, tourService: TourDetailServiceProtocol, participantsLimit: Int, participantsJoined: Int) -> UIViewController {
+    static func build(coordinator: ParticipantsInteractorCoordinatorDelegate, tourId: String, tourService: TourServiceProtocol, participantsLimit: Int, participantsJoined: Int) -> UIViewController {
         let presenter = ParticipantsPresenter()
         let interactor = ParticipantsInteractor(presenter: presenter, tourService: tourService, tourId: tourId,  participantsLimit: participantsLimit, participantsJoined: participantsJoined)
         interactor.coordinator = coordinator

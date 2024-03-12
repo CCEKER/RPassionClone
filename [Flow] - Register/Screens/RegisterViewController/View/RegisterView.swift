@@ -40,8 +40,8 @@ class RegisterView: UIView {
         return view
     }()
     
-    let emailTextField: CustomTextField = {
-        let view = CustomTextField()
+    let emailTextField: RPTextField = {
+        let view = RPTextField()
         view.textColor = .white
         view.placeholder = "Email"
         view.backgroundColor = .background
@@ -56,8 +56,8 @@ class RegisterView: UIView {
         return view
     }()
     
-    let passwordTextField: CustomTextField = {
-        let view = CustomTextField()
+    let passwordTextField: RPTextField = {
+        let view = RPTextField()
         view.textColor = .white
         view.placeholder = "Password"
         view.backgroundColor = .background

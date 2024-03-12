@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol RPDatePickerProtocol: AnyObject {
+    func didSelectDatePicker(date: String)
+}
+
 class RPDatePicker: UIView {
+    
+    weak var delegate: RPDatePickerProtocol?
     
     var dateOfBirthLabel: UILabel = {
         let view = UILabel()
@@ -42,6 +48,7 @@ class RPDatePicker: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setupViews()
         setupConstraints()
         setupDatePicker()
@@ -101,6 +108,8 @@ class RPDatePicker: UIView {
         dateFormatter.dateStyle = .medium
         dateFormatter.dateFormat = "yyyy-MM-dd"
         dateOfBirthLabel.text = dateFormatter.string(from: sender.date)
+        
+        delegate?.didSelectDatePicker(date: dateFormatter.string(from: sender.date))
     }
     
     @objc private func dismissDatePicker() {

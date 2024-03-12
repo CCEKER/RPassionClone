@@ -26,7 +26,7 @@ final class TourDetailFlowCoordinatorModule: TourDetailFlowCoordinatorResolver {
     }
     
     func resolveTourDetailViewController(delegate: TourDetailsInteractorCoordinatorDelegate, tourId: String) -> UIViewController {
-        guard let tourDetailService = resolver.resolve(TourDetailServiceProtocol.self) else {
+        guard let tourDetailService = resolver.resolve(TourServiceProtocol.self) else {
             fatalError("TourDetailServiceProtocol should be registered!")
         }
         return TourDetailsViewController.build(coordinator: delegate, tourDetailService: tourDetailService, tourId: tourId)

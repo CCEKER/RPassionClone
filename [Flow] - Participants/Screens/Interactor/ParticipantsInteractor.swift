@@ -20,13 +20,13 @@ final class ParticipantsInteractor {
     
     weak var coordinator: ParticipantsInteractorCoordinatorDelegate?
     private let presenter: ParticipantsPresenterProtocol
-    private let tourService: TourDetailServiceProtocol
+    private let tourService: TourServiceProtocol
     private var tourId: String
     private var participantsLimit: Int
     private var participantsJoined: Int
     private var participants: [Participant] = []
     
-    init(presenter: ParticipantsPresenterProtocol, tourService: TourDetailServiceProtocol, tourId: String, participantsLimit: Int, participantsJoined: Int) {
+    init(presenter: ParticipantsPresenterProtocol, tourService: TourServiceProtocol, tourId: String, participantsLimit: Int, participantsJoined: Int) {
         self.presenter = presenter
         self.tourService = tourService
         self.tourId = tourId
