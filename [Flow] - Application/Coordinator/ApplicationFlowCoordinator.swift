@@ -34,7 +34,7 @@ final class ApplicationFlowCoordinator: ApplicationFlowCoordinatorProtocol {
     func start() {
         
         if let user = userService.user {
-            if user.isRegistrationCompleted {
+            if user.isRegistrationCompleted == true {
                 dashboardFlowCoordinator = resolver.resolveDashBoardFlowCoordinator(window: self.window, delegate: self)
                 dashboardFlowCoordinator?.start()
             } else {
