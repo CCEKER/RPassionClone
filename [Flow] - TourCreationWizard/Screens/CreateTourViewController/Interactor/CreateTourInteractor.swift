@@ -36,17 +36,23 @@ extension CreateTourInteractor: CreateTourInteractorProtocol {
     
     func createTour(title: String, description: String) {
         
-        tourService.createTour(title: title, description: description, tourType: 1) { [weak self] result in
+        let tourType = determineTourType()
+        
+        tourService.createTour(title: title, description: description, tourType: tourType) { [weak self] result in
             guard let self else { return }
             DispatchQueue.main.async {
                 switch result {
                 case .success(let response):
-                    print(response.id)
+                    self.coordinator?.didTapCreateTourButton(tourId: response.id)
                     
                 case .failure:
                     print("error")
                 }
             }
         }
+    }
+    
+    private func determineTourType() -> TourType {
+        return .public
     }
 }

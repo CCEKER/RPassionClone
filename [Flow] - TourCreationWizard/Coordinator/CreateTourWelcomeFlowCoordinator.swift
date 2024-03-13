@@ -42,7 +42,6 @@ extension CreateTourWelcomeFlowCoordinator: CreateTourWelcomeInteractorCoordinat
         
         presentingViewController.dismiss(animated: true)
         let createTourViewController = resolver.resolveCreateTourViewController(delegate: self)
-        createTourViewController.modalPresentationStyle = .fullScreen
         presentingViewController.pushViewController(createTourViewController, animated: true)
         
     }
@@ -55,6 +54,12 @@ extension CreateTourWelcomeFlowCoordinator: CreateTourWelcomeInteractorCoordinat
 extension CreateTourWelcomeFlowCoordinator: CreateTourInteractorCoordinatorDelegate {
     
     func didTapCreateTourButton(tourId: String) {
-        
+        presentingViewController.dismiss(animated: true)
+        let tourTimeViewController = resolver.resolveTourTimeViewController(delegate: self, tourId: tourId)
+        presentingViewController.pushViewController(tourTimeViewController, animated: true)
     }
+}
+
+extension CreateTourWelcomeFlowCoordinator: TourTimeInteractorCoordinatorDelegate {
+    
 }

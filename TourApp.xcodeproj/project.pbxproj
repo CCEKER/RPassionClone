@@ -188,6 +188,12 @@
 		9DC990A92B79BE55001558D7 /* AddCarFlowCoordinatorModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC990A82B79BE55001558D7 /* AddCarFlowCoordinatorModule.swift */; };
 		9DC990AB2B79BE72001558D7 /* AddCarFlowCoordinatorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC990AA2B79BE72001558D7 /* AddCarFlowCoordinatorAssembly.swift */; };
 		9DC990AD2B79C3B5001558D7 /* SelectModelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC990AC2B79C3B5001558D7 /* SelectModelTableViewCell.swift */; };
+		9DD545932BA16E39008ECB27 /* TourTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD545922BA16E39008ECB27 /* TourTimeView.swift */; };
+		9DD545952BA16E43008ECB27 /* TourTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD545942BA16E43008ECB27 /* TourTimeViewController.swift */; };
+		9DD545972BA16E61008ECB27 /* TourTimeViewController+Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD545962BA16E61008ECB27 /* TourTimeViewController+Build.swift */; };
+		9DD545992BA16E6F008ECB27 /* TourTimeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD545982BA16E6F008ECB27 /* TourTimeInteractor.swift */; };
+		9DD5459B2BA16E77008ECB27 /* TourTimePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD5459A2BA16E77008ECB27 /* TourTimePresenter.swift */; };
+		9DD5459F2BA17B2C008ECB27 /* TourTimeDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD5459E2BA17B2C008ECB27 /* TourTimeDatePickerView.swift */; };
 		9DE690902B825BF30090E1E4 /* BrandService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE6908F2B825BF30090E1E4 /* BrandService.swift */; };
 		9DEA1E282B948C0000AD5A76 /* RPDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEA1E272B948C0000AD5A76 /* RPDatePicker.swift */; };
 		A136B1F314378EFAC50FA9CC /* Pods_TourApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F86D037B2DEDC7DA1D4ABA37 /* Pods_TourApp.framework */; };
@@ -381,6 +387,12 @@
 		9DC990A82B79BE55001558D7 /* AddCarFlowCoordinatorModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarFlowCoordinatorModule.swift; sourceTree = "<group>"; };
 		9DC990AA2B79BE72001558D7 /* AddCarFlowCoordinatorAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarFlowCoordinatorAssembly.swift; sourceTree = "<group>"; };
 		9DC990AC2B79C3B5001558D7 /* SelectModelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModelTableViewCell.swift; sourceTree = "<group>"; };
+		9DD545922BA16E39008ECB27 /* TourTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourTimeView.swift; sourceTree = "<group>"; };
+		9DD545942BA16E43008ECB27 /* TourTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourTimeViewController.swift; sourceTree = "<group>"; };
+		9DD545962BA16E61008ECB27 /* TourTimeViewController+Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TourTimeViewController+Build.swift"; sourceTree = "<group>"; };
+		9DD545982BA16E6F008ECB27 /* TourTimeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourTimeInteractor.swift; sourceTree = "<group>"; };
+		9DD5459A2BA16E77008ECB27 /* TourTimePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourTimePresenter.swift; sourceTree = "<group>"; };
+		9DD5459E2BA17B2C008ECB27 /* TourTimeDatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourTimeDatePickerView.swift; sourceTree = "<group>"; };
 		9DE6908F2B825BF30090E1E4 /* BrandService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandService.swift; sourceTree = "<group>"; };
 		9DEA1E272B948C0000AD5A76 /* RPDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPDatePicker.swift; sourceTree = "<group>"; };
 		CE2DD4BA249292DFCBCE5BAC /* Pods-TourApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TourApp.release.xcconfig"; path = "Target Support Files/Pods-TourApp/Pods-TourApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -501,6 +513,7 @@
 		9D1D888C2B9F574700F41E82 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				9DD5458E2BA16DFD008ECB27 /* TourTimeViewController */,
 				9D1D88AE2B9FA03800F41E82 /* CreateTourViewController */,
 				9D1D88902B9F584800F41E82 /* CreateTourWelcomeViewController */,
 			);
@@ -1700,10 +1713,47 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		9DD5458E2BA16DFD008ECB27 /* TourTimeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9DD5458F2BA16E0D008ECB27 /* View */,
+				9DD545902BA16E10008ECB27 /* Interactor */,
+				9DD545912BA16E18008ECB27 /* Presenter */,
+			);
+			path = TourTimeViewController;
+			sourceTree = "<group>";
+		};
+		9DD5458F2BA16E0D008ECB27 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9DD545922BA16E39008ECB27 /* TourTimeView.swift */,
+				9DD545942BA16E43008ECB27 /* TourTimeViewController.swift */,
+				9DD545962BA16E61008ECB27 /* TourTimeViewController+Build.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9DD545902BA16E10008ECB27 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				9DD545982BA16E6F008ECB27 /* TourTimeInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		9DD545912BA16E18008ECB27 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9DD5459A2BA16E77008ECB27 /* TourTimePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		9DEA1E262B948BE700AD5A76 /* RPDatePicker */ = {
 			isa = PBXGroup;
 			children = (
 				9DEA1E272B948C0000AD5A76 /* RPDatePicker.swift */,
+				9DD5459E2BA17B2C008ECB27 /* TourTimeDatePickerView.swift */,
 			);
 			path = RPDatePicker;
 			sourceTree = "<group>";
@@ -1843,6 +1893,7 @@
 				9D265C842B47DEFB00D44701 /* HomePageModel.swift in Sources */,
 				9DC6C4C02B8D2B1600E95C7F /* WelcomeViewController.swift in Sources */,
 				9D1D88A22B9F598B00F41E82 /* CreateTourWelcomeView.swift in Sources */,
+				9DD545932BA16E39008ECB27 /* TourTimeView.swift in Sources */,
 				9DC6C4DC2B8D3EC900E95C7F /* RegisterFlowCoordinator+Build.swift in Sources */,
 				9D672C8F2B932955000A9A73 /* EditProfileFlowCoordinator+Build.swift in Sources */,
 				9D1D88A42B9F599800F41E82 /* CreateTourWelcomeViewController.swift in Sources */,
@@ -1870,6 +1921,7 @@
 				9DC990AB2B79BE72001558D7 /* AddCarFlowCoordinatorAssembly.swift in Sources */,
 				9D2875772B6A583800BBAA78 /* DashboardFlowCoordinator+Build.swift in Sources */,
 				9D2875652B6A52CD00BBAA78 /* ApplicationFlowCoordinator+Build.swift in Sources */,
+				9DD545992BA16E6F008ECB27 /* TourTimeInteractor.swift in Sources */,
 				9D9DD43D2B7F3966003FF874 /* SelectTrimPresenter.swift in Sources */,
 				9DC9907F2B79A851001558D7 /* SelectBrandView.swift in Sources */,
 				9D017A8F2B6277C1008C2D88 /* LoginViewController.swift in Sources */,
@@ -1879,6 +1931,7 @@
 				9D2875812B6A5AFE00BBAA78 /* ProfileFlowCoordinator+Build.swift in Sources */,
 				9D1D88982B9F590E00F41E82 /* CreateTourWelcomeFlowCoordinator+Build.swift in Sources */,
 				9D0F1BB82BA09A37000DB326 /* CreateTour.swift in Sources */,
+				9DD5459B2BA16E77008ECB27 /* TourTimePresenter.swift in Sources */,
 				9D401C502B848DEB00D259E1 /* Participants.swift in Sources */,
 				9D77A55A2B7A997200AC85C3 /* GarageViewState.swift in Sources */,
 				9DC6C4F02B8D5E3C00E95C7F /* VerificationCodeView.swift in Sources */,
@@ -1923,6 +1976,7 @@
 				9D017A952B6277E2008C2D88 /* LoginInteractor.swift in Sources */,
 				9D1D889E2B9F595000F41E82 /* CreateTourWelcomeFlowCoordinatorModule.swift in Sources */,
 				9DC9906B2B7975B0001558D7 /* GarageFlowCoordinator.swift in Sources */,
+				9DD545952BA16E43008ECB27 /* TourTimeViewController.swift in Sources */,
 				9D7A58F82B751A81000105A9 /* TourDetailsViewController.swift in Sources */,
 				9D401C5B2B84905E00D259E1 /* ParticipantsFlowCoordinatorAssembly.swift in Sources */,
 				9D401C6C2B84912100D259E1 /* ParticipantsPresenter.swift in Sources */,
@@ -1930,9 +1984,11 @@
 				9D672C912B932962000A9A73 /* EditProfileFlowCoordinatorModule.swift in Sources */,
 				9DC6C4E92B8D504A00E95C7F /* RegisterViewState.swift in Sources */,
 				9D2875672B6A52DB00BBAA78 /* ApplicationFlowCoordinatorAssembly.swift in Sources */,
+				9DD545972BA16E61008ECB27 /* TourTimeViewController+Build.swift in Sources */,
 				9D1D88B92B9FA10C00F41E82 /* CreateTourInteractor.swift in Sources */,
 				9DC990A72B79BE46001558D7 /* AddCarFlowCoordinator+Build.swift in Sources */,
 				9DC990A52B79BE3B001558D7 /* AddCarFlowCoordinator.swift in Sources */,
+				9DD5459F2BA17B2C008ECB27 /* TourTimeDatePickerView.swift in Sources */,
 				9D401C682B84910B00D259E1 /* ParticipantsViewController+Build.swift in Sources */,
 				9D9DD42C2B7F2E8A003FF874 /* SelectModelViewState.swift in Sources */,
 				9D1D88A62B9F59A800F41E82 /* CreateTourWelcomeViewController+Build.swift in Sources */,

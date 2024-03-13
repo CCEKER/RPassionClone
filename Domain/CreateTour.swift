@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CreateTourResponse: Decodable {
+struct CreateTourResponse: Codable {
     let id: String
     let title: String
     let description: String?
@@ -17,19 +17,19 @@ struct CreateTourResponse: Decodable {
     let images: [String]?
 }
 
-enum TourType: Int, Decodable {
-    case `public` = 0
-    case `private` = 1
-    case invitationOnly = 2
+enum TourType: String, Codable {
+    case `public` = "PUBLIC"
+    case `private` = "PRIVATE"
+    case invitationOnly = "INVITATON_ONLY"
     
-    var stringValue: String {
+    var intValue: Int {
         switch self {
         case .public:
-            return "PUBLIC"
+            return 0
         case .private:
-            return "PRIVATE"
+            return 1
         case .invitationOnly:
-            return "INVITATION_ONLY"
+            return 2
         }
     }
 }

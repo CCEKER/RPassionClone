@@ -11,7 +11,8 @@ import Alamofire
 protocol TourServiceProtocol {
     func getTourDetail(tourId: String, completion: @escaping (Result<TourDetailModel, Error>) -> Void)
     func getParticipants(tourId: String, completion: @escaping (Result<[Participant], Error>) -> Void)
-    func createTour(title: String, description: String?, tourType: Int, completion: @escaping (Result<CreateTourResponse, Error>) -> Void)
+    func createTour(title: String, description: String?, tourType: TourType, completion: @escaping (Result<CreateTourResponse, Error>) -> Void)
+    func startDay(startDay: String, tourId: String, completion: @escaping (Result<Void, Error>) -> Void)
 }
 
 final class TourService: TourServiceProtocol {
@@ -55,21 +56,42 @@ final class TourService: TourServiceProtocol {
         }
     }
     
-    func createTour(title: String, description: String?, tourType: Int, completion: @escaping (Result<CreateTourResponse, Error>) -> Void) {
+    func createTour(title: String, description: String?, tourType: TourType, completion: @escaping (Result<CreateTourResponse, Error>) -> Void) {
         
         guard let url = URL(string: "\(NetworkLayerConstant.baseURL)/tour") else { return }
-        let parameters: Parameters = ["title": title, "description": description ?? "", "tourType": tourType]
+        let parameters: Parameters = ["title": title,
+                                      "description": description ?? "",
+                                      "tourType": tourType.intValue]
         var headers: HTTPHeaders = []
         if let token = userService.token {
             headers.add(.authorization(bearerToken: token))
         }
-        AF.request(url, method: .post, parameters: parameters, headers: headers).responseString { response in
+        AF.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: headers).responseDecodable(of: CreateTourResponse.self) { response in
           
             switch response.result {
             case .success(let response):
-                print("Response String \(response)")
+                completion(.success(response))
             case .failure(let error):
                 print("create Tour Error: \(error)")
+            }
+        }
+    }
+    
+    func startDay(startDay: String, tourId: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        
+        guard let url = URL(string: "\(NetworkLayerConstant.baseURL)/tour/\(tourId)/startDay") else { return }
+        let parameters: Parameters = ["startDay": startDay]
+        var headers: HTTPHeaders = []
+        if let token = userService.token {
+            headers.add(.authorization(bearerToken: token))
+        }
+        AF.request(url, method: .patch, parameters: parameters, encoding: JSONEncoding.default, headers: headers).response { response in
+            
+            switch response.result {
+            case .success:
+                completion(.success(()))
+            case .failure(let error):
+                print("startDayError: \(error)")
             }
         }
     }
