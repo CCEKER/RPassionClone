@@ -8,7 +8,7 @@
 import UIKit
 
 protocol TourTimeViewControllerProtocol: AnyObject {
-    
+    func displayViewModel(_ viewModel: TourTimeViewModel)
 }
 
 class TourTimeViewController: UIViewController, TourTimeViewProtocol {
@@ -31,7 +31,21 @@ class TourTimeViewController: UIViewController, TourTimeViewProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         customView.delegate = self
+
+        customView.minusButton.addTarget(self, action: #selector(didTapMinusButton), for: .touchUpInside)
+        customView.plusButton.addTarget(self, action: #selector(didTapPlusButton), for: .touchUpInside)
+        
+        interactor.viewDidLoad()
+    }
+    
+    @objc private func didTapMinusButton() {
+        interactor.decrementDay()
+    }
+    
+    @objc private func didTapPlusButton() {
+        interactor.incrementDay()
     }
     
     func didTapDatePickerDoneButton(date: String) {
@@ -41,4 +55,8 @@ class TourTimeViewController: UIViewController, TourTimeViewProtocol {
 
 extension TourTimeViewController: TourTimeViewControllerProtocol {
     
+    func displayViewModel(_ viewModel: TourTimeViewModel) {
+        customView.reloadWith(viewModel)
+        self.title = viewModel.navigationTitle
+    }
 }

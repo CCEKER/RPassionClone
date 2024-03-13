@@ -9,6 +9,9 @@ import Foundation
 
 protocol TourTimeInteractorProtocol {
     func didTapDatePickerDoneButton(date: String)
+    func viewDidLoad()
+    func decrementDay()
+    func incrementDay()
 }
 
 protocol TourTimeInteractorCoordinatorDelegate: AnyObject {
@@ -21,6 +24,7 @@ final class TourTimeInteractor {
     weak var coordinator: TourTimeInteractorCoordinatorDelegate?
     private let tourService: TourServiceProtocol
     private let tourId: String
+    private var count = 0
     
     init(presenter: TourTimePresenterProtocol, tourId: String, tourService: TourServiceProtocol) {
         self.presenter = presenter
@@ -41,5 +45,23 @@ extension TourTimeInteractor: TourTimeInteractorProtocol {
                 break
             }
         }
+    }
+    
+    func decrementDay() {
+        if count > 1 {
+            count -= 1
+            presenter.presentUpdateDay(count)
+        }
+    }
+    
+    func incrementDay() {
+        if count < 7 {
+            count += 1
+            presenter.presentUpdateDay(count)
+        }
+    }
+    
+    func viewDidLoad() {
+        presenter.presentTourTimeScreen()
     }
 }

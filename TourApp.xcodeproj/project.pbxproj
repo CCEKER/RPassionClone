@@ -111,6 +111,7 @@
 		9D8BC14B2B638BE90009DDA9 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BC14A2B638BE90009DDA9 /* ProfileInteractor.swift */; };
 		9D8BC14D2B638BEF0009DDA9 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BC14C2B638BEF0009DDA9 /* ProfilePresenter.swift */; };
 		9D8BDD192B7BB04B00FB662E /* SelectBrandViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8BDD182B7BB04B00FB662E /* SelectBrandViewState.swift */; };
+		9D94E6D12BA1CF4600D06268 /* TourTimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D94E6D02BA1CF4600D06268 /* TourTimeViewModel.swift */; };
 		9D9972F42B7270000020D3CF /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9972F32B7270000020D3CF /* ProfileViewModel.swift */; };
 		9D9972F62B7280890020D3CF /* NetworkLayerConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9972F52B7280890020D3CF /* NetworkLayerConstant.swift */; };
 		9D9DD42C2B7F2E8A003FF874 /* SelectModelViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9DD42B2B7F2E8A003FF874 /* SelectModelViewState.swift */; };
@@ -310,6 +311,7 @@
 		9D8BC14A2B638BE90009DDA9 /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
 		9D8BC14C2B638BEF0009DDA9 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		9D8BDD182B7BB04B00FB662E /* SelectBrandViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBrandViewState.swift; sourceTree = "<group>"; };
+		9D94E6D02BA1CF4600D06268 /* TourTimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourTimeViewModel.swift; sourceTree = "<group>"; };
 		9D9972F32B7270000020D3CF /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		9D9972F52B7280890020D3CF /* NetworkLayerConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayerConstant.swift; sourceTree = "<group>"; };
 		9D9DD42B2B7F2E8A003FF874 /* SelectModelViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModelViewState.swift; sourceTree = "<group>"; };
@@ -1213,6 +1215,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		9D94E6CF2BA1CF3B00D06268 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9D94E6D02BA1CF4600D06268 /* TourTimeViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9D9972F22B726FF60020D3CF /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -1716,6 +1726,7 @@
 		9DD5458E2BA16DFD008ECB27 /* TourTimeViewController */ = {
 			isa = PBXGroup;
 			children = (
+				9D94E6CF2BA1CF3B00D06268 /* Model */,
 				9DD5458F2BA16E0D008ECB27 /* View */,
 				9DD545902BA16E10008ECB27 /* Interactor */,
 				9DD545912BA16E18008ECB27 /* Presenter */,
@@ -2009,6 +2020,7 @@
 				9DC6C4B82B8D2AE600E95C7F /* WelcomeFlowCoordinator+Build.swift in Sources */,
 				9DC9909D2B79BE0F001558D7 /* SelectModelViewController.swift in Sources */,
 				9D2875512B6A4DEA00BBAA78 /* UserService.swift in Sources */,
+				9D94E6D12BA1CF4600D06268 /* TourTimeViewModel.swift in Sources */,
 				9D265C642B47C1FF00D44701 /* SceneDelegate.swift in Sources */,
 				9DC990A92B79BE55001558D7 /* AddCarFlowCoordinatorModule.swift in Sources */,
 				9DC6C4E02B8D3EDC00E95C7F /* RegisterViewController.swift in Sources */,

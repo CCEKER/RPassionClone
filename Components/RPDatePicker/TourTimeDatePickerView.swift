@@ -18,7 +18,7 @@ class TourTimeDatePickerView: UIView {
     var startTourTimeLabel: UILabel = {
         let view = UILabel()
         view.text = "Tour Start Date"
-        view.textColor = .gray
+        view.textColor = .lightGray
         view.font = UIFont.systemFont(ofSize: 16)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
