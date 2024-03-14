@@ -12,7 +12,7 @@ protocol TourTimeViewProtocol: AnyObject {
 }
 
 class TourTimeView: UIView, TourTimeDatePickerViewDelegate {
-   
+    
     private let datePicker = TourTimeDatePickerView()
     weak var delegate: TourTimeViewProtocol?
     
@@ -45,7 +45,7 @@ class TourTimeView: UIView, TourTimeDatePickerViewDelegate {
         return view
     }()
     
-    let dayLabel: UILabel = {
+    let dayCountLabel: UILabel = {
         let view = UILabel()
         view.font = UIFont.boldSystemFont(ofSize: 13)
         view.textColor = .white
@@ -92,6 +92,35 @@ class TourTimeView: UIView, TourTimeDatePickerViewDelegate {
         return view
     }()
     
+    private lazy var verticalStackView: UIStackView = {
+        let view = UIStackView(arrangedSubviews: [questionLabel, buttonHolderView])
+        view.axis = .vertical
+        view.spacing = 10
+        view.alignment = .fill
+        view.distribution = .fill
+        return view
+    }()
+    
+    private lazy var horizontalStack: UIStackView = {
+        let view = UIStackView(arrangedSubviews: [noteIcon, verticalStackView])
+        view.axis = .horizontal
+        view.distribution = .fill
+        view.alignment = .center
+        view.spacing = 10
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private lazy var buttonHolderStack: UIStackView = {
+        let view = UIStackView(arrangedSubviews: [minusButton, leftSeperatorView, dayCountLabel, rightSeperatorView, plusButton])
+        view.axis = .horizontal
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.alignment = .fill
+        view.distribution = .equalCentering
+        view.spacing = 8
+        return view
+    }()
+    
     let tourTimeContinueButton: UIButton = {
         let view = UIButton(type: .custom)
         view.backgroundColor = .systemBlue
@@ -99,6 +128,16 @@ class TourTimeView: UIView, TourTimeDatePickerViewDelegate {
         view.layer.cornerRadius = 3
         view.translatesAutoresizingMaskIntoConstraints = false
         view.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        return view
+    }()
+    
+    private lazy var holderStack: UIStackView = {
+       let view = UIStackView(arrangedSubviews: [datePicker, holderView])
+        view.axis = .vertical
+        view.distribution = .fill
+        view.alignment = .fill
+        view.spacing = 10
+        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
@@ -122,16 +161,9 @@ class TourTimeView: UIView, TourTimeDatePickerViewDelegate {
     private func setupViews() {
         backgroundColor = .background
         addSubview(progressBar)
-        addSubview(datePicker)
-        addSubview(holderView)
-        holderView.addSubview(questionLabel)
-        holderView.addSubview(noteIcon)
-        holderView.addSubview(buttonHolderView)
-        buttonHolderView.addSubview(dayLabel)
-        buttonHolderView.addSubview(minusButton)
-        buttonHolderView.addSubview(leftSeperatorView)
-        buttonHolderView.addSubview(plusButton)
-        buttonHolderView.addSubview(rightSeperatorView)
+        addSubview(holderStack)
+        holderView.addSubview(horizontalStack)
+        buttonHolderView.addSubview(buttonHolderStack)
         addSubview(tourTimeContinueButton)
         datePicker.translatesAutoresizingMaskIntoConstraints = false
     }
@@ -144,53 +176,36 @@ class TourTimeView: UIView, TourTimeDatePickerViewDelegate {
             progressBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             progressBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             progressBar.heightAnchor.constraint(equalToConstant: 10),
+        
+            holderStack.topAnchor.constraint(equalTo: progressBar.bottomAnchor, constant: 20),
+            holderStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            holderStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
-            datePicker.topAnchor.constraint(equalTo: progressBar.bottomAnchor, constant: 20),
-            datePicker.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            datePicker.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             datePicker.heightAnchor.constraint(equalToConstant: 75),
-            
-            questionLabel.topAnchor.constraint(equalTo: holderView.topAnchor, constant: 10),
-            questionLabel.leadingAnchor.constraint(equalTo: noteIcon.trailingAnchor, constant: 10),
-            questionLabel.trailingAnchor.constraint(equalTo: holderView.trailingAnchor, constant: -20),
+            holderView.heightAnchor.constraint(equalToConstant: 135),
             
             buttonHolderView.topAnchor.constraint(equalTo: questionLabel.bottomAnchor, constant: 30),
             buttonHolderView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 80),
             buttonHolderView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -80),
             buttonHolderView.heightAnchor.constraint(equalToConstant: 40),
             
-            noteIcon.topAnchor.constraint(equalTo: holderView.topAnchor, constant: 10),
-            noteIcon.leadingAnchor.constraint(equalTo: holderView.leadingAnchor, constant: 10),
             noteIcon.heightAnchor.constraint(equalToConstant: 30),
             noteIcon.widthAnchor.constraint(equalToConstant: 30),
             
-            holderView.topAnchor.constraint(equalTo: datePicker.bottomAnchor, constant: 20),
-            holderView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            holderView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            holderView.heightAnchor.constraint(equalToConstant: 135),
+            horizontalStack.bottomAnchor.constraint(equalTo: holderView.bottomAnchor, constant: -20),
+            horizontalStack.topAnchor.constraint(equalTo: holderView.topAnchor, constant: 20),
+            horizontalStack.leadingAnchor.constraint(equalTo: holderView.leadingAnchor, constant: 20),
+            horizontalStack.trailingAnchor.constraint(equalTo: holderView.trailingAnchor, constant: -20),
             
-            dayLabel.centerYAnchor.constraint(equalTo: buttonHolderView.centerYAnchor),
-            dayLabel.centerXAnchor.constraint(equalTo: buttonHolderView.centerXAnchor),
-            
-            minusButton.leadingAnchor.constraint(equalTo: buttonHolderView.leadingAnchor),
-            minusButton.topAnchor.constraint(equalTo: buttonHolderView.topAnchor),
-            minusButton.bottomAnchor.constraint(equalTo: buttonHolderView.bottomAnchor),
             minusButton.widthAnchor.constraint(equalToConstant: 40),
-            
-            plusButton.trailingAnchor.constraint(equalTo: buttonHolderView.trailingAnchor, constant: -10),
-            plusButton.topAnchor.constraint(equalTo: buttonHolderView.topAnchor),
-            plusButton.bottomAnchor.constraint(equalTo: buttonHolderView.bottomAnchor),
             plusButton.widthAnchor.constraint(equalToConstant: 40),
-            
-            leftSeperatorView.topAnchor.constraint(equalTo: buttonHolderView.topAnchor, constant: 10),
-            leftSeperatorView.bottomAnchor.constraint(equalTo: buttonHolderView.bottomAnchor, constant: -10),
-            leftSeperatorView.leadingAnchor.constraint(equalTo: minusButton.trailingAnchor, constant: 10),
             leftSeperatorView.widthAnchor.constraint(equalToConstant: 1),
-            
-            rightSeperatorView.topAnchor.constraint(equalTo: buttonHolderView.topAnchor, constant: 10),
-            rightSeperatorView.bottomAnchor.constraint(equalTo: buttonHolderView.bottomAnchor, constant: -10),
-            rightSeperatorView.trailingAnchor.constraint(equalTo: plusButton.leadingAnchor, constant: -10),
             rightSeperatorView.widthAnchor.constraint(equalToConstant: 1),
+            
+            buttonHolderStack.topAnchor.constraint(equalTo: buttonHolderView.topAnchor, constant: 10),
+            buttonHolderStack.leadingAnchor.constraint(equalTo: buttonHolderView.leadingAnchor, constant: 10),
+            buttonHolderStack.trailingAnchor.constraint(equalTo: buttonHolderView.trailingAnchor, constant: -10),
+            buttonHolderStack.bottomAnchor.constraint(equalTo: buttonHolderView.bottomAnchor, constant: -10),
             
             tourTimeContinueButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -10),
             tourTimeContinueButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
@@ -202,6 +217,6 @@ class TourTimeView: UIView, TourTimeDatePickerViewDelegate {
     func reloadWith(_ viewModel: TourTimeViewModel) {
         questionLabel.text = viewModel.questionLabel
         tourTimeContinueButton.setTitle(viewModel.buttonTitle, for: .normal)
-        dayLabel.text = viewModel.dayCountLabel
+        dayCountLabel.text = viewModel.dayCountLabel
     }
 }

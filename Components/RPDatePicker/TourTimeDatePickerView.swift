@@ -27,7 +27,7 @@ class TourTimeDatePickerView: UIView {
     private var dateLabel: UILabel = {
         let view = UILabel()
         view.textColor = .white
-        view.font = UIFont.systemFont(ofSize: 16)
+        view.font = UIFont.boldSystemFont(ofSize: 16)
         return view
     }()
     

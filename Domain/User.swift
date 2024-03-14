@@ -16,7 +16,7 @@ struct User: Codable {
     let userInfo: String?
     let id: String?
     let email: String?
-    let isRegistrationCompleted: Bool
+    let isRegistrationCompleted: Bool?
     let username: String?
     let dateOfBirth: String?
     let firstName: String?
