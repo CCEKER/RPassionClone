@@ -32,10 +32,10 @@ final class EditProfileInteractor {
 extension EditProfileInteractor: EditProfileInteractorProtocol {
     
     func editProfile(firstName: String, dateOfBirth: String, lastName: String, username: String, countrCode: String, instagram: String) {
-        authService.editProfile(firstName: firstName, dateOfBirth: dateOfBirth, lastName: lastName, username: username, countryCode: countrCode, instagram: instagram) { [weak self] response in
+        authService.editProfile(firstName: firstName, dateOfBirth: dateOfBirth, lastName: lastName, username: username, countryCode: countrCode, instagram: instagram) { [weak self] result in
             guard let self = self else { return }
             DispatchQueue.main.async {
-                switch response {
+                switch result {
                 case .success(let response):
                     guard let token = self.userService.token else { return }
                     self.userService.updateLoggedInUser(user: response, token: token)

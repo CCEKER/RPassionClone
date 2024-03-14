@@ -9,6 +9,7 @@ import UIKit
 
 protocol LoginViewControllerProtocol: AnyObject {
     func displayLoadingScreen(_ viewModel: RPLoadingViewModel)
+	func displayState(_ state: LoginViewState)
 }
 
 class LoginViewController: UIViewController, RPLoadingDisplayable {
@@ -59,4 +60,18 @@ extension LoginViewController: LoginViewControllerProtocol {
     func displayLoadingScreen(_ viewModel: RPLoadingViewModel) {
         showLoading(viewModel: viewModel)
     }
+	
+	func displayState(_ state: LoginViewState) {
+		switch state {
+		case .initial:
+			break
+		case .loading:
+			break
+		case .error(let errorViewModel):
+			hideLoading()
+			let alertController = UIAlertController(title: errorViewModel.title, message: errorViewModel.description, preferredStyle: .alert)
+			alertController.addAction(.init(title: errorViewModel.cancelButtonTitle, style: .cancel))
+			self.present(alertController, animated: true)
+		}
+	}
 }

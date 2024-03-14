@@ -9,13 +9,14 @@ import UIKit
 
 protocol ItineraryViewControllerProtocol: AnyObject {
     func displayViewModel(_ viewModel: [ItineraryViewModel])
+	func displayViewState(_ viewState: ItineraryViewState)
 }
 
 class ItineraryViewController: UIViewController {
     
     private let customView = ItineraryView()
     private let interactor: ItineraryInteractorProtocol
-    private var collectionData: [ItineraryViewModel] = []
+    private var collectionData: [JourneyDayViewModel] = []
     
     init(interactor: ItineraryInteractorProtocol) {
         self.interactor = interactor
@@ -43,17 +44,34 @@ class ItineraryViewController: UIViewController {
 extension ItineraryViewController: ItineraryViewControllerProtocol {
     
     func displayViewModel(_ viewModel: [ItineraryViewModel]) {
-        self.collectionData = viewModel
-        customView.startPointTitle.text = viewModel.first?.title
-        customView.startPointSubtitle.text = viewModel.first?.subtitle
-        customView.endPointLabel.text = viewModel.first?.endPointTitle
-        customView.endPointSubtitleLabel.text = viewModel.first?.endPointSubtitle
-        customView.helperText.text = viewModel.first?.helperText
-        customView.itineraryContinueButton.setTitle(viewModel.first?.buttonTitle, for: .normal)
-        customView.skipButton.setTitle(viewModel.first?.skipButtonTitle, for: .normal)
-        self.title = viewModel.first?.navigationTitle
-        customView.collectionView.reloadData()
+//        self.collectionData = viewModel
+//        customView.startPointTitle.text = viewModel.first?.title
+//        customView.startPointSubtitle.text = viewModel.first?.subtitle
+//        customView.endPointLabel.text = viewModel.first?.endPointTitle
+//        customView.endPointSubtitleLabel.text = viewModel.first?.endPointSubtitle
+//        customView.helperText.text = viewModel.first?.helperText
+//        customView.itineraryContinueButton.setTitle(viewModel.first?.buttonTitle, for: .normal)
+//        customView.skipButton.setTitle(viewModel.first?.skipButtonTitle, for: .normal)
+//        self.title = viewModel.first?.navigationTitle
+//        customView.collectionView.reloadData()
     }
+	
+	func displayViewState(_ viewState: ItineraryViewState) {
+		switch viewState {
+		case let .updated(collectionData, selectedJourneyViewodel):
+			
+			self.collectionData = collectionData
+			customView.startPointTitle.text = selectedJourneyViewodel.title
+			customView.startPointSubtitle.text = selectedJourneyViewodel.subtitle
+			customView.endPointLabel.text = selectedJourneyViewodel.endPointTitle
+			customView.endPointSubtitleLabel.text = selectedJourneyViewodel.endPointSubtitle
+			customView.helperText.text = selectedJourneyViewodel.helperText
+			customView.itineraryContinueButton.setTitle(selectedJourneyViewodel.buttonTitle, for: .normal)
+			customView.skipButton.setTitle(selectedJourneyViewodel.skipButtonTitle, for: .normal)
+			self.title = selectedJourneyViewodel.navigationTitle
+			customView.collectionView.reloadData()
+		}
+	}
 }
 
 extension ItineraryViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

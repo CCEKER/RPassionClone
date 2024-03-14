@@ -37,9 +37,7 @@ extension RegisterInteractor: RegisterInteractorProtocol {
             
             DispatchQueue.main.async {
                 guard let self else { return }
-                
                 switch result {
-        
                 case .success:
                     self.coordinator?.registerInteractorDidTapNextButton(email: email)
                 

@@ -37,15 +37,25 @@ final class AuthService: AuthServiceProtocol {
         
         guard let loginUrl = URL(string: "\(NetworkLayerConstant.baseURL)/auth/login") else { return }
         let parameters: Parameters = [ "email": email, "password": password]
-        
-        AF.request(loginUrl, method: .post, parameters: parameters).responseDecodable(of: AuthResponse.self) { response in
-            switch response.result {
-            case .success(let response):
-                completion(.success(response))
-            case .failure:
-                completion(.failure(.loginFailed))
-            }
-        }
+		
+		AF.request(loginUrl, method: .post, parameters: parameters).response { result in
+			do {
+				guard let data = result.data else {
+					completion(.failure(.jsonDecodingError))
+					return
+				}
+				if result.response?.statusCode == 201 {
+					let authResponse = try JSONDecoder().decode(AuthResponse.self, from: data)
+					completion(.success(authResponse))
+					
+				} else {
+					let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: data)
+					completion(.failure(.otherError(message: errorResponse.errors.first?.message ?? "Bir hata oluştu")))
+				}
+			} catch {
+				completion(.failure(.jsonDecodingError))
+			}
+		}
     }
     
     func register(email: String, password: String, completion: @escaping (Result<Void, AuthServiceError>) -> Void) {
@@ -141,17 +151,36 @@ final class AuthService: AuthServiceProtocol {
         let parameters: Parameters = ["firstName": firstName, "dateOfBirth": formattedDateOfBirth, "lastName": lastName, "username": username, "countryCode": countryCode, "instagram": instagramFormat]
         if let token = userService.token {
             headers.add(.authorization(bearerToken: token))
-        }
-        AF.request(url, method: .patch, parameters: parameters, headers: headers).responseDecodable(of: User.self) { response in
-            
-            switch response.result {
-            case .success(let response):
-                completion(.success(response))
-        
-            case .failure(let error):
-                completion(.failure(.invalidURL("Error: \(error)")))
-            }
-        }
+		}
+		AF.request(url, method: .patch, parameters: parameters, headers: headers).response { result in
+			do {
+				guard let data = result.data else {
+					completion(.failure(.jsonDecodingError))
+					return
+				}
+				if result.response?.statusCode == 200 {
+					let authResponse = try JSONDecoder().decode(User.self, from: data)
+					completion(.success(authResponse))
+					
+				} else {
+					let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: data)
+					completion(.failure(.otherError(message: errorResponse.errors.first?.message ?? "Bir hata oluştu")))
+				}
+			} catch {
+				completion(.failure(.jsonDecodingError))
+			}
+		}
+//		
+//        AF.request(url, method: .patch, parameters: parameters, headers: headers).responseDecodable(of: User.self) { result in
+//            
+//			switch result.result {
+//            case .success(let response):
+//                completion(.success(response))
+//        
+//            case .failure(let error):
+//                completion(.failure(.invalidURL("Error: \(error)")))
+//            }
+//        }
     }
 }
 

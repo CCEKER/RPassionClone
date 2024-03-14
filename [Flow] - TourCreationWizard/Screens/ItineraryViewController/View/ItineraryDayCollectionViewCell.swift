@@ -21,7 +21,7 @@ class ItineraryDayCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-       setupViews()
+        setupViews()
         setupConstraints()
         setupCell()
     }
@@ -44,8 +44,8 @@ class ItineraryDayCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-    func reloadWith(_ viewModel: ItineraryViewModel, isSelectedDay: Bool) {
-        dayLabel.text = "Day \(viewModel.day)"
+    func reloadWith(_ viewModel: JourneyDayViewModel, isSelectedDay: Bool) {
+		dayLabel.text = viewModel.title
         self.contentView.backgroundColor = isSelectedDay ? UIColor.systemBlue: .holderView
         
     }

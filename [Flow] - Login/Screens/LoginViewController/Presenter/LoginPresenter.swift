@@ -9,6 +9,7 @@ import Foundation
 
 protocol LoginPresenterProtocol {
     func presentLoginLoadingScreen()
+	func presentError(_ errorMessage: String)
 }
 
 final class LoginPresenter: LoginPresenterProtocol {
@@ -20,4 +21,15 @@ final class LoginPresenter: LoginPresenterProtocol {
         let viewModel = RPLoadingViewModel(caption: caption)
         viewController?.displayLoadingScreen(viewModel)
     }
+	
+	func presentError(_ errorMessage: String) {
+		let errorViewModel = ErrorViewModel(
+			title: "Hata!",
+			description: errorMessage,
+			actionButtonTitle: nil,
+			cancelButtonTitle: "Kapat"
+		)
+		
+		viewController?.displayState(.error(errorViewModel))
+	}
 }

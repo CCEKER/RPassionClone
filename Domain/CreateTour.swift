@@ -49,6 +49,6 @@ struct ItineraryTourModel: Codable {
 struct Journey: Codable {
     let id: String
     let day: Int
-    let itinerary: [String]
-    let descriptions: [String]
+//    let itinerary: [String]
+//    let descriptions: [String]
 }

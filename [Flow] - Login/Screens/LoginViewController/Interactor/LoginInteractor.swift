@@ -49,7 +49,8 @@ extension LoginInteractor: LoginInteractorProtocol {
                     self.coordinator?.loginInteractorUserDidLogin()
                     
                 case .failure(let error):
-                    print("Login failed with error: \(error)")
+					guard case .otherError(let message) = error else { return }
+					self.presenter.presentError(message)
                 }
             }
         }

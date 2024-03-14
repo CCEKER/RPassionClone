@@ -76,24 +76,16 @@ extension TourTimeInteractor: TourTimeInteractorProtocol {
     func didTapContinueButton() {
         let group = DispatchGroup()
         
+		for _ in 0..<count {
+			group.enter()
+		}
+		
         for _ in 0..<count {
-            group.enter()
-            tourService.createTourDay(tourId: tourId) { [weak self] result in
-                defer { group.leave() }
-                guard let self else {
-                    group.leave()
-                    return
-                }
-                DispatchQueue.main.async {
-                    switch result {
-                    case .success: break
-                        
-                    case .failure(let error):
-                        print("Error: \(error)")
-                    }
-                }
-            }
+			tourService.createTourDay(tourId: tourId) { _ in
+				group.leave()
+			}
         }
+		
         group.notify(queue: .main) {
             self.coordinator?.tourTimeInteractorDidTapContinueButton(tourId: self.tourId)
         }

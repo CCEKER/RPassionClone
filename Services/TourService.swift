@@ -129,7 +129,7 @@ final class TourService: TourServiceProtocol {
             case .success(let response):
                 completion(.success(response.journeys))
             case .failure(let error):
-                completion(.failure("getItineraryError: \(error)" as! Error))
+                completion(.failure("getItineraryErreor: \(error)" as! Error))
             }
         }
     }
