@@ -12,4 +12,6 @@ struct TourTimeViewModel {
     let questionLabel: String
     let dayCountLabel: String
     let buttonTitle: String
+    let isMinusButtonEnabled: Bool
+    let isPlusButtonEnabled: Bool
 }

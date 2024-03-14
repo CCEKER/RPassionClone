@@ -10,7 +10,7 @@ import Swinject
 import UIKit
 
 extension CreateTourWelcomeFlowCoordinator {
-    static func build(delegate: CreateTourWelcomeFlowCoordinatorDelegate, container: Container, presentingViewController: UINavigationController) -> CreateTourWelcomeFlowCoordinatorProtocol {
+    static func build(delegate: CreateTourWelcomeFlowCoordinatorDelegate, container: Container, presentingViewController: UIViewController) -> CreateTourWelcomeFlowCoordinatorProtocol {
         let module = CreateTourWelcomeFlowCoordinatorModule(parentContainer: container)
         return CreateTourWelcomeFlowCoordinator(delegate: delegate, resolver: module, presentingViewController: presentingViewController)
     }

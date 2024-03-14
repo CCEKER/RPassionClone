@@ -33,3 +33,22 @@ enum TourType: String, Codable {
         }
     }
 }
+
+struct CreateTourDayModel: Codable {
+    let id: String
+    let day: Int
+    let descriptions: [String]
+}
+
+struct ItineraryTourModel: Codable {
+    let locations: [String]
+    let trips: [String]
+    let journeys: [Journey]
+}
+
+struct Journey: Codable {
+    let id: String
+    let day: Int
+    let itinerary: [String]
+    let descriptions: [String]
+}

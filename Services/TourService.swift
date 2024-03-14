@@ -13,6 +13,8 @@ protocol TourServiceProtocol {
     func getParticipants(tourId: String, completion: @escaping (Result<[Participant], Error>) -> Void)
     func createTour(title: String, description: String?, tourType: TourType, completion: @escaping (Result<CreateTourResponse, Error>) -> Void)
     func startDay(startDay: String, tourId: String, completion: @escaping (Result<Void, Error>) -> Void)
+    func createTourDay(tourId: String, completion: @escaping (Result<CreateTourDayModel, Error>) -> Void)
+    func getItineraryTour(tourId: String, completion: @escaping (Result<[Journey], Error>) -> Void)
 }
 
 final class TourService: TourServiceProtocol {
@@ -92,6 +94,42 @@ final class TourService: TourServiceProtocol {
                 completion(.success(()))
             case .failure(let error):
                 print("startDayError: \(error)")
+            }
+        }
+    }
+    
+    func createTourDay(tourId: String, completion: @escaping (Result<CreateTourDayModel, Error>) -> Void) {
+        
+        guard let url = URL(string: "\(NetworkLayerConstant.baseURL)/tour/day/\(tourId)") else { return }
+        var headers: HTTPHeaders = []
+        if let token = userService.token {
+            headers.add(.authorization(bearerToken: token))
+        }
+        AF.request(url, method: .post, headers: headers).responseDecodable(of: CreateTourDayModel.self) { response in
+            
+            switch response.result {
+            case .success(let response):
+                completion(.success(response))
+            case .failure(let error):
+                completion(.failure("CreateTourDay Error: \(error)" as! Error))
+            }
+        }
+    }
+    
+    func getItineraryTour(tourId: String, completion: @escaping (Result<[Journey], Error>) -> Void) {
+        
+        guard let url = URL(string: "\(NetworkLayerConstant.baseURL)/tour/day/\(tourId)") else { return }
+        var headers: HTTPHeaders = []
+        if let token = userService.token {
+            headers.add(.authorization(bearerToken: token))
+        }
+        AF.request(url, method: .get, headers: headers).responseDecodable(of: ItineraryTourModel.self) { response in
+           
+            switch response.result {
+            case .success(let response):
+                completion(.success(response.journeys))
+            case .failure(let error):
+                completion(.failure("getItineraryError: \(error)" as! Error))
             }
         }
     }

@@ -13,6 +13,13 @@
 		9D017A932B6277D8008C2D88 /* LoginViewController+Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D017A922B6277D8008C2D88 /* LoginViewController+Build.swift */; };
 		9D017A952B6277E2008C2D88 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D017A942B6277E2008C2D88 /* LoginInteractor.swift */; };
 		9D017A972B6277E8008C2D88 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D017A962B6277E8008C2D88 /* LoginPresenter.swift */; };
+		9D09697D2BA322FF00852BB1 /* ItineraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D09697C2BA322FF00852BB1 /* ItineraryView.swift */; };
+		9D09697F2BA3231A00852BB1 /* ItineraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D09697E2BA3231A00852BB1 /* ItineraryViewController.swift */; };
+		9D0969812BA3232800852BB1 /* ItineraryViewController+Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0969802BA3232800852BB1 /* ItineraryViewController+Build.swift */; };
+		9D0969832BA3233200852BB1 /* ItineraryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0969822BA3233200852BB1 /* ItineraryInteractor.swift */; };
+		9D0969852BA3233C00852BB1 /* ItineraryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0969842BA3233C00852BB1 /* ItineraryPresenter.swift */; };
+		9D0969872BA32B9C00852BB1 /* ItineraryDayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0969862BA32B9C00852BB1 /* ItineraryDayCollectionViewCell.swift */; };
+		9D09698A2BA349FE00852BB1 /* ItineraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0969892BA349FE00852BB1 /* ItineraryViewModel.swift */; };
 		9D0F1BAF2BA069C4000DB326 /* RPProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0F1BAE2BA069C4000DB326 /* RPProgressView.swift */; };
 		9D0F1BB22BA08E0B000DB326 /* CreateTourViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0F1BB12BA08E0B000DB326 /* CreateTourViewModel.swift */; };
 		9D0F1BB52BA09527000DB326 /* RPTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0F1BB42BA09527000DB326 /* RPTextField.swift */; };
@@ -211,6 +218,13 @@
 		9D017A922B6277D8008C2D88 /* LoginViewController+Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+Build.swift"; sourceTree = "<group>"; };
 		9D017A942B6277E2008C2D88 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		9D017A962B6277E8008C2D88 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		9D09697C2BA322FF00852BB1 /* ItineraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryView.swift; sourceTree = "<group>"; };
+		9D09697E2BA3231A00852BB1 /* ItineraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryViewController.swift; sourceTree = "<group>"; };
+		9D0969802BA3232800852BB1 /* ItineraryViewController+Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItineraryViewController+Build.swift"; sourceTree = "<group>"; };
+		9D0969822BA3233200852BB1 /* ItineraryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryInteractor.swift; sourceTree = "<group>"; };
+		9D0969842BA3233C00852BB1 /* ItineraryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryPresenter.swift; sourceTree = "<group>"; };
+		9D0969862BA32B9C00852BB1 /* ItineraryDayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryDayCollectionViewCell.swift; sourceTree = "<group>"; };
+		9D0969892BA349FE00852BB1 /* ItineraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryViewModel.swift; sourceTree = "<group>"; };
 		9D0F1BAE2BA069C4000DB326 /* RPProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPProgressView.swift; sourceTree = "<group>"; };
 		9D0F1BB12BA08E0B000DB326 /* CreateTourViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTourViewModel.swift; sourceTree = "<group>"; };
 		9D0F1BB42BA09527000DB326 /* RPTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPTextField.swift; sourceTree = "<group>"; };
@@ -460,6 +474,52 @@
 			path = Presenter;
 			sourceTree = "<group>";
 		};
+		9D0969782BA3227D00852BB1 /* ItineraryViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D0969882BA32C7400852BB1 /* Model */,
+				9D0969792BA3229B00852BB1 /* View */,
+				9D09697A2BA322A200852BB1 /* Interactor */,
+				9D09697B2BA322A700852BB1 /* Presenter */,
+			);
+			path = ItineraryViewController;
+			sourceTree = "<group>";
+		};
+		9D0969792BA3229B00852BB1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9D09697C2BA322FF00852BB1 /* ItineraryView.swift */,
+				9D09697E2BA3231A00852BB1 /* ItineraryViewController.swift */,
+				9D0969802BA3232800852BB1 /* ItineraryViewController+Build.swift */,
+				9D0969862BA32B9C00852BB1 /* ItineraryDayCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9D09697A2BA322A200852BB1 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				9D0969822BA3233200852BB1 /* ItineraryInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		9D09697B2BA322A700852BB1 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9D0969842BA3233C00852BB1 /* ItineraryPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		9D0969882BA32C7400852BB1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9D0969892BA349FE00852BB1 /* ItineraryViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9D0F1BB02BA08DF2000DB326 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -515,6 +575,7 @@
 		9D1D888C2B9F574700F41E82 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				9D0969782BA3227D00852BB1 /* ItineraryViewController */,
 				9DD5458E2BA16DFD008ECB27 /* TourTimeViewController */,
 				9D1D88AE2B9FA03800F41E82 /* CreateTourViewController */,
 				9D1D88902B9F584800F41E82 /* CreateTourWelcomeViewController */,
@@ -627,8 +688,8 @@
 				9D5A47F82B488169005FF971 /* Domain */,
 				9D28754D2B6A4DCF00BBAA78 /* Services */,
 				9D8BC13A2B63799D0009DDA9 /* Components */,
-				9D265C772B47C35100D44701 /* [Flow] - Application */,
 				9DC6C4AE2B8D2A8C00E95C7F /* [Flow] -  Welcome */,
+				9D265C772B47C35100D44701 /* [Flow] - Application */,
 				9D017A882B627564008C2D88 /* [Flow] - Login */,
 				9DC6C4CC2B8D3E4F00E95C7F /* [Flow] - Register */,
 				9DC6C4F92B8D680000E95C7F /* [Flow] - Verification */,
@@ -1905,6 +1966,7 @@
 				9DC6C4C02B8D2B1600E95C7F /* WelcomeViewController.swift in Sources */,
 				9D1D88A22B9F598B00F41E82 /* CreateTourWelcomeView.swift in Sources */,
 				9DD545932BA16E39008ECB27 /* TourTimeView.swift in Sources */,
+				9D0969812BA3232800852BB1 /* ItineraryViewController+Build.swift in Sources */,
 				9DC6C4DC2B8D3EC900E95C7F /* RegisterFlowCoordinator+Build.swift in Sources */,
 				9D672C8F2B932955000A9A73 /* EditProfileFlowCoordinator+Build.swift in Sources */,
 				9D1D88A42B9F599800F41E82 /* CreateTourWelcomeViewController.swift in Sources */,
@@ -1994,15 +2056,18 @@
 				9DEA1E282B948C0000AD5A76 /* RPDatePicker.swift in Sources */,
 				9D672C912B932962000A9A73 /* EditProfileFlowCoordinatorModule.swift in Sources */,
 				9DC6C4E92B8D504A00E95C7F /* RegisterViewState.swift in Sources */,
+				9D0969832BA3233200852BB1 /* ItineraryInteractor.swift in Sources */,
 				9D2875672B6A52DB00BBAA78 /* ApplicationFlowCoordinatorAssembly.swift in Sources */,
 				9DD545972BA16E61008ECB27 /* TourTimeViewController+Build.swift in Sources */,
 				9D1D88B92B9FA10C00F41E82 /* CreateTourInteractor.swift in Sources */,
 				9DC990A72B79BE46001558D7 /* AddCarFlowCoordinator+Build.swift in Sources */,
 				9DC990A52B79BE3B001558D7 /* AddCarFlowCoordinator.swift in Sources */,
+				9D0969852BA3233C00852BB1 /* ItineraryPresenter.swift in Sources */,
 				9DD5459F2BA17B2C008ECB27 /* TourTimeDatePickerView.swift in Sources */,
 				9D401C682B84910B00D259E1 /* ParticipantsViewController+Build.swift in Sources */,
 				9D9DD42C2B7F2E8A003FF874 /* SelectModelViewState.swift in Sources */,
 				9D1D88A62B9F59A800F41E82 /* CreateTourWelcomeViewController+Build.swift in Sources */,
+				9D09698A2BA349FE00852BB1 /* ItineraryViewModel.swift in Sources */,
 				9DC6C4F42B8D5E5E00E95C7F /* VerificationCodeViewController+Build.swift in Sources */,
 				9D265C962B47E84100D44701 /* HomePageTableViewCell.swift in Sources */,
 				9D7A58EB2B750ED2000105A9 /* TourService.swift in Sources */,
@@ -2017,6 +2082,7 @@
 				9DC9909B2B79BE02001558D7 /* SelectModelView.swift in Sources */,
 				9D1D88B72B9FA10200F41E82 /* CreateTourViewController+Build.swift in Sources */,
 				9D017A932B6277D8008C2D88 /* LoginViewController+Build.swift in Sources */,
+				9D09697D2BA322FF00852BB1 /* ItineraryView.swift in Sources */,
 				9DC6C4B82B8D2AE600E95C7F /* WelcomeFlowCoordinator+Build.swift in Sources */,
 				9DC9909D2B79BE0F001558D7 /* SelectModelViewController.swift in Sources */,
 				9D2875512B6A4DEA00BBAA78 /* UserService.swift in Sources */,
@@ -2060,6 +2126,7 @@
 				9D28757B2B6A584C00BBAA78 /* DashboardFlowCoordinatorAssembly.swift in Sources */,
 				9DC915942B7F6D8800CA0820 /* SelectedCarViewController+Build.swift in Sources */,
 				9DC990812B79A861001558D7 /* SelectBrandViewController.swift in Sources */,
+				9D0969872BA32B9C00852BB1 /* ItineraryDayCollectionViewCell.swift in Sources */,
 				9DC6C4E42B8D3EED00E95C7F /* RegisterInteractor.swift in Sources */,
 				9D28755D2B6A513D00BBAA78 /* HomePageFlowCoordinatorModule.swift in Sources */,
 				9D017A8D2B627601008C2D88 /* LoginFlowCoordinator.swift in Sources */,
@@ -2084,6 +2151,7 @@
 				9DC990872B79A87D001558D7 /* SelectBrandPresenter.swift in Sources */,
 				9D2875692B6A52EE00BBAA78 /* ApplicationFlowCoordinatorModule.swift in Sources */,
 				9D017A912B6277CD008C2D88 /* LoginView.swift in Sources */,
+				9D09697F2BA3231A00852BB1 /* ItineraryViewController.swift in Sources */,
 				9DC990832B79A86C001558D7 /* SelectBrandViewController+Build.swift in Sources */,
 				9D1D88962B9F590400F41E82 /* CreateTourWelcomeFlowCoordinator.swift in Sources */,
 				9DC6C4FE2B8D684700E95C7F /* VerificationCodeFlowCoordinatorModule.swift in Sources */,

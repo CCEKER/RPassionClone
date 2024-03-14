@@ -13,16 +13,17 @@ protocol CreateTourWelcomeFlowCoordinatorProtocol {
 }
 
 protocol CreateTourWelcomeFlowCoordinatorDelegate {
-    
+    func createTourWelcomeFlowDidFinish()
 }
 
 final class CreateTourWelcomeFlowCoordinator: CreateTourWelcomeFlowCoordinatorProtocol {
     
     private let delegate: CreateTourWelcomeFlowCoordinatorDelegate
     private var resolver: CreateTourWelcomeFlowCoordinatorResolver
-    private let presentingViewController: UINavigationController
+    private let presentingViewController: UIViewController
+    private var navigationController: UINavigationController?
     
-    init(delegate: CreateTourWelcomeFlowCoordinatorDelegate, resolver: CreateTourWelcomeFlowCoordinatorResolver, presentingViewController: UINavigationController) {
+    init(delegate: CreateTourWelcomeFlowCoordinatorDelegate, resolver: CreateTourWelcomeFlowCoordinatorResolver, presentingViewController: UIViewController) {
         self.delegate = delegate
         self.resolver = resolver
         self.presentingViewController = presentingViewController
@@ -31,8 +32,10 @@ final class CreateTourWelcomeFlowCoordinator: CreateTourWelcomeFlowCoordinatorPr
     func start() {
         
         let createTourWelcomeViewController = resolver.resolveCreateTourWelcomeFlowCoordinator(delegate: self)
-        createTourWelcomeViewController.modalPresentationStyle = .fullScreen
-        presentingViewController.present(createTourWelcomeViewController, animated: true)
+        let navigationController = UINavigationController(rootViewController: createTourWelcomeViewController)
+        self.navigationController = navigationController
+        navigationController.modalPresentationStyle = .fullScreen
+        presentingViewController.present(navigationController, animated: true)
     }
 }
 
@@ -40,26 +43,33 @@ extension CreateTourWelcomeFlowCoordinator: CreateTourWelcomeInteractorCoordinat
     
     func didTapStartCreateTourButton() {
         
-        presentingViewController.dismiss(animated: true)
         let createTourViewController = resolver.resolveCreateTourViewController(delegate: self)
-        presentingViewController.pushViewController(createTourViewController, animated: true)
-        
+        navigationController?.pushViewController(createTourViewController, animated: true)
     }
     
     func createTourWelcomeInteractorDidTapCloseButton() {
-        presentingViewController.dismiss(animated: true)
+        navigationController?.dismiss(animated: true)
+        delegate.createTourWelcomeFlowDidFinish()
     }
 }
 
 extension CreateTourWelcomeFlowCoordinator: CreateTourInteractorCoordinatorDelegate {
     
     func didTapCreateTourButton(tourId: String) {
-        presentingViewController.dismiss(animated: true)
+    
         let tourTimeViewController = resolver.resolveTourTimeViewController(delegate: self, tourId: tourId)
-        presentingViewController.pushViewController(tourTimeViewController, animated: true)
+        navigationController?.pushViewController(tourTimeViewController, animated: true)
     }
 }
 
 extension CreateTourWelcomeFlowCoordinator: TourTimeInteractorCoordinatorDelegate {
+    
+    func tourTimeInteractorDidTapContinueButton(tourId: String) {
+        let itineraryViewController = resolver.resolveItineraryViewController(delegate: self, tourId: tourId)
+        navigationController?.pushViewController(itineraryViewController, animated: true)
+    }
+}
+
+extension CreateTourWelcomeFlowCoordinator: ItineraryInteractorCoordinatorDelegate {
     
 }

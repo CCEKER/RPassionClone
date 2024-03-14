@@ -132,19 +132,6 @@ class CreateTourView: UIView {
 
 extension CreateTourView: UITextViewDelegate {
     
-    func textViewDidChange(_ textView: UITextView) {
-        resizeTextView(textView)
-    }
-    
-    func resizeTextView(_ textView: UITextView) {
-        let size = CGSize(width: textView.frame.width, height: .infinity)
-        let estimatedSize = textView.sizeThatFits(size)
-        textView.constraints.forEach { (constraint) in
-            if constraint.firstAttribute == .height {
-                constraint.constant = estimatedSize.height
-            }
-        }
-    }
 }
 
 

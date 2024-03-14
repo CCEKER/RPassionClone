@@ -12,6 +12,7 @@ protocol CreateTourWelcomeFlowCoordinatorResolver {
     func resolveCreateTourWelcomeFlowCoordinator(delegate: CreateTourWelcomeInteractorCoordinatorDelegate) -> UIViewController
     func resolveCreateTourViewController(delegate: CreateTourInteractorCoordinatorDelegate) -> UIViewController
     func resolveTourTimeViewController(delegate: TourTimeInteractorCoordinatorDelegate, tourId: String) -> UIViewController
+    func resolveItineraryViewController(delegate: ItineraryInteractorCoordinatorDelegate, tourId: String) -> UIViewController
 }
 
 final class CreateTourWelcomeFlowCoordinatorModule: CreateTourWelcomeFlowCoordinatorResolver {
@@ -41,5 +42,12 @@ final class CreateTourWelcomeFlowCoordinatorModule: CreateTourWelcomeFlowCoordin
             fatalError("TourServiceProtocol must be registered.")
         }
         return TourTimeViewController.build(coordinator: delegate, tourId: tourId, tourService: tourService)
+    }
+    
+    func resolveItineraryViewController(delegate: ItineraryInteractorCoordinatorDelegate, tourId: String) -> UIViewController {
+        guard let tourService = resolver.resolve(TourServiceProtocol.self) else {
+            fatalError("TourServiceProtocol must be registered.")
+        }
+        return ItineraryViewController.build(coordinator: delegate, tourId: tourId, tourService: tourService)
     }
 }

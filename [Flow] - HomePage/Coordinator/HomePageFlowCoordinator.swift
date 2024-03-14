@@ -65,4 +65,7 @@ extension HomePageFlowCoordinator: TourDetailFlowCoordinatorDelegate {
 
 extension HomePageFlowCoordinator: CreateTourWelcomeFlowCoordinatorDelegate {
     
+    func createTourWelcomeFlowDidFinish() {
+        createTourWelcomeFlowCoordinator = nil
+    }
 }

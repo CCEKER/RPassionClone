@@ -19,7 +19,7 @@ class TourTimeDatePickerView: UIView {
         let view = UILabel()
         view.text = "Tour Start Date"
         view.textColor = .lightGray
-        view.font = UIFont.systemFont(ofSize: 16)
+        view.font = UIFont.boldSystemFont(ofSize: 16)
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -58,7 +58,7 @@ class TourTimeDatePickerView: UIView {
         let view = UIDatePicker()
         view.datePickerMode = .date
         view.preferredDatePickerStyle = .wheels
-        view.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
+        //view.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
         return view
     }()
     
@@ -125,7 +125,7 @@ class TourTimeDatePickerView: UIView {
         startTourTimeTextField.inputView = datePicker
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(dismissDatePicker))
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(didTapDoneButton))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         toolbar.setItems([spaceButton, doneButton], animated: false)
         startTourTimeTextField.inputAccessoryView = toolbar
@@ -135,20 +135,17 @@ class TourTimeDatePickerView: UIView {
         startTourTimeTextField.becomeFirstResponder()
     }
     
-    @objc private func dateChanged(_ sender: UIDatePicker) {
+    @objc private func didTapDoneButton() {
+        let date = datePicker.date
         let displayDateFormatter = DateFormatter()
         displayDateFormatter.dateFormat = "dd MMMM yyyy"
-        let displayDate = displayDateFormatter.string(from: sender.date)
+        let displayDate = displayDateFormatter.string(from: date)
         dateLabel.text = displayDate
         
         let apiFormatter = DateFormatter()
         apiFormatter.dateFormat = "yyyy-MM-dd"
-        let apiDate = apiFormatter.string(from: sender.date)
+        let apiDate = apiFormatter.string(from: date)
         delegate?.didSelectDatePicker(date: apiDate)
-    }
-    
-    @objc private func dismissDatePicker() {
         startTourTimeTextField.resignFirstResponder()
     }
-    
 }

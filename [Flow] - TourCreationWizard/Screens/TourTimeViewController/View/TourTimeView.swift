@@ -132,7 +132,7 @@ class TourTimeView: UIView, TourTimeDatePickerViewDelegate {
     }()
     
     private lazy var holderStack: UIStackView = {
-       let view = UIStackView(arrangedSubviews: [datePicker, holderView])
+        let view = UIStackView(arrangedSubviews: [datePicker, holderView])
         view.axis = .vertical
         view.distribution = .fill
         view.alignment = .fill
@@ -176,7 +176,7 @@ class TourTimeView: UIView, TourTimeDatePickerViewDelegate {
             progressBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             progressBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             progressBar.heightAnchor.constraint(equalToConstant: 10),
-        
+            
             holderStack.topAnchor.constraint(equalTo: progressBar.bottomAnchor, constant: 20),
             holderStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             holderStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
@@ -218,5 +218,7 @@ class TourTimeView: UIView, TourTimeDatePickerViewDelegate {
         questionLabel.text = viewModel.questionLabel
         tourTimeContinueButton.setTitle(viewModel.buttonTitle, for: .normal)
         dayCountLabel.text = viewModel.dayCountLabel
+        minusButton.isEnabled = viewModel.isMinusButtonEnabled
+        plusButton.isEnabled = viewModel.isPlusButtonEnabled
     }
 }

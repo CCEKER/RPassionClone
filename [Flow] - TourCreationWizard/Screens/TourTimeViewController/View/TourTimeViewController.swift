@@ -36,8 +36,13 @@ class TourTimeViewController: UIViewController, TourTimeViewProtocol {
 
         customView.minusButton.addTarget(self, action: #selector(didTapMinusButton), for: .touchUpInside)
         customView.plusButton.addTarget(self, action: #selector(didTapPlusButton), for: .touchUpInside)
+        customView.tourTimeContinueButton.addTarget(self, action: #selector(didTapContinueButton), for: .touchUpInside)
         
         interactor.viewDidLoad()
+    }
+    
+    @objc private func didTapContinueButton() {
+        interactor.didTapContinueButton()
     }
     
     @objc private func didTapMinusButton() {
