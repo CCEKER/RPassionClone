@@ -9,10 +9,11 @@ import Foundation
 
 protocol MapInteractorProtocol {
     func viewDidLoad()
+    func didTapCheckAddressButton(latitude: Double, longitude: Double)
 }
 
 protocol MapInteractorCoordinatorDelegate: AnyObject {
-    
+    func mapInteractorDidTapCheckAddressButton()
 }
 
 final class MapInteractor {
@@ -31,5 +32,16 @@ extension MapInteractor: MapInteractorProtocol {
     
     func viewDidLoad() {
         presenter.presentViewState()
+    }
+    
+    func didTapCheckAddressButton(latitude: Double, longitude: Double) {
+        tourService.getLocation(latitude: latitude, longitude: longitude) { result in
+            switch result {
+            case .success(let response):
+                print(response)
+            case .failure(let failure):
+                break
+            }
+        }
     }
 }

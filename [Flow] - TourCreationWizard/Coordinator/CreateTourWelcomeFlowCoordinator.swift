@@ -80,4 +80,7 @@ extension CreateTourWelcomeFlowCoordinator: ItineraryInteractorCoordinatorDelega
 
 extension CreateTourWelcomeFlowCoordinator: MapInteractorCoordinatorDelegate {
     
+    func mapInteractorDidTapCheckAddressButton() {
+        
+    }
 }

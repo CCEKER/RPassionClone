@@ -12,7 +12,6 @@ protocol MapViewControllerProtocol: AnyObject {
 }
 
 class MapViewController: UIViewController {
-    
     private let customView = MapView()
     private let interactor: MapInteractorProtocol
     
@@ -32,7 +31,15 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        customView.checkAddressButton.addTarget(self, action: #selector(didTapCheckAddressButton), for: .touchUpInside)
         interactor.viewDidLoad()
+    }
+    
+    @objc private func didTapCheckAddressButton() {
+        
+        guard let latitude = customView.centerCoordinate?.latitude else { return }
+        guard let longitude = customView.centerCoordinate?.longitude else { return }
+        interactor.didTapCheckAddressButton(latitude: latitude, longitude: longitude)
     }
 }
 

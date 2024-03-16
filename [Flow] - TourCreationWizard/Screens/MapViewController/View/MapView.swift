@@ -13,6 +13,7 @@ class MapView: UIView, CLLocationManagerDelegate, MKMapViewDelegate {
     
     private let locationManager = CLLocationManager()
     private var previousLocation: CLLocation?
+    var centerCoordinate: CLLocationCoordinate2D?
     
     private let pinIcon: UIImageView = {
         let view = UIImageView(image: UIImage(named: "location"))
@@ -57,6 +58,7 @@ class MapView: UIView, CLLocationManagerDelegate, MKMapViewDelegate {
         setupLocationManager()
         let istanbulCoordinate = CLLocationCoordinate2D(latitude: 41.035689, longitude: 28.9119)
         centerViewOnUserLocation(CLLocation(latitude: istanbulCoordinate.latitude, longitude: istanbulCoordinate.longitude))
+        centerCoordinate = istanbulCoordinate
     }
     
     required init?(coder: NSCoder) {

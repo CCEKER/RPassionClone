@@ -52,3 +52,14 @@ struct Journey: Codable {
 //    let itinerary: [String]
 //    let descriptions: [String]
 }
+
+struct Location: Codable {
+    let id: Int
+    let coordinate: Coordinate
+    let address: String
+}
+
+struct Coordinate: Codable {
+    let latitude: String
+    let longitude: String
+}
