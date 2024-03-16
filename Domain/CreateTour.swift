@@ -63,3 +63,9 @@ struct Coordinate: Codable {
     let latitude: String
     let longitude: String
 }
+
+struct MeetingTime: Codable {
+    let id: String
+    let title: String
+    let meetingTime: String
+}

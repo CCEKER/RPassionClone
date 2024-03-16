@@ -72,15 +72,15 @@ extension CreateTourWelcomeFlowCoordinator: TourTimeInteractorCoordinatorDelegat
 
 extension CreateTourWelcomeFlowCoordinator: ItineraryInteractorCoordinatorDelegate {
     
-    func itineraryInteractorDidTapAddButton() {
-        let mapViewController = resolver.resolveMapViewController(delegate: self)
+    func itineraryInteractorDidTapAddButton(selectedDayId: String) {
+        let mapViewController = resolver.resolveMapViewController(delegate: self, selectedDayId: selectedDayId)
         navigationController?.pushViewController(mapViewController, animated: true)
     }
 }
 
 extension CreateTourWelcomeFlowCoordinator: MapInteractorCoordinatorDelegate {
     
-    func mapInteractorDidTapCheckAddressButton(dayId: Int, address: String) {
+    func mapInteractorDidTapCheckAddressButton(dayId: String, address: String) {
         let locationDetailViewController = resolver.resolveLocationDetailViewController(delegate: self, dayId: dayId, address: address)
         navigationController?.pushViewController(locationDetailViewController, animated: true)
     }
@@ -88,4 +88,7 @@ extension CreateTourWelcomeFlowCoordinator: MapInteractorCoordinatorDelegate {
 
 extension CreateTourWelcomeFlowCoordinator: LocationDetailInteractorCoordinatorDelegate {
     
+    func locationDetailInteractorDidTapAddLocationButton(tourId: String) {
+       
+    }
 }

@@ -13,8 +13,8 @@ protocol CreateTourWelcomeFlowCoordinatorResolver {
     func resolveCreateTourViewController(delegate: CreateTourInteractorCoordinatorDelegate) -> UIViewController
     func resolveTourTimeViewController(delegate: TourTimeInteractorCoordinatorDelegate, tourId: String) -> UIViewController
     func resolveItineraryViewController(delegate: ItineraryInteractorCoordinatorDelegate, tourId: String) -> UIViewController
-    func resolveMapViewController(delegate: MapInteractorCoordinatorDelegate) -> UIViewController
-    func resolveLocationDetailViewController(delegate: LocationDetailInteractorCoordinatorDelegate, dayId: Int, address: String) -> UIViewController
+    func resolveMapViewController(delegate: MapInteractorCoordinatorDelegate, selectedDayId: String) -> UIViewController
+    func resolveLocationDetailViewController(delegate: LocationDetailInteractorCoordinatorDelegate, dayId: String, address: String) -> UIViewController
 }
 
 final class CreateTourWelcomeFlowCoordinatorModule: CreateTourWelcomeFlowCoordinatorResolver {
@@ -53,14 +53,14 @@ final class CreateTourWelcomeFlowCoordinatorModule: CreateTourWelcomeFlowCoordin
         return ItineraryViewController.build(coordinator: delegate, tourId: tourId, tourService: tourService)
     }
     
-    func resolveMapViewController(delegate: MapInteractorCoordinatorDelegate) -> UIViewController {
+    func resolveMapViewController(delegate: MapInteractorCoordinatorDelegate, selectedDayId: String) -> UIViewController {
         guard let tourService = resolver.resolve(TourServiceProtocol.self) else {
             fatalError("TourServiceProtocol must be registered.")
         }
-        return MapViewController.build(coordinator: delegate, tourService: tourService)
+        return MapViewController.build(coordinator: delegate, tourService: tourService, selectedDayId: selectedDayId)
     }
     
-    func resolveLocationDetailViewController(delegate: LocationDetailInteractorCoordinatorDelegate, dayId: Int, address: String) -> UIViewController {
+    func resolveLocationDetailViewController(delegate: LocationDetailInteractorCoordinatorDelegate, dayId: String, address: String) -> UIViewController {
         guard let tourService = resolver.resolve(TourServiceProtocol.self) else {
             fatalError("TourServiceProtocol must be registered.")
         }

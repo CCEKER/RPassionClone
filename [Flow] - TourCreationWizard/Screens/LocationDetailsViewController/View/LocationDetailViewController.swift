@@ -32,11 +32,14 @@ class LocationDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        customView.addLocationButton.addTarget(self, action: #selector(didTapAddLocationButton), for: .touchUpInside)
         interactor.viewDidLoad()
     }
     
-    func didTapTimePickerDoneButton(time: String) {
-        
+    @objc private func didTapAddLocationButton() {
+        guard let title = customView.locationNameTextField.text, !title.isEmpty else { return }
+        guard let meetingTime = customView.timePicker.dateLabel.text, !meetingTime.isEmpty else { return }
+        interactor.didTapAddLocationButton(title: title, meetingTime: meetingTime)
     }
 }
 

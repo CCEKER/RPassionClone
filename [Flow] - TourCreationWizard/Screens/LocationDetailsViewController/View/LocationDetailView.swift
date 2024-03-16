@@ -9,7 +9,7 @@ import UIKit
 
 class LocationDetailView: UIView {
     
-    private let timePicker = RPMettingTimeDatePicker()
+    let timePicker = RPMettingTimeDatePicker()
     
     private let holderView: UIView = {
         let view = UIView()
@@ -117,6 +117,16 @@ class LocationDetailView: UIView {
         return view
     }()
     
+    let addLocationButton: UIButton = {
+        let view = UIButton(type: .system)
+        view.backgroundColor = .systemBlue
+        view.setTitleColor(.white, for: .normal)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = 3
+        view.titleLabel?.font = UIFont.boldSystemFont(ofSize: 15)
+        return view
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -136,6 +146,7 @@ class LocationDetailView: UIView {
         holderView.addSubview(horizontalStackView)
         locationNameHolderView.addSubview(locationNameTextField)
         addSubview(ScreenStackView)
+        addSubview(addLocationButton)
         timePicker.translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -164,7 +175,12 @@ class LocationDetailView: UIView {
             
             ScreenStackView.topAnchor.constraint(equalTo: holderView.bottomAnchor, constant: 10),
             ScreenStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            ScreenStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+            ScreenStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            
+            addLocationButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            addLocationButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            addLocationButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            addLocationButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
     
@@ -177,6 +193,7 @@ class LocationDetailView: UIView {
         locationDetailsSubtitle.text = viewModel.locationDetailsSubtitle
         locationNameTextField.placeholder = viewModel.textFieldPlaceHolder
         timePicker.startTourTimeLabel.text = viewModel.datePickerLabelText
+        addLocationButton.setTitle(viewModel.addLocationButtonTitle, for: .normal)
     }
 }
 

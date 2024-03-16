@@ -13,7 +13,7 @@ protocol MapInteractorProtocol {
 }
 
 protocol MapInteractorCoordinatorDelegate: AnyObject {
-    func mapInteractorDidTapCheckAddressButton(dayId: Int, address: String)
+    func mapInteractorDidTapCheckAddressButton(dayId: String, address: String)
 }
 
 final class MapInteractor {
@@ -21,10 +21,12 @@ final class MapInteractor {
     private let presenter: MapPresenterProtocol
     weak var coordinator: MapInteractorCoordinatorDelegate?
     private let tourService: TourServiceProtocol
+    private let selectedDayId: String
     
-    init(presenter: MapPresenterProtocol, tourService: TourServiceProtocol) {
+    init(presenter: MapPresenterProtocol, tourService: TourServiceProtocol, selectedDayId: String) {
         self.presenter = presenter
         self.tourService = tourService
+        self.selectedDayId = selectedDayId
     }
 }
 
@@ -40,7 +42,7 @@ extension MapInteractor: MapInteractorProtocol {
             DispatchQueue.main.async {
                 switch result {
                 case .success(let response):
-                    self.coordinator?.mapInteractorDidTapCheckAddressButton(dayId: response.id, address: response.address)
+                    self.coordinator?.mapInteractorDidTapCheckAddressButton(dayId: self.selectedDayId, address: response.address)
                 case .failure:
                     break
                 }

@@ -18,7 +18,7 @@ class RPMettingTimeDatePicker: UIView {
         return view
     }()
     
-    private var dateLabel: UILabel = {
+    var dateLabel: UILabel = {
         let view = UILabel()
         view.textColor = .white
         view.font = UIFont.boldSystemFont(ofSize: 16)
@@ -134,7 +134,6 @@ class RPMettingTimeDatePicker: UIView {
         displayDateFormatter.dateFormat = "HH:mm"
         let displayDate = displayDateFormatter.string(from: date)
         dateLabel.text = displayDate
-        delegate?.didSelectTime(time: displayDate)
         startTourTimeTextField.resignFirstResponder()
     }
 }

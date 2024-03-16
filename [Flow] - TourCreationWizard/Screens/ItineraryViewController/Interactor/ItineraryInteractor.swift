@@ -14,7 +14,7 @@ protocol ItineraryInteractorProtocol {
 }
 
 protocol ItineraryInteractorCoordinatorDelegate: AnyObject {
-    func itineraryInteractorDidTapAddButton()
+    func itineraryInteractorDidTapAddButton(selectedDayId: String)
 }
 
 final class ItineraryInteractor {
@@ -25,6 +25,7 @@ final class ItineraryInteractor {
     private let tourService: TourServiceProtocol
     private var journeys: [Journey] = []
     private var selectDay: Journey?
+    private var selectedDayIndex: Int?
     
     init(presenter: ItineraryPresenterProtocol, tourId: String, tourService: TourServiceProtocol) {
         self.presenter = presenter
@@ -43,6 +44,7 @@ extension ItineraryInteractor: ItineraryInteractorProtocol {
                 case .success(let list):
                     self.journeys = list
                     guard let firstJourney = list.first else { return }
+                    self.selectedDayIndex = firstJourney.day
                     self.presenter.presentItineraryTourDay(list, selectedDay: firstJourney)
                 case .failure:
                     break
@@ -52,11 +54,14 @@ extension ItineraryInteractor: ItineraryInteractorProtocol {
     }
     
     func didSelectDay(at index: Int) {
+        self.selectedDayIndex = index
         let selectedDay = journeys[index]
         presenter.presentItineraryTourDay(journeys, selectedDay: selectedDay)
     }
     
     func didTapAddButton() {
-        coordinator?.itineraryInteractorDidTapAddButton()
+        guard let index = selectedDayIndex else { return }
+        let selectedDayId = journeys[index].id
+        coordinator?.itineraryInteractorDidTapAddButton(selectedDayId: selectedDayId)
     }
 }

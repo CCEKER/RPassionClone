@@ -16,6 +16,7 @@ protocol TourServiceProtocol {
     func createTourDay(tourId: String, completion: @escaping (Result<CreateTourDayModel, Error>) -> Void)
     func getItineraryTour(tourId: String, completion: @escaping (Result<[Journey], Error>) -> Void)
     func getLocation(latitude: Double, longitude: Double, completion: @escaping (Result<Location, Error>) -> Void)
+    func postLocations(dayId: String, title: String, meetingTime: String, completion: @escaping (Result<MeetingTime, Error>) -> Void)
 }
 
 final class TourService: TourServiceProtocol {
@@ -150,6 +151,24 @@ final class TourService: TourServiceProtocol {
                 completion(.success(response))
             case .failure(let error):
                 completion(.failure(error))
+            }
+        }
+    }
+    
+    func postLocations(dayId: String, title: String, meetingTime: String, completion: @escaping (Result<MeetingTime, Error>) -> Void) {
+        guard let url = URL(string: "\(NetworkLayerConstant.baseURL)/tour/itinerary-event/\(dayId)") else { return }
+        var headers: HTTPHeaders = []
+        let parameters: Parameters = ["title": title, "meetingTime": meetingTime]
+        if let token = userService.token {
+            headers.add(.authorization(bearerToken: token))
+        }
+        AF.request(url, method: .post, parameters: parameters, headers: headers).responseDecodable(of: MeetingTime.self) { response in
+            
+            switch response.result {
+            case .success(let response):
+                completion(.success(response))
+            case .failure(let error):
+                print("postLocationsError: \(error)")
             }
         }
     }
