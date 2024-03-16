@@ -49,7 +49,7 @@ class EditProfileViewController: UIViewController {
         guard let instagram = customView.instagramTextField.text, !instagram.isEmpty else { return }
         self.showLoading(viewModel: .init(caption: "Loading..."))
         
-        interactor.editProfile(firstName: firstName, dateOfBirth: dateOfBirth, lastName: lastName, username: username, countrCode: countryCode, instagram: instagram)
+        interactor.editProfile(firstName: firstName, dateOfBirth: dateOfBirth, lastName: lastName, username: username, countryCode: countryCode, instagram: instagram)
     }
 }
 

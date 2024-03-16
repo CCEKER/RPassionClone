@@ -164,23 +164,12 @@ final class AuthService: AuthServiceProtocol {
 					
 				} else {
 					let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: data)
-					completion(.failure(.otherError(message: errorResponse.errors.first?.message ?? "Bir hata oluştu")))
+					completion(.failure(.otherError(message: errorResponse.errors.first?.message ?? "An error has occurred")))
 				}
 			} catch {
 				completion(.failure(.jsonDecodingError))
 			}
 		}
-//		
-//        AF.request(url, method: .patch, parameters: parameters, headers: headers).responseDecodable(of: User.self) { result in
-//            
-//			switch result.result {
-//            case .success(let response):
-//                completion(.success(response))
-//        
-//            case .failure(let error):
-//                completion(.failure(.invalidURL("Error: \(error)")))
-//            }
-//        }
     }
 }
 

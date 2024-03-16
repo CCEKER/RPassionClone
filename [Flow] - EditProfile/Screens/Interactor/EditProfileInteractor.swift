@@ -8,7 +8,7 @@
 import Foundation
 
 protocol EditProfileInteractorProtocol {
-    func editProfile(firstName: String, dateOfBirth: String, lastName: String, username: String, countrCode: String, instagram: String)
+    func editProfile(firstName: String, dateOfBirth: String, lastName: String, username: String, countryCode: String, instagram: String)
 }
 
 protocol EditProfileInteractorCoordinatorDelegate: AnyObject {
@@ -31,14 +31,18 @@ final class EditProfileInteractor {
 
 extension EditProfileInteractor: EditProfileInteractorProtocol {
     
-    func editProfile(firstName: String, dateOfBirth: String, lastName: String, username: String, countrCode: String, instagram: String) {
-        authService.editProfile(firstName: firstName, dateOfBirth: dateOfBirth, lastName: lastName, username: username, countryCode: countrCode, instagram: instagram) { [weak self] result in
+    func editProfile(firstName: String, dateOfBirth: String, lastName: String, username: String, countryCode: String, instagram: String) {
+        authService.editProfile(firstName: firstName, dateOfBirth: dateOfBirth, lastName: lastName, username: username, countryCode: countryCode, instagram: instagram) { [weak self] result in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 switch result {
                 case .success(let response):
                     guard let token = self.userService.token else { return }
                     self.userService.updateLoggedInUser(user: response, token: token)
+                    if let userData = try? JSONEncoder().encode(response) {
+                        UserDefaults.standard.set(userData, forKey: "user")
+                    }
+                    UserDefaults.standard.set(self.userService.token, forKey: "token")
                     self.coordinator?.editProfileFlowDidTapSaveButton()
                 case .failure(let error):
                     print("Error: \(error)")
