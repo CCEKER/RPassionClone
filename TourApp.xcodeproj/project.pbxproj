@@ -91,6 +91,13 @@
 		9D62574B2BA5DEA700E563F9 /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62574A2BA5DEA700E563F9 /* MapInteractor.swift */; };
 		9D62574D2BA5DEB200E563F9 /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62574C2BA5DEB200E563F9 /* MapPresenter.swift */; };
 		9D6257502BA621DE00E563F9 /* MapViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62574F2BA621DE00E563F9 /* MapViewState.swift */; };
+		9D6257562BA635A000E563F9 /* LocationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6257552BA635A000E563F9 /* LocationDetailView.swift */; };
+		9D6257582BA635AA00E563F9 /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6257572BA635AA00E563F9 /* LocationDetailViewController.swift */; };
+		9D62575A2BA635B700E563F9 /* LocationDetailViewController+Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6257592BA635B700E563F9 /* LocationDetailViewController+Build.swift */; };
+		9D62575C2BA635C300E563F9 /* LocationDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62575B2BA635C300E563F9 /* LocationDetailInteractor.swift */; };
+		9D62575E2BA635CF00E563F9 /* LocationDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62575D2BA635CF00E563F9 /* LocationDetailPresenter.swift */; };
+		9D6257612BA635EC00E563F9 /* LocationDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6257602BA635EC00E563F9 /* LocationDetailViewModel.swift */; };
+		9D6257632BA641D400E563F9 /* RPMettingTimeDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6257622BA641D300E563F9 /* RPMettingTimeDatePicker.swift */; };
 		9D672C822B9328C2000A9A73 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D672C812B9328C2000A9A73 /* EditProfileView.swift */; };
 		9D672C842B9328CC000A9A73 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D672C832B9328CC000A9A73 /* EditProfileViewController.swift */; };
 		9D672C862B9328D9000A9A73 /* EditProfileViewController+Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D672C852B9328D9000A9A73 /* EditProfileViewController+Build.swift */; };
@@ -304,6 +311,13 @@
 		9D62574A2BA5DEA700E563F9 /* MapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
 		9D62574C2BA5DEB200E563F9 /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
 		9D62574F2BA621DE00E563F9 /* MapViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewState.swift; sourceTree = "<group>"; };
+		9D6257552BA635A000E563F9 /* LocationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailView.swift; sourceTree = "<group>"; };
+		9D6257572BA635AA00E563F9 /* LocationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
+		9D6257592BA635B700E563F9 /* LocationDetailViewController+Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationDetailViewController+Build.swift"; sourceTree = "<group>"; };
+		9D62575B2BA635C300E563F9 /* LocationDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailInteractor.swift; sourceTree = "<group>"; };
+		9D62575D2BA635CF00E563F9 /* LocationDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailPresenter.swift; sourceTree = "<group>"; };
+		9D6257602BA635EC00E563F9 /* LocationDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewModel.swift; sourceTree = "<group>"; };
+		9D6257622BA641D300E563F9 /* RPMettingTimeDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RPMettingTimeDatePicker.swift; sourceTree = "<group>"; };
 		9D672C812B9328C2000A9A73 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		9D672C832B9328CC000A9A73 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		9D672C852B9328D9000A9A73 /* EditProfileViewController+Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditProfileViewController+Build.swift"; sourceTree = "<group>"; };
@@ -587,6 +601,7 @@
 		9D1D888C2B9F574700F41E82 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				9D6257512BA6348D00E563F9 /* LocationDetailsViewController */,
 				9D62573F2BA5DE5600E563F9 /* MapViewController */,
 				9D0969782BA3227D00852BB1 /* ItineraryViewController */,
 				9DD5458E2BA16DFD008ECB27 /* TourTimeViewController */,
@@ -1094,6 +1109,51 @@
 			isa = PBXGroup;
 			children = (
 				9D62574F2BA621DE00E563F9 /* MapViewState.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9D6257512BA6348D00E563F9 /* LocationDetailsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D62575F2BA635E200E563F9 /* Model */,
+				9D6257522BA6349900E563F9 /* View */,
+				9D6257532BA6349D00E563F9 /* Interactor */,
+				9D6257542BA634A100E563F9 /* Presenter */,
+			);
+			path = LocationDetailsViewController;
+			sourceTree = "<group>";
+		};
+		9D6257522BA6349900E563F9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9D6257552BA635A000E563F9 /* LocationDetailView.swift */,
+				9D6257572BA635AA00E563F9 /* LocationDetailViewController.swift */,
+				9D6257592BA635B700E563F9 /* LocationDetailViewController+Build.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9D6257532BA6349D00E563F9 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				9D62575B2BA635C300E563F9 /* LocationDetailInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		9D6257542BA634A100E563F9 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9D62575D2BA635CF00E563F9 /* LocationDetailPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		9D62575F2BA635E200E563F9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9D6257602BA635EC00E563F9 /* LocationDetailViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1884,6 +1944,7 @@
 			children = (
 				9DEA1E272B948C0000AD5A76 /* RPDatePicker.swift */,
 				9DD5459E2BA17B2C008ECB27 /* TourTimeDatePickerView.swift */,
+				9D6257622BA641D300E563F9 /* RPMettingTimeDatePicker.swift */,
 			);
 			path = RPDatePicker;
 			sourceTree = "<group>";
@@ -2034,6 +2095,7 @@
 				9D265C922B47E29800D44701 /* HomePageViewModel.swift in Sources */,
 				9D1D88B32B9FA0E500F41E82 /* CreateTourView.swift in Sources */,
 				9DC990632B797568001558D7 /* GarageViewController.swift in Sources */,
+				9D62575E2BA635CF00E563F9 /* LocationDetailPresenter.swift in Sources */,
 				9DC6C4F82B8D5E7500E95C7F /* VerificationCodePresenter.swift in Sources */,
 				9DC6C4F22B8D5E4D00E95C7F /* VerificationCodeViewController.swift in Sources */,
 				9DC990852B79A875001558D7 /* SelectBrandInteractor.swift in Sources */,
@@ -2045,6 +2107,7 @@
 				9D265C882B47DF3A00D44701 /* HomePageViewController.swift in Sources */,
 				9D62574D2BA5DEB200E563F9 /* MapPresenter.swift in Sources */,
 				9DC990732B797F90001558D7 /* GarageTableViewCell.swift in Sources */,
+				9D62575A2BA635B700E563F9 /* LocationDetailViewController+Build.swift in Sources */,
 				9DC6C4CB2B8D319D00E95C7F /* WelcomeViewState.swift in Sources */,
 				9DC990692B797592001558D7 /* GaragePresenter.swift in Sources */,
 				9D7A59062B751AD9000105A9 /* TourDetailsFlowCoordinator+Build.swift in Sources */,
@@ -2057,6 +2120,7 @@
 				9D9DD43D2B7F3966003FF874 /* SelectTrimPresenter.swift in Sources */,
 				9DC9907F2B79A851001558D7 /* SelectBrandView.swift in Sources */,
 				9D017A8F2B6277C1008C2D88 /* LoginViewController.swift in Sources */,
+				9D6257612BA635EC00E563F9 /* LocationDetailViewModel.swift in Sources */,
 				9DC6C5042B8D686D00E95C7F /* VerificationCodeFlowCoordinator+Build.swift in Sources */,
 				9D2875552B6A4F8200BBAA78 /* User.swift in Sources */,
 				9D2875832B6A5B0B00BBAA78 /* ProfileFlowCoordinatorModule.swift in Sources */,
@@ -2086,6 +2150,7 @@
 				9D8BC1472B638BD50009DDA9 /* ProfileViewController.swift in Sources */,
 				9D265C7E2B47DEC200D44701 /* HomePageFlowCoordinator.swift in Sources */,
 				9D265C862B47DF3200D44701 /* HomePageView.swift in Sources */,
+				9D6257632BA641D400E563F9 /* RPMettingTimeDatePicker.swift in Sources */,
 				9DC990A32B79BE31001558D7 /* SelectModelPresenter.swift in Sources */,
 				9D7A59042B751AD0000105A9 /* TourDetailsFlowCoordinator.swift in Sources */,
 				9D8BC14B2B638BE90009DDA9 /* ProfileInteractor.swift in Sources */,
@@ -2132,6 +2197,7 @@
 				9D265C962B47E84100D44701 /* HomePageTableViewCell.swift in Sources */,
 				9D7A58EB2B750ED2000105A9 /* TourService.swift in Sources */,
 				9D9DD4392B7F393C003FF874 /* SelectTrimTableViewCell.swift in Sources */,
+				9D6257562BA635A000E563F9 /* LocationDetailView.swift in Sources */,
 				9D265C8E2B47DF5900D44701 /* HomePagePresenter.swift in Sources */,
 				9DC6C4C42B8D2B2E00E95C7F /* WelcomeInteractor.swift in Sources */,
 				9D2875732B6A56BE00BBAA78 /* LoginFlowCoordinator+Build.swift in Sources */,
@@ -2164,6 +2230,7 @@
 				E83572B42B91063400D63985 /* RPLoadingViewController.swift in Sources */,
 				9D2875852B6A5B1400BBAA78 /* ProfileFlowCoordinatorAssembly.swift in Sources */,
 				9D7A58E42B74E988000105A9 /* HomePageService.swift in Sources */,
+				9D62575C2BA635C300E563F9 /* LocationDetailInteractor.swift in Sources */,
 				9D401C622B84909B00D259E1 /* ParticipantsViewState.swift in Sources */,
 				9DC990762B7984B8001558D7 /* Car.swift in Sources */,
 				9D6257492BA5DE9F00E563F9 /* MapViewController+Build.swift in Sources */,
@@ -2203,6 +2270,7 @@
 				9D8BC1452B638BC40009DDA9 /* ProfileView.swift in Sources */,
 				9DC6C4C62B8D2B3A00E95C7F /* WelcomePresenter.swift in Sources */,
 				9D265C8A2B47DF4600D44701 /* HomePageViewController+Build.swift in Sources */,
+				9D6257582BA635AA00E563F9 /* LocationDetailViewController.swift in Sources */,
 				9DC990712B7975D8001558D7 /* GarageFlowCoordinatorAssembly.swift in Sources */,
 				9D265C8C2B47DF5100D44701 /* HomePageInteractor.swift in Sources */,
 				9D8BC14D2B638BEF0009DDA9 /* ProfilePresenter.swift in Sources */,

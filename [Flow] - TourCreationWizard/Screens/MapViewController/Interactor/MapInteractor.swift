@@ -13,7 +13,7 @@ protocol MapInteractorProtocol {
 }
 
 protocol MapInteractorCoordinatorDelegate: AnyObject {
-    func mapInteractorDidTapCheckAddressButton()
+    func mapInteractorDidTapCheckAddressButton(dayId: Int, address: String)
 }
 
 final class MapInteractor {
@@ -35,12 +35,15 @@ extension MapInteractor: MapInteractorProtocol {
     }
     
     func didTapCheckAddressButton(latitude: Double, longitude: Double) {
-        tourService.getLocation(latitude: latitude, longitude: longitude) { result in
-            switch result {
-            case .success(let response):
-                print(response)
-            case .failure(let failure):
-                break
+        tourService.getLocation(latitude: latitude, longitude: longitude) { [weak self] result in
+            guard let self else { return }
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let response):
+                    self.coordinator?.mapInteractorDidTapCheckAddressButton(dayId: response.id, address: response.address)
+                case .failure:
+                    break
+                }
             }
         }
     }

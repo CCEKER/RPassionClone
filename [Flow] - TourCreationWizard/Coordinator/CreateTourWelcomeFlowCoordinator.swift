@@ -80,7 +80,12 @@ extension CreateTourWelcomeFlowCoordinator: ItineraryInteractorCoordinatorDelega
 
 extension CreateTourWelcomeFlowCoordinator: MapInteractorCoordinatorDelegate {
     
-    func mapInteractorDidTapCheckAddressButton() {
-        
+    func mapInteractorDidTapCheckAddressButton(dayId: Int, address: String) {
+        let locationDetailViewController = resolver.resolveLocationDetailViewController(delegate: self, dayId: dayId, address: address)
+        navigationController?.pushViewController(locationDetailViewController, animated: true)
     }
+}
+
+extension CreateTourWelcomeFlowCoordinator: LocationDetailInteractorCoordinatorDelegate {
+    
 }

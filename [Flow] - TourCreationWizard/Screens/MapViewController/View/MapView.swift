@@ -13,7 +13,7 @@ class MapView: UIView, CLLocationManagerDelegate, MKMapViewDelegate {
     
     private let locationManager = CLLocationManager()
     private var previousLocation: CLLocation?
-    var centerCoordinate: CLLocationCoordinate2D?
+    var centerCoordinate: CLLocation?
     
     private let pinIcon: UIImageView = {
         let view = UIImageView(image: UIImage(named: "location"))
@@ -56,9 +56,6 @@ class MapView: UIView, CLLocationManagerDelegate, MKMapViewDelegate {
         setupViews()
         setupConstraints()
         setupLocationManager()
-        let istanbulCoordinate = CLLocationCoordinate2D(latitude: 41.035689, longitude: 28.9119)
-        centerViewOnUserLocation(CLLocation(latitude: istanbulCoordinate.latitude, longitude: istanbulCoordinate.longitude))
-        centerCoordinate = istanbulCoordinate
     }
     
     required init?(coder: NSCoder) {
@@ -106,8 +103,9 @@ class MapView: UIView, CLLocationManagerDelegate, MKMapViewDelegate {
         locationManager.startUpdatingLocation()
     }
     
-    private func centerViewOnUserLocation(_ location: CLLocation) {
+    private func centerViewOnUserLocation(_ location: MKMapView) {
         let regionRadius: CLLocationDistance = 100
+        let location = getCenterLocation(for: mapView)
         let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
         mapView.showsUserLocation = true
@@ -116,6 +114,7 @@ class MapView: UIView, CLLocationManagerDelegate, MKMapViewDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .authorizedWhenInUse || status == .authorizedAlways {
             locationManager.startUpdatingLocation()
+            centerViewOnUserLocation(mapView)
             previousLocation = getCenterLocation(for: mapView)
         }
     }
@@ -128,6 +127,7 @@ class MapView: UIView, CLLocationManagerDelegate, MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         let center = getCenterLocation(for: mapView)
+        centerCoordinate = center
         let geoCoder = CLGeocoder()
         
         guard let previousLocation =  self.previousLocation else { return }

@@ -37,8 +37,8 @@ class MapViewController: UIViewController {
     
     @objc private func didTapCheckAddressButton() {
         
-        guard let latitude = customView.centerCoordinate?.latitude else { return }
-        guard let longitude = customView.centerCoordinate?.longitude else { return }
+        guard let latitude = customView.centerCoordinate?.coordinate.latitude else { return }
+        guard let longitude = customView.centerCoordinate?.coordinate.longitude else { return }
         interactor.didTapCheckAddressButton(latitude: latitude, longitude: longitude)
     }
 }
