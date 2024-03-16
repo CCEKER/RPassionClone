@@ -58,7 +58,6 @@ class TourTimeDatePickerView: UIView {
         let view = UIDatePicker()
         view.datePickerMode = .date
         view.preferredDatePickerStyle = .wheels
-        //view.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
         return view
     }()
     

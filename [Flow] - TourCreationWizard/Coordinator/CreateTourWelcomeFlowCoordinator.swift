@@ -72,4 +72,12 @@ extension CreateTourWelcomeFlowCoordinator: TourTimeInteractorCoordinatorDelegat
 
 extension CreateTourWelcomeFlowCoordinator: ItineraryInteractorCoordinatorDelegate {
     
+    func itineraryInteractorDidTapAddButton() {
+        let mapViewController = resolver.resolveMapViewController(delegate: self)
+        navigationController?.pushViewController(mapViewController, animated: true)
+    }
+}
+
+extension CreateTourWelcomeFlowCoordinator: MapInteractorCoordinatorDelegate {
+    
 }

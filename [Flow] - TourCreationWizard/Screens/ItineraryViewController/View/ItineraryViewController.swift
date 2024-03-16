@@ -8,7 +8,6 @@
 import UIKit
 
 protocol ItineraryViewControllerProtocol: AnyObject {
-    func displayViewModel(_ viewModel: [ItineraryViewModel])
 	func displayViewState(_ viewState: ItineraryViewState)
 }
 
@@ -37,25 +36,18 @@ class ItineraryViewController: UIViewController {
         customView.collectionView.delegate = self
         customView.collectionView.dataSource = self
         
+        customView.startPointAddButton.addTarget(self, action: #selector(didTapAddButton), for: .touchUpInside)
+        
         interactor.viewDidLoad()
+    }
+    
+    @objc private func didTapAddButton() {
+        interactor.didTapAddButton()
     }
 }
 
 extension ItineraryViewController: ItineraryViewControllerProtocol {
-    
-    func displayViewModel(_ viewModel: [ItineraryViewModel]) {
-//        self.collectionData = viewModel
-//        customView.startPointTitle.text = viewModel.first?.title
-//        customView.startPointSubtitle.text = viewModel.first?.subtitle
-//        customView.endPointLabel.text = viewModel.first?.endPointTitle
-//        customView.endPointSubtitleLabel.text = viewModel.first?.endPointSubtitle
-//        customView.helperText.text = viewModel.first?.helperText
-//        customView.itineraryContinueButton.setTitle(viewModel.first?.buttonTitle, for: .normal)
-//        customView.skipButton.setTitle(viewModel.first?.skipButtonTitle, for: .normal)
-//        self.title = viewModel.first?.navigationTitle
-//        customView.collectionView.reloadData()
-    }
-	
+    	
 	func displayViewState(_ viewState: ItineraryViewState) {
 		switch viewState {
 		case let .updated(collectionData, selectedJourneyViewodel):

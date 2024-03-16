@@ -85,6 +85,12 @@
 		9D401C6A2B84911600D259E1 /* ParticipantsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D401C692B84911600D259E1 /* ParticipantsInteractor.swift */; };
 		9D401C6C2B84912100D259E1 /* ParticipantsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D401C6B2B84912100D259E1 /* ParticipantsPresenter.swift */; };
 		9D401C6E2B84AF4E00D259E1 /* ParticipantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D401C6D2B84AF4E00D259E1 /* ParticipantTableViewCell.swift */; };
+		9D6257452BA5DE8300E563F9 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6257442BA5DE8300E563F9 /* MapView.swift */; };
+		9D6257472BA5DE8E00E563F9 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6257462BA5DE8E00E563F9 /* MapViewController.swift */; };
+		9D6257492BA5DE9F00E563F9 /* MapViewController+Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6257482BA5DE9F00E563F9 /* MapViewController+Build.swift */; };
+		9D62574B2BA5DEA700E563F9 /* MapInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62574A2BA5DEA700E563F9 /* MapInteractor.swift */; };
+		9D62574D2BA5DEB200E563F9 /* MapPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62574C2BA5DEB200E563F9 /* MapPresenter.swift */; };
+		9D6257502BA621DE00E563F9 /* MapViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D62574F2BA621DE00E563F9 /* MapViewState.swift */; };
 		9D672C822B9328C2000A9A73 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D672C812B9328C2000A9A73 /* EditProfileView.swift */; };
 		9D672C842B9328CC000A9A73 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D672C832B9328CC000A9A73 /* EditProfileViewController.swift */; };
 		9D672C862B9328D9000A9A73 /* EditProfileViewController+Build.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D672C852B9328D9000A9A73 /* EditProfileViewController+Build.swift */; };
@@ -292,6 +298,12 @@
 		9D401C692B84911600D259E1 /* ParticipantsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsInteractor.swift; sourceTree = "<group>"; };
 		9D401C6B2B84912100D259E1 /* ParticipantsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsPresenter.swift; sourceTree = "<group>"; };
 		9D401C6D2B84AF4E00D259E1 /* ParticipantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantTableViewCell.swift; sourceTree = "<group>"; };
+		9D6257442BA5DE8300E563F9 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		9D6257462BA5DE8E00E563F9 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		9D6257482BA5DE9F00E563F9 /* MapViewController+Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+Build.swift"; sourceTree = "<group>"; };
+		9D62574A2BA5DEA700E563F9 /* MapInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractor.swift; sourceTree = "<group>"; };
+		9D62574C2BA5DEB200E563F9 /* MapPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenter.swift; sourceTree = "<group>"; };
+		9D62574F2BA621DE00E563F9 /* MapViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewState.swift; sourceTree = "<group>"; };
 		9D672C812B9328C2000A9A73 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		9D672C832B9328CC000A9A73 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		9D672C852B9328D9000A9A73 /* EditProfileViewController+Build.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditProfileViewController+Build.swift"; sourceTree = "<group>"; };
@@ -575,6 +587,7 @@
 		9D1D888C2B9F574700F41E82 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				9D62573F2BA5DE5600E563F9 /* MapViewController */,
 				9D0969782BA3227D00852BB1 /* ItineraryViewController */,
 				9DD5458E2BA16DFD008ECB27 /* TourTimeViewController */,
 				9D1D88AE2B9FA03800F41E82 /* CreateTourViewController */,
@@ -1038,6 +1051,51 @@
 				9D0F1BB72BA09A37000DB326 /* CreateTour.swift */,
 			);
 			path = Domain;
+			sourceTree = "<group>";
+		};
+		9D62573F2BA5DE5600E563F9 /* MapViewController */ = {
+			isa = PBXGroup;
+			children = (
+				9D62574E2BA621D300E563F9 /* Model */,
+				9D6257402BA5DE5F00E563F9 /* View */,
+				9D6257412BA5DE6400E563F9 /* Interactor */,
+				9D6257422BA5DE6800E563F9 /* Presenter */,
+			);
+			path = MapViewController;
+			sourceTree = "<group>";
+		};
+		9D6257402BA5DE5F00E563F9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9D6257442BA5DE8300E563F9 /* MapView.swift */,
+				9D6257462BA5DE8E00E563F9 /* MapViewController.swift */,
+				9D6257482BA5DE9F00E563F9 /* MapViewController+Build.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9D6257412BA5DE6400E563F9 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				9D62574A2BA5DEA700E563F9 /* MapInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		9D6257422BA5DE6800E563F9 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9D62574C2BA5DEB200E563F9 /* MapPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		9D62574E2BA621D300E563F9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9D62574F2BA621DE00E563F9 /* MapViewState.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		9D672C7A2B93282C000A9A73 /* [Flow] - EditProfile */ = {
@@ -1985,6 +2043,7 @@
 				9DC9909F2B79BE1C001558D7 /* SelectModelViewController+Build.swift in Sources */,
 				9D401C642B8490EF00D259E1 /* ParticipantsView.swift in Sources */,
 				9D265C882B47DF3A00D44701 /* HomePageViewController.swift in Sources */,
+				9D62574D2BA5DEB200E563F9 /* MapPresenter.swift in Sources */,
 				9DC990732B797F90001558D7 /* GarageTableViewCell.swift in Sources */,
 				9DC6C4CB2B8D319D00E95C7F /* WelcomeViewState.swift in Sources */,
 				9DC990692B797592001558D7 /* GaragePresenter.swift in Sources */,
@@ -2059,6 +2118,7 @@
 				9D0969832BA3233200852BB1 /* ItineraryInteractor.swift in Sources */,
 				9D2875672B6A52DB00BBAA78 /* ApplicationFlowCoordinatorAssembly.swift in Sources */,
 				9DD545972BA16E61008ECB27 /* TourTimeViewController+Build.swift in Sources */,
+				9D6257502BA621DE00E563F9 /* MapViewState.swift in Sources */,
 				9D1D88B92B9FA10C00F41E82 /* CreateTourInteractor.swift in Sources */,
 				9DC990A72B79BE46001558D7 /* AddCarFlowCoordinator+Build.swift in Sources */,
 				9DC990A52B79BE3B001558D7 /* AddCarFlowCoordinator.swift in Sources */,
@@ -2080,6 +2140,7 @@
 				9DC6C4BC2B8D2AFE00E95C7F /* WelcomeFlowCoordinatorAssembly.swift in Sources */,
 				9DC6C4B62B8D2ADC00E95C7F /* WelcomeFlowCoordinator.swift in Sources */,
 				9DC9909B2B79BE02001558D7 /* SelectModelView.swift in Sources */,
+				9D6257472BA5DE8E00E563F9 /* MapViewController.swift in Sources */,
 				9D1D88B72B9FA10200F41E82 /* CreateTourViewController+Build.swift in Sources */,
 				9D017A932B6277D8008C2D88 /* LoginViewController+Build.swift in Sources */,
 				9D09697D2BA322FF00852BB1 /* ItineraryView.swift in Sources */,
@@ -2099,11 +2160,13 @@
 				9DA4A6DA2B75743A004DA8B0 /* TourDetailsViewModel.swift in Sources */,
 				9D401C5D2B84907500D259E1 /* ParticipantsFlowCoordinator.swift in Sources */,
 				9D672C822B9328C2000A9A73 /* EditProfileView.swift in Sources */,
+				9D6257452BA5DE8300E563F9 /* MapView.swift in Sources */,
 				E83572B42B91063400D63985 /* RPLoadingViewController.swift in Sources */,
 				9D2875852B6A5B1400BBAA78 /* ProfileFlowCoordinatorAssembly.swift in Sources */,
 				9D7A58E42B74E988000105A9 /* HomePageService.swift in Sources */,
 				9D401C622B84909B00D259E1 /* ParticipantsViewState.swift in Sources */,
 				9DC990762B7984B8001558D7 /* Car.swift in Sources */,
+				9D6257492BA5DE9F00E563F9 /* MapViewController+Build.swift in Sources */,
 				9D1D88882B9F42D900F41E82 /* LoginViewModel.swift in Sources */,
 				9DC6C4F62B8D5E6C00E95C7F /* VerificationCodeInteractor.swift in Sources */,
 				9D672C8D2B93294A000A9A73 /* EditProfileFlowCoordinator.swift in Sources */,
@@ -2132,6 +2195,7 @@
 				9D017A8D2B627601008C2D88 /* LoginFlowCoordinator.swift in Sources */,
 				9D2875792B6A584200BBAA78 /* DashboardFlowCoordinatorModule.swift in Sources */,
 				9DC990612B79754B001558D7 /* GarageView.swift in Sources */,
+				9D62574B2BA5DEA700E563F9 /* MapInteractor.swift in Sources */,
 				9D2875582B6A503000BBAA78 /* CoreAssembly.swift in Sources */,
 				9D7A58FE2B751AA1000105A9 /* TourDetailsPresenter.swift in Sources */,
 				9DC990A12B79BE27001558D7 /* SelectModelInteractor.swift in Sources */,

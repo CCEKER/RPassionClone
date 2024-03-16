@@ -10,10 +10,11 @@ import Foundation
 protocol ItineraryInteractorProtocol {
     func viewDidLoad()
     func didSelectDay(at index: Int)
+    func didTapAddButton()
 }
 
 protocol ItineraryInteractorCoordinatorDelegate: AnyObject {
-    
+    func itineraryInteractorDidTapAddButton()
 }
 
 final class ItineraryInteractor {
@@ -53,5 +54,9 @@ extension ItineraryInteractor: ItineraryInteractorProtocol {
     func didSelectDay(at index: Int) {
         let selectedDay = journeys[index]
         presenter.presentItineraryTourDay(journeys, selectedDay: selectedDay)
+    }
+    
+    func didTapAddButton() {
+        coordinator?.itineraryInteractorDidTapAddButton()
     }
 }
