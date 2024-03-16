@@ -13,7 +13,7 @@ protocol LocationDetailInteractorProtocol {
 }
 
 protocol LocationDetailInteractorCoordinatorDelegate: AnyObject {
-    func locationDetailInteractorDidTapAddLocationButton(tourId: String)
+    func locationDetailInteractorDidTapAddLocationButton()
 }
 
 final class LocationDetailInteractor {
@@ -43,9 +43,9 @@ extension LocationDetailInteractor: LocationDetailInteractorProtocol {
             guard let self else { return }
             DispatchQueue.main.async {
                 switch result {
-                case .success(let response):
-                    self.coordinator?.locationDetailInteractorDidTapAddLocationButton(tourId: response.id)
-                case .failure(let failure):
+                case .success:
+                    self.coordinator?.locationDetailInteractorDidTapAddLocationButton()
+                case .failure:
                     break
                 }
             }

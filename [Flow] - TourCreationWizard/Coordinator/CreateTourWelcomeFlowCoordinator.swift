@@ -88,7 +88,14 @@ extension CreateTourWelcomeFlowCoordinator: MapInteractorCoordinatorDelegate {
 
 extension CreateTourWelcomeFlowCoordinator: LocationDetailInteractorCoordinatorDelegate {
     
-    func locationDetailInteractorDidTapAddLocationButton(tourId: String) {
-       
+    func locationDetailInteractorDidTapAddLocationButton() {
+        if let viewControllers = navigationController?.viewControllers {
+            for viewController in viewControllers {
+                if let itineraryViewController = viewController as? ItineraryViewController {
+                    navigationController?.popToViewController(itineraryViewController, animated: true)
+                    return
+                }
+            }
+        }
     }
 }

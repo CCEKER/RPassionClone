@@ -44,7 +44,7 @@ extension ItineraryInteractor: ItineraryInteractorProtocol {
                 case .success(let list):
                     self.journeys = list
                     guard let firstJourney = list.first else { return }
-                    self.selectedDayIndex = firstJourney.day
+                    self.selectedDayIndex = 0
                     self.presenter.presentItineraryTourDay(list, selectedDay: firstJourney)
                 case .failure:
                     break
